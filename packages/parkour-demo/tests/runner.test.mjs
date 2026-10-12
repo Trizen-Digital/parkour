@@ -165,6 +165,20 @@ test( 'a standing jump leaves the ground at 5 m/s', async () => {
 
 } );
 
+test( 'grab held before the jump, with nothing to vault, the jump still leaves the ground (running up to a tall wall)', async () => {
+
+	const { runner, step } = await setup();
+
+	for ( let i = 0; i < 120; i ++ ) step( input( forward, [ 'sprint', 'grab' ] ) );
+	step( input( forward, [ 'jump', 'sprint', 'grab' ], [ 'jump' ] ) );
+	for ( let i = 0; i < 30; i ++ ) step( input( forward, [ 'jump', 'sprint', 'grab' ] ) );
+	assert.equal( runner.grounded, true );
+	step( input( forward, [ 'sprint', 'grab' ], [], [ 'jump' ] ) );
+	assert.equal( runner.grounded, false );
+	assert.ok( runner.velocity.y > 5 );
+
+} );
+
 test( 'a style jump is a charged jump at speed across the ground: a standing jump held long stays plain', async () => {
 
 	// A second to get going (or stand), the jump held for half a second, charging it fully, then let go.

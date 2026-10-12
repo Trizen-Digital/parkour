@@ -375,23 +375,37 @@ class Precision {
 
 	}
 
-	tryStride() {
+	/**
+	 * Where a stride from here would land: a target ahead, the runner at an edge and the way there clear; else null. It
+	 * changes nothing, so the jump can ask whether grab held has a stride to take instead.
+	 */
+	strideTarget() {
 
 		const c = this.runner;
 		const edge = c.position.clone().addScaledVector( c.forward(), EDGE.ahead ).addScaledVector( UP, - EDGE.down );
 
-		if ( c.queries.overlapCapsule( edge, EDGE.radius, EDGE.halfHeight ) ) return false;
-		if ( c.queries.ray( c.position, c.forward(), STRIDE_CLEAR ) ) return false;
+		if ( c.queries.overlapCapsule( edge, EDGE.radius, EDGE.halfHeight ) ) return null;
+		if ( c.queries.ray( c.position, c.forward(), STRIDE_CLEAR ) ) return null;
 
 		const target = this.probes.precisionTarget( true );
 
-		if ( ! target ) return false;
+		if ( ! target ) return null;
 
 		const from = c.position.clone().addScaledVector( c.forward(), STRIDE_SWEEP.from );
 		const rotation = new Quaternion().setFromAxisAngle( UP, c.yaw );
 
-		if ( c.queries.boxCast( from, from.clone().addScaledVector( c.forward(), STRIDE_SWEEP.length ), STRIDE_SWEEP.halfSize, rotation ) ) return false;
-		if ( ! this.roomAt( target ) ) return false;
+		if ( c.queries.boxCast( from, from.clone().addScaledVector( c.forward(), STRIDE_SWEEP.length ), STRIDE_SWEEP.halfSize, rotation ) ) return null;
+
+		return this.roomAt( target ) ? target : null;
+
+	}
+
+	tryStride() {
+
+		const c = this.runner;
+		const target = this.strideTarget();
+
+		if ( ! target ) return false;
 
 		const next = this.nextStride();
 		const name = next.left ? 'strideLeft' : 'strideRight';

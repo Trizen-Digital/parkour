@@ -323,6 +323,22 @@ class Ledges {
 
 	// ---- Vaults and hops
 
+	/**
+	 * Whether grab held on the ground has something ahead to take, as tryVault and tryHop find it: a low obstacle to
+	 * vault, a wall to hop onto. It changes nothing, so the jump can ask whether grab held makes it one of these instead.
+	 */
+	groundTarget() {
+
+		const low = this.canVault() && this.probes.scan( 'lowObstacle' );
+
+		if ( low && ! this.probes.vaultBlocked( low ) ) return true;
+		if ( ! this.canHop() ) return false;
+		if ( this.probes.scan( 'midObstacle' ) ) return true;
+
+		return this.probes.wallToClimb() && Boolean( this.probes.scan( 'highObstacle' ) );
+
+	}
+
 	canVault() {
 
 		const c = this.runner;

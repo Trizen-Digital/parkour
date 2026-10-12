@@ -27,8 +27,9 @@
 	const shown = $derived( ui.device === 'touch' && ! ui.screen );
 
 	// The stick as drawn: where its base is (px from the top left) while a thumb is on it, the knob's push (px), and
-	// whether it sprints.
-	let stick = $state( { held: false, x: 0, y: 0, dx: 0, dy: 0, sprint: false } );
+	// whether it sprints. At rest it has no thumb on it.
+	const REST = { held: false, x: 0, y: 0, dx: 0, dy: 0, sprint: false };
+	let stick = $state( { ...REST } );
 	// The actions held, for drawing them pressed.
 	let held = $state( {} );
 	// The screen's size, which sets the stick's reach.
@@ -118,7 +119,7 @@
 		} else if ( p.what === 'stick' ) {
 
 			touch.releaseStick();
-			stick = { ...stick, held: false, sprint: false };
+			stick = { ...REST };
 
 		} else if ( p.what === 'look' ) {
 
@@ -133,14 +134,15 @@
 
 	}
 
-	// Hidden (a screen opened, the controls turned off), they let go of everything.
+	// Hidden (a screen opened, another device in use), they let go of everything. This only writes the stick and the
+	// buttons: an effect that read them too would run itself again on every write.
 	$effect( () => {
 
 		if ( shown ) return;
 		pointers.clear();
 		touch.releaseAll();
 		held = {};
-		stick = { ...stick, held: false, sprint: false };
+		stick = { ...REST };
 
 	} );
 

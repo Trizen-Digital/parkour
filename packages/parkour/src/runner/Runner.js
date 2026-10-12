@@ -471,8 +471,10 @@ class Runner {
 			// A landing about to be rolled (judged on the step after touchdown, rolled on the one after) is not jumped
 			// out of: Jump let go there, having been held to roll, would leave the roll to start in the air.
 			( this.clock.held( 'rollWindow' ) && ( this.clock.pending( 'resolveLanding' ) || this.clock.pending( 'roll' ) ) ) ||
-			// With grab or precision held the jump is a vault, a stride or a precision jump instead.
-			input.held( 'grab' ) ||
+			// With precision held the jump is a precision jump instead; with grab held, a vault, a hop or a stride where grab
+			// has one ahead to take. With nothing for grab to take it is a jump, which grab then catches with in the air
+			// (a run at a tall wall, up it to the ledge).
+			( input.held( 'grab' ) && ( this.ledges.groundTarget() || this.precision.strideTarget() ) ) ||
 			input.held( 'precision' )
 		) {
 

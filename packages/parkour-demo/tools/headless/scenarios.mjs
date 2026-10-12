@@ -272,7 +272,8 @@ const FEATURES = [
 		seconds: 11,
 		inputs: [
 			{ at: 0.2, until: 1.9, keys: [ W, SHIFT ] },
-			// Jump first, grab after: a jump never fires with grab held. Caught rising, 1.1 m off the floor.
+			// Jump first, grab after (with grab held, a jump fires only where grab has no vault, hop or stride to take
+			// instead). Caught rising, 1.1 m off the floor.
 			{ at: 1.2, until: 1.3, keys: [ SPACE ] },
 			{ at: 1.35, until: 10.5, buttons: [ LMB ] },
 			{ at: 3.5, until: 6.5, keys: [ A ] },

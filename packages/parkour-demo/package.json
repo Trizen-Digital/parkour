@@ -1,7 +1,7 @@
 {
-	"name": "@trizen/parkour-demo",
+	"name": "@trizendigital/parkour-demo",
 	"version": "0.1.0",
-	"description": "The parkour demo: the game at parkour.trizen.dev with the Y Bot, its courses, the QA replay player, the benchmark, and the tools and tests behind @trizen/parkour.",
+	"description": "The parkour demo: the game at parkour.trizen.dev with the Y Bot, its courses, the QA replay player, the benchmark, and the tools and tests behind @trizendigital/parkour.",
 	"type": "module",
 	"license": "UNLICENSED",
 	"repository": { "type": "git", "url": "git+https://github.com/trizen-digital/parkour.git", "directory": "packages/parkour-demo" },
@@ -54,9 +54,9 @@
 		"qa:open": "node tools/qa/open.mjs"
 	},
 	"dependencies": {
-		"@trizen/parkour": "^0.1.0",
-		"@trizen/parkour-box3d": "^0.1.0",
-		"@trizen/parkour-rapier": "^0.1.0",
+		"@trizendigital/parkour": "^0.1.0",
+		"@trizendigital/parkour-box3d": "^0.1.0",
+		"@trizendigital/parkour-rapier": "^0.1.0",
 		"fflate": "0.8.3",
 		"three": "0.186.1"
 	},

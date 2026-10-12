@@ -6,12 +6,12 @@ import assert from 'node:assert/strict';
 
 await import( '../tools/headless/env.mjs' );
 const { worldFor } = await import( '../tools/headless/courses.mjs' );
-const { Simulation, STEP } = await import( '@trizen/parkour/sim/Simulation.js' );
+const { Simulation, STEP } = await import( '@trizendigital/parkour/sim/Simulation.js' );
 const { backendOf } = await import( '../src/engines.js' );
-const { markStatic, takeSnapshot, restoreSnapshot } = await import( '@trizen/parkour/sim/snapshot.js' );
-const { SeededRandom } = await import( '@trizen/parkour/sim/random.js' );
-const { TUNING_DEFAULTS, TUNING_UNITS, Tuning, showTuning, validateTuning } = await import( '@trizen/parkour/sim/tuning.js' );
-const { radians } = await import( '@trizen/parkour/math.js' );
+const { markStatic, takeSnapshot, restoreSnapshot } = await import( '@trizendigital/parkour/sim/snapshot.js' );
+const { SeededRandom } = await import( '@trizendigital/parkour/sim/random.js' );
+const { TUNING_DEFAULTS, TUNING_UNITS, Tuning, showTuning, validateTuning } = await import( '@trizendigital/parkour/sim/tuning.js' );
+const { radians } = await import( '@trizendigital/parkour/math.js' );
 const { Quaternion } = await import( 'three' );
 const { YBotFigure } = await import( '../src/figure/YBotFigure.js' );
 const { stateDump, diffDumps } = await import( '../src/qa/dump.js' );

@@ -7,14 +7,14 @@ A guide for agents working in this repo. [README.md](README.md) says what is her
 
 | Package | Folder | What |
 | --- | --- | --- |
-| `@trizen/parkour` | `packages/parkour/` | the core: the simulation, the runner, the motion and pose graph, the figure (`RiggedFigure`, the timing-only `Figure`), the physics contract, the world, the camera, the input, the pilot, the replay format |
-| `@trizen/parkour-box3d` | `packages/parkour-box3d/` | the box3d backend (the demo's default) |
-| `@trizen/parkour-rapier` | `packages/parkour-rapier/` | the Rapier backend |
-| `@trizen/parkour-demo` | `packages/parkour-demo/` | the game (parkour.trizen.dev), the Y Bot, the courses and `fromCourse`, QA, the benchmark, the tools, the tests, the docs |
+| `@trizendigital/parkour` | `packages/parkour/` | the core: the simulation, the runner, the motion and pose graph, the figure (`RiggedFigure`, the timing-only `Figure`), the physics contract, the world, the camera, the input, the pilot, the replay format |
+| `@trizendigital/parkour-box3d` | `packages/parkour-box3d/` | the box3d backend (the demo's default) |
+| `@trizendigital/parkour-rapier` | `packages/parkour-rapier/` | the Rapier backend |
+| `@trizendigital/parkour-demo` | `packages/parkour-demo/` | the game (parkour.trizen.dev), the Y Bot, the courses and `fromCourse`, QA, the benchmark, the tools, the tests, the docs |
 
-- The core never imports the demo or a backend. A backend imports only the core (`@trizen/parkour/physics/engine.js`,
-  `@trizen/parkour/world/solids.js`) and its engine. The demo imports the core by package path
-  (`@trizen/parkour/runner/Ledges.js`), never by a relative path into `packages/parkour/`.
+- The core never imports the demo or a backend. A backend imports only the core (`@trizendigital/parkour/physics/engine.js`,
+  `@trizendigital/parkour/world/solids.js`) and its engine. The demo imports the core by package path
+  (`@trizendigital/parkour/runner/Ledges.js`), never by a relative path into `packages/parkour/`.
 - The core has no character and no motion data: the Y Bot (`src/figure/YBotFigure.js`, `src/data/`) and the takes
   (`public/data/`) are the demo's.
 - The engines are pinned to exact versions in the backends: a new engine version can change a run, so it is a change
@@ -53,7 +53,7 @@ Never drive the tab the user is looking at.
 The same world, settings, physics engine and raw input must give the same run, to the bit: the golden traces, QA
 replays and Easy mode's look-ahead all rest on it.
 
-- No `Math.random` in the runtime. Chance draws from the seeded streams (`@trizen/parkour/sim/random.js`), which a
+- No `Math.random` in the runtime. Chance draws from the seeded streams (`@trizendigital/parkour/sim/random.js`), which a
   respawn resets.
 - Anything that changes a run comes in through the raw device input, or between frames as something the QA recorder
   writes onto its tape (a respawn, a setting). A respawn starts everything again from the simulation as it loaded.
@@ -91,14 +91,14 @@ unless given `--engine rapier`.
 ## Adapting a world
 
 A game with a world of its own runs the runner in it by giving `new World( description )` a **world description**:
-plain data (`@trizen/parkour/world/World.js` documents every field, and checks them as it takes them). The demo's
+plain data (`@trizendigital/parkour/world/World.js` documents every field, and checks them as it takes them). The demo's
 `src/world/fromCourse.js` is one adapter, from its courses; a game writes its own, from whatever its world is (a
 three.js scene, a level format, a tile map). The core ships no other adapter.
 
 ```js
 import { Vector3 } from 'three';
-import { Simulation, World, boxSolid, prismSolid } from '@trizen/parkour';
-import box3d from '@trizen/parkour-box3d';
+import { Simulation, World, boxSolid, prismSolid } from '@trizendigital/parkour';
+import box3d from '@trizendigital/parkour-box3d';
 
 const world = new World( {
 	name: 'my level',

@@ -9,9 +9,9 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const { build } = await import( './run.mjs' );
-const { DeviceState } = await import( '@trizen/parkour/input/deviceState.js' );
+const { DeviceState } = await import( '@trizendigital/parkour/input/deviceState.js' );
 const { Trace } = await import( './trace.mjs' );
-const { takeSnapshot, restoreSnapshot } = await import( '@trizen/parkour/sim/snapshot.js' );
+const { takeSnapshot, restoreSnapshot } = await import( '@trizendigital/parkour/sim/snapshot.js' );
 const { compare, describe } = await import( './compare.mjs' );
 const { ENGINES } = await import( '../../src/engines.js' );
 

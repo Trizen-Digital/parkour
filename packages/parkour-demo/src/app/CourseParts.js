@@ -4,7 +4,7 @@
 // sways once let go is drawn here alone, since nothing in the run reads it.
 
 import * as THREE from 'three/webgpu';
-import { STEP } from '@trizen/parkour/sim/Simulation.js';
+import { STEP } from '@trizendigital/parkour/sim/Simulation.js';
 import { aimRope } from '../course/mesh.js';
 
 const UP = new THREE.Vector3( 0, 1, 0 );

@@ -1,9 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { Vector3 } from 'three';
-import { PolesAndBars } from '@trizen/parkour/runner/PolesAndBars.js';
-import { Clock } from '@trizen/parkour/runner/Clock.js';
-import { TUNING_DEFAULTS } from '@trizen/parkour/sim/tuning.js';
+import { PolesAndBars } from '@trizendigital/parkour/runner/PolesAndBars.js';
+import { Clock } from '@trizendigital/parkour/runner/Clock.js';
+import { TUNING_DEFAULTS } from '@trizendigital/parkour/sim/tuning.js';
 
 const near = ( actual, expected ) => assert.ok( Math.abs( actual - expected ) < 1e-7, actual + ' != ' + expected );
 

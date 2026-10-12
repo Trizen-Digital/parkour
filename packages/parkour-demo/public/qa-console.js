@@ -9,7 +9,7 @@
 // live simulation underneath it.
 
 const { store } = await import( '/src/qa/store.js' );
-const { findPops, runAt, timesOf, decodeInput, pressesOf } = await import( '/@id/@trizen/parkour/replay/tape.js' );
+const { findPops, runAt, timesOf, decodeInput, pressesOf } = await import( '/@id/@trizendigital/parkour/replay/tape.js' );
 const { LaneDriver, laneStart } = await import( '/src/qa/lanes.js' );
 const { stateDump, diffDumps } = await import( '/src/qa/dump.js' );
 const { nextTask } = await import( '/src/qa/QA.js' );

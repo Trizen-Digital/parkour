@@ -7,12 +7,12 @@ import '../tools/headless/env.mjs';
 
 const { Quaternion, Vector2, Vector3 } = await import( 'three' );
 const { YBotFigure } = await import( '../src/figure/YBotFigure.js' );
-const { Figure } = await import( '@trizen/parkour/figure/Figure.js' );
-const { Ragdoll } = await import( '@trizen/parkour/physics/Ragdoll.js' );
-const { AXES, LOCKED, JointLimits, coneError, nearestOnEllipse } = await import( '@trizen/parkour/physics/jointLimits.js' );
+const { Figure } = await import( '@trizendigital/parkour/figure/Figure.js' );
+const { Ragdoll } = await import( '@trizendigital/parkour/physics/Ragdoll.js' );
+const { AXES, LOCKED, JointLimits, coneError, nearestOnEllipse } = await import( '@trizendigital/parkour/physics/jointLimits.js' );
 const { ENGINES: ENGINE_NAMES, createEngine } = await import( '../src/engines.js' );
-const { GROUPS, boxSolid } = await import( '@trizen/parkour/world/solids.js' );
-const { TUNING_DEFAULTS } = await import( '@trizen/parkour/sim/tuning.js' );
+const { GROUPS, boxSolid } = await import( '@trizendigital/parkour/world/solids.js' );
+const { TUNING_DEFAULTS } = await import( '@trizendigital/parkour/sim/tuning.js' );
 const DESCRIPTION = ( await import( '../src/data/ybot-ragdoll.json', { with: { type: 'json' } } ) ).default;
 
 const DEGREE = Math.PI / 180;

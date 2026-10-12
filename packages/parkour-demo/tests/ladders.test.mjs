@@ -6,11 +6,11 @@ import assert from 'node:assert/strict';
 
 await import( '../tools/headless/env.mjs' );
 const { worldFor } = await import( '../tools/headless/courses.mjs' );
-const { Simulation } = await import( '@trizen/parkour/sim/Simulation.js' );
+const { Simulation } = await import( '@trizendigital/parkour/sim/Simulation.js' );
 const { backendOf } = await import( '../src/engines.js' );
 const { Course } = await import( '../src/course/Course.js' );
 const { metrics } = await import( '../src/course/metrics.js' );
-const { World } = await import( '@trizen/parkour/world/World.js' );
+const { World } = await import( '@trizendigital/parkour/world/World.js' );
 const { fromCourse } = await import( '../src/world/fromCourse.js' );
 
 const NO_PAGE = { storage: null, eventWindow: null, eventDocument: null, navigator: null };

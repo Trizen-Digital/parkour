@@ -16,10 +16,10 @@ import '../headless/env.mjs';
 
 const { Course } = await import( '../../src/course/Course.js' );
 const { metrics } = await import( '../../src/course/metrics.js' );
-const { World } = await import( '@trizen/parkour/world/World.js' );
+const { World } = await import( '@trizendigital/parkour/world/World.js' );
 const { fromCourse } = await import( '../../src/world/fromCourse.js' );
-const { Simulation } = await import( '@trizen/parkour/sim/Simulation.js' );
-const { Figure } = await import( '@trizen/parkour/figure/Figure.js' );
+const { Simulation } = await import( '@trizendigital/parkour/sim/Simulation.js' );
+const { Figure } = await import( '@trizendigital/parkour/figure/Figure.js' );
 const { YBotFigure } = await import( '../../src/figure/YBotFigure.js' );
 const { ENGINES, backendOf } = await import( '../../src/engines.js' );
 const { STATIONS } = await import( '../../src/bench/stations.js' );

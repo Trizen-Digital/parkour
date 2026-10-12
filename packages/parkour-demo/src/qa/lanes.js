@@ -6,7 +6,7 @@
 // ledge, a bar, a wall run, …) or lands half a metre past the feature without a bail. The lanes tool runs every lane
 // by hand and in Easy mode with it; the QA console and the tests drive single lanes.
 
-import { radians } from '@trizen/parkour/math.js';
+import { radians } from '@trizendigital/parkour/math.js';
 
 /** The states that mean the lane's move took. */
 const SUCCESS_STATES = new Set( [ 'hanging', 'catchingLedge', 'climbingUp', 'onBar', 'onRope', 'onPole', 'onPipe', 'onLadder', 'toppingOut', 'onZipline', 'wallRunning' ] );

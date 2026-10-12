@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { Clock } from '@trizen/parkour/runner/Clock.js';
+import { Clock } from '@trizendigital/parkour/runner/Clock.js';
 
 const STEP = 1 / 120;
 

@@ -1,8 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { Vector3 } from 'three';
-import { SkidStops } from '@trizen/parkour/runner/SkidStops.js';
-import { Clock } from '@trizen/parkour/runner/Clock.js';
+import { SkidStops } from '@trizendigital/parkour/runner/SkidStops.js';
+import { Clock } from '@trizendigital/parkour/runner/Clock.js';
 
 // A runner on the ground still carrying speed, with a motion that only records which moves start and stop.
 function setup() {

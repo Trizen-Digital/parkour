@@ -1,10 +1,10 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { Quaternion, Vector3 } from 'three';
-import { Walls } from '@trizen/parkour/runner/Walls.js';
-import { Runner } from '@trizen/parkour/runner/Runner.js';
-import { Clock } from '@trizen/parkour/runner/Clock.js';
-import { TUNING_DEFAULTS } from '@trizen/parkour/sim/tuning.js';
+import { Walls } from '@trizendigital/parkour/runner/Walls.js';
+import { Runner } from '@trizendigital/parkour/runner/Runner.js';
+import { Clock } from '@trizendigital/parkour/runner/Clock.js';
+import { TUNING_DEFAULTS } from '@trizendigital/parkour/sim/tuning.js';
 
 const near = ( a, b ) => assert.ok( Math.abs( a - b ) < 1e-8, `expected ${ a } = ${ b }` );
 

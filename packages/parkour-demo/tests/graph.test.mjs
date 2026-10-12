@@ -2,13 +2,13 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import { Vector3 } from 'three';
-import { TakeLibrary } from '@trizen/parkour/motion/TakeLibrary.js';
-import { Graph } from '@trizen/parkour/motion/graph/Graph.js';
-import { BLENDS, blendWeights } from '@trizen/parkour/motion/graph/blends.js';
-import { DirectionalBlend } from '@trizen/parkour/motion/graph/DirectionalBlend.js';
-import { eachClip } from '@trizen/parkour/motion/graph/recipes.js';
-import { Moves } from '@trizen/parkour/motion/Moves.js';
-import { PoseInputs } from '@trizen/parkour/runner/PoseInputs.js';
+import { TakeLibrary } from '@trizendigital/parkour/motion/TakeLibrary.js';
+import { Graph } from '@trizendigital/parkour/motion/graph/Graph.js';
+import { BLENDS, blendWeights } from '@trizendigital/parkour/motion/graph/blends.js';
+import { DirectionalBlend } from '@trizendigital/parkour/motion/graph/DirectionalBlend.js';
+import { eachClip } from '@trizendigital/parkour/motion/graph/recipes.js';
+import { Moves } from '@trizendigital/parkour/motion/Moves.js';
+import { PoseInputs } from '@trizendigital/parkour/runner/PoseInputs.js';
 
 const takes = new TakeLibrary( JSON.parse( await fs.readFile( new URL( '../public/data/moves.json', import.meta.url ) ) ) );
 

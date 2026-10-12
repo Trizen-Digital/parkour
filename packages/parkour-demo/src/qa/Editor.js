@@ -8,10 +8,10 @@
 // replay's edits are saved as they are made.
 
 import * as THREE from 'three/webgpu';
-import { TUNING_DEFAULTS, showTuning } from '@trizen/parkour/sim/tuning.js';
+import { TUNING_DEFAULTS, showTuning } from '@trizendigital/parkour/sim/tuning.js';
 import { store } from './store.js';
 import { shareReplay } from './share.js';
-import { PRESSES, decodeInput, engineOf, findPops, pressesOf, runAt, timesOf } from '@trizen/parkour/replay/tape.js';
+import { PRESSES, decodeInput, engineOf, findPops, pressesOf, runAt, timesOf } from '@trizendigital/parkour/replay/tape.js';
 import { reactive, toast, ui } from '../ui/state.svelte.js';
 
 const SPEEDS = [ 0.1, 0.25, 0.5, 1 ];

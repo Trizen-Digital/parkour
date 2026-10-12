@@ -10,9 +10,9 @@ import path from 'node:path';
 import { PROJECT } from '../headless/env.mjs';
 
 const { worldFor } = await import( '../headless/courses.mjs' );
-const { Simulation } = await import( '@trizen/parkour/sim/Simulation.js' );
-const { Figure } = await import( '@trizen/parkour/figure/Figure.js' );
-const { Pilot } = await import( '@trizen/parkour/pilot/Pilot.js' );
+const { Simulation } = await import( '@trizendigital/parkour/sim/Simulation.js' );
+const { Figure } = await import( '@trizendigital/parkour/figure/Figure.js' );
+const { Pilot } = await import( '@trizendigital/parkour/pilot/Pilot.js' );
 const { ENGINES, backendOf } = await import( '../../src/engines.js' );
 const { LaneDriver, laneStart } = await import( '../../src/qa/lanes.js' );
 

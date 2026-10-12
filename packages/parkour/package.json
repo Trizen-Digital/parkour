@@ -1,5 +1,5 @@
 {
-	"name": "@trizen/parkour",
+	"name": "@trizendigital/parkour",
 	"version": "0.1.0",
 	"description": "A deterministic third-person parkour runner for three.js: plug in your world, a physics engine backend and a figure.",
 	"type": "module",

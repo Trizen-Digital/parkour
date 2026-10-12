@@ -1,9 +1,9 @@
 // The controls page: every control by group, with its keyboard and pad bindings read from the core's action table
-// (@trizen/parkour/data/actions.js), so the page shows what the game does. A binding is a list of tokens: glyph codes
+// (@trizendigital/parkour/data/actions.js), so the page shows what the game does. A binding is a list of tokens: glyph codes
 // (src/ui/glyphs.js) and the separators between them ('+' held together, '→' one after the other, '/' either). The
 // lessons also name the touch controls' parts (src/touch/TouchInput.js), which have no page of their own.
 
-import { ACTIONS } from '@trizen/parkour/data/actions.js';
+import { ACTIONS } from '@trizendigital/parkour/data/actions.js';
 import { BUTTONS } from '../touch/TouchInput.js';
 import { keyName } from './glyphs.js';
 

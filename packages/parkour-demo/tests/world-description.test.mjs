@@ -7,9 +7,9 @@ import assert from 'node:assert/strict';
 
 await import( '../tools/headless/env.mjs' );
 const { Vector3 } = await import( 'three' );
-const { Simulation, World, Figure, boxSolid, prismSolid } = await import( '@trizen/parkour' );
-const box3d = ( await import( '@trizen/parkour-box3d' ) ).default;
-const rapier = ( await import( '@trizen/parkour-rapier' ) ).default;
+const { Simulation, World, Figure, boxSolid, prismSolid } = await import( '@trizendigital/parkour' );
+const box3d = ( await import( '@trizendigital/parkour-box3d' ) ).default;
+const rapier = ( await import( '@trizendigital/parkour-rapier' ) ).default;
 
 const NO_PAGE = { storage: null, eventWindow: null, eventDocument: null, navigator: null };
 

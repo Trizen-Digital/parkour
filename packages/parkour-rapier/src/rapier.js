@@ -1,6 +1,6 @@
 import RAPIER from '@dimforge/rapier3d-compat';
 import { Quaternion, Vector3 } from 'three';
-import { Body, DynamicWorld, PhysicsEngine, QueryWorld } from '@trizen/parkour/physics/engine.js';
+import { Body, DynamicWorld, PhysicsEngine, QueryWorld } from '@trizendigital/parkour/physics/engine.js';
 
 // The engine interface on Rapier (rapier3d-compat, its WebAssembly inlined). Rapier keeps the contract as it is: a
 // cast is Rapier's shape cast (its time of impact, witness point and normal), a ray is solid, a penetration is the

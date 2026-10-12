@@ -58,11 +58,11 @@ class Simulation {
 	 * @param {Motion} [options.motion] the motion, made with where its move table is (`new Motion( { moves } )`);
 	 *   `./data/moves.json` by default
 	 * @param {import( '../physics/engine.js' ).Backend} options.engine the physics engine the run is built on: a backend
-	 *   package's (@trizen/parkour-box3d, @trizen/parkour-rapier)
+	 *   package's (@trizendigital/parkour-box3d, @trizendigital/parkour-rapier)
 	 */
 	constructor( { world, camera = new PerspectiveCamera( 75, 1, 0.025, 450 ), canvas = null, page = {}, figure = new Figure(), motion = new Motion(), engine } ) {
 
-		if ( typeof engine?.load !== 'function' || typeof engine.name !== 'string' ) throw new Error( 'Simulation: options.engine must be a physics engine backend, e.g. the default export of @trizen/parkour-box3d' );
+		if ( typeof engine?.load !== 'function' || typeof engine.name !== 'string' ) throw new Error( 'Simulation: options.engine must be a physics engine backend, e.g. the default export of @trizendigital/parkour-box3d' );
 
 		this.world = world;
 		/** The physics engine's name ('box3d', 'rapier'): replays record it and run again on it. */

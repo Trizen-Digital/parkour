@@ -1,5 +1,5 @@
-// The physics engine as the game sees it. A backend package answers for one engine (@trizen/parkour-box3d,
-// @trizen/parkour-rapier): query worlds (the world's solids; the catch volumes) that answer casts, overlaps,
+// The physics engine as the game sees it. A backend package answers for one engine (@trizendigital/parkour-box3d,
+// @trizendigital/parkour-rapier): query worlds (the world's solids; the catch volumes) that answer casts, overlaps,
 // penetrations and rays, and a dynamic world (the ragdoll's) with bodies and joints. The game holds only solids, hits
 // and bodies, never an engine's own objects, and each engine's conventions (how close a cast stops, what counts as
 // starting in contact, how filters and object lifetimes work) stay inside its backend, so every backend keeps the same
@@ -322,7 +322,7 @@ class PhysicsEngine {
 }
 
 /**
- * A physics engine as a backend package gives it (@trizen/parkour-box3d, @trizen/parkour-rapier): its name, which runs
+ * A physics engine as a backend package gives it (@trizendigital/parkour-box3d, @trizendigital/parkour-rapier): its name, which runs
  * and replays record, and how to load it. Loading is slow the first time (the engine's WebAssembly), so a run loads
  * its engine once while it loads.
  *

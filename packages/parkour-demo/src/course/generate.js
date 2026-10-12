@@ -9,7 +9,7 @@
  * only the challenges that fail: each challenge draws from its own random stream (the seed, its index and its reroll
  * count), so rerolling one leaves the others as they were.
  */
-import { DEG } from '@trizen/parkour/math.js';
+import { DEG } from '@trizendigital/parkour/math.js';
 import { metrics as M } from './metrics.js';
 import { gapReach, speedAfterRun, wallrunLength } from './reach.js';
 import { SPEED_AFTER } from './routeMoves.js';

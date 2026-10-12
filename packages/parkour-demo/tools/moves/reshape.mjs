@@ -19,7 +19,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { clipUrl, formatClip, round } from './lib/clips.js';
 
 const THREE = await import( 'three' );
-const { Motion } = await import( '@trizen/parkour/motion/Motion.js' );
+const { Motion } = await import( '@trizendigital/parkour/motion/Motion.js' );
 const { YBotFigure } = await import( '../../src/figure/YBotFigure.js' );
 
 const X = new THREE.Vector3( 1, 0, 0 );

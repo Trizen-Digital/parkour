@@ -3,13 +3,13 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { ACTIONS } from '@trizen/parkour/data/actions.js';
-import { lookDelta, mouseLook, stickLook } from '@trizen/parkour/input/response.js';
-import { Input } from '@trizen/parkour/input/Input.js';
-import { DeviceState } from '@trizen/parkour/input/deviceState.js';
-import { PREFERENCE_DEFAULTS, PREFERENCE_LABELS, Preferences } from '@trizen/parkour/input/Preferences.js';
-import { pressesOf } from '@trizen/parkour/replay/tape.js';
-import { TUNING_DEFAULTS } from '@trizen/parkour/sim/tuning.js';
+import { ACTIONS } from '@trizendigital/parkour/data/actions.js';
+import { lookDelta, mouseLook, stickLook } from '@trizendigital/parkour/input/response.js';
+import { Input } from '@trizendigital/parkour/input/Input.js';
+import { DeviceState } from '@trizendigital/parkour/input/deviceState.js';
+import { PREFERENCE_DEFAULTS, PREFERENCE_LABELS, Preferences } from '@trizendigital/parkour/input/Preferences.js';
+import { pressesOf } from '@trizendigital/parkour/replay/tape.js';
+import { TUNING_DEFAULTS } from '@trizendigital/parkour/sim/tuning.js';
 
 const DEG = Math.PI / 180;
 
@@ -425,7 +425,7 @@ test( 'a recorded frame plays back as the same devices, and the page\'s keys sta
 test( 'every action the game asks for is in the table', () => {
 
 	// The game asks in the demo's code and in the core's (the package's src, wherever it is installed).
-	const roots = [ path.join( path.dirname( fileURLToPath( import.meta.url ) ), '../src' ), path.dirname( fileURLToPath( import.meta.resolve( '@trizen/parkour' ) ) ) ];
+	const roots = [ path.join( path.dirname( fileURLToPath( import.meta.url ) ), '../src' ), path.dirname( fileURLToPath( import.meta.resolve( '@trizendigital/parkour' ) ) ) ];
 	const asked = new Set();
 
 	for ( const root of roots ) {

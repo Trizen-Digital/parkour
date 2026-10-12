@@ -14,7 +14,7 @@ import { fileURLToPath } from 'node:url';
 const ROOT = fileURLToPath( new URL( '../', import.meta.url ) );
 const PACKS = path.join( ROOT, '.packs' );
 const TRY = path.resolve( ROOT, '../.try' );
-const PACKAGES = [ '@trizen/parkour', '@trizen/parkour-box3d', '@trizen/parkour-rapier', '@trizen/parkour-demo' ];
+const PACKAGES = [ '@trizendigital/parkour', '@trizendigital/parkour-box3d', '@trizendigital/parkour-rapier', '@trizendigital/parkour-demo' ];
 
 const run = ( command, args, cwd ) => execFileSync( command, args, { cwd, stdio: 'inherit' } );
 
@@ -22,7 +22,7 @@ fs.rmSync( PACKS, { recursive: true, force: true } );
 fs.mkdirSync( PACKS );
 // The demo's build first (its prepack), so the pack's own output is only the list of what it packed.
 console.log( 'Building the demo for the package…' );
-run( 'npm', [ 'run', 'build:package', '-w', '@trizen/parkour-demo' ], ROOT );
+run( 'npm', [ 'run', 'build:package', '-w', '@trizendigital/parkour-demo' ], ROOT );
 console.log( 'Packing…' );
 const packed = JSON.parse( execFileSync( 'npm', [ 'pack', '--json', '--ignore-scripts', '--pack-destination', PACKS, ...PACKAGES.flatMap( ( name ) => [ '-w', name ] ) ], { cwd: ROOT, encoding: 'utf8', stdio: [ 'ignore', 'pipe', 'inherit' ], maxBuffer: 256 * 1024 * 1024 } ) );
 
@@ -40,7 +40,7 @@ run( 'npm', [ 'install', '--no-audit', '--no-fund', ...packed.map( ( pack ) => p
 
 if ( process.argv.includes( '--check' ) ) {
 
-	const demo = path.join( TRY, 'node_modules/@trizen/parkour-demo' );
+	const demo = path.join( TRY, 'node_modules/@trizendigital/parkour-demo' );
 	console.log( '\nThe tests, in the installed demo…' );
 	run( 'node', [ '--test', ...fs.readdirSync( path.join( demo, 'tests' ) ).filter( ( file ) => file.endsWith( '.test.mjs' ) ).map( ( file ) => `tests/${file}` ) ], demo );
 	for ( const engine of [ 'box3d', 'rapier' ] ) run( 'node', [ 'tools/headless/golden.mjs', 'verify', '--engine', engine ], demo );

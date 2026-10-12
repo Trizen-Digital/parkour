@@ -9,16 +9,16 @@
 // are on, the pilot is.
 
 import * as THREE from 'three/webgpu';
-import { Simulation } from '@trizen/parkour/sim/Simulation.js';
-import { CAPSULE } from '@trizen/parkour/sim/tuning.js';
-import { World } from '@trizen/parkour/world/World.js';
+import { Simulation } from '@trizendigital/parkour/sim/Simulation.js';
+import { CAPSULE } from '@trizendigital/parkour/sim/tuning.js';
+import { World } from '@trizendigital/parkour/world/World.js';
 import { fromCourse } from '../world/fromCourse.js';
 import { ENGINES, backendOf } from '../engines.js';
-import { DeviceState } from '@trizen/parkour/input/deviceState.js';
+import { DeviceState } from '@trizendigital/parkour/input/deviceState.js';
 import { YBotFigure } from '../figure/YBotFigure.js';
-import { Pilot } from '@trizen/parkour/pilot/Pilot.js';
+import { Pilot } from '@trizendigital/parkour/pilot/Pilot.js';
 import { QA } from '../qa/QA.js';
-import { movementMode } from '@trizen/parkour/runner/states.js';
+import { movementMode } from '@trizendigital/parkour/runner/states.js';
 import { CourseParts } from './CourseParts.js';
 import { Sound } from '../sound/Sound.js';
 import { Tutorial } from '../tutorial/Tutorial.js';

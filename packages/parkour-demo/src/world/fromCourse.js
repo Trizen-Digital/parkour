@@ -1,6 +1,6 @@
 import { Matrix4, Quaternion, Vector3 } from 'three';
 import { Box, Cylinder, Tube, Wedge } from '../course/shapes.js';
-import { boxSolid, hullSolid, prismSolid } from '@trizen/parkour/world/solids.js';
+import { boxSolid, hullSolid, prismSolid } from '@trizendigital/parkour/world/solids.js';
 
 // The demo's world adapter: a Course turned into the world description the core's World takes (the solids to collide
 // with, the poles, pipes, ladders, ropes and ziplines to take hold of, the doors and the switches that open them, and

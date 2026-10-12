@@ -10,9 +10,9 @@ import fs from 'node:fs';
 import path from 'node:path';
 import './env.mjs';
 
-const { Simulation } = await import( '@trizen/parkour/sim/Simulation.js' );
-const { DeviceState } = await import( '@trizen/parkour/input/deviceState.js' );
-const { Figure } = await import( '@trizen/parkour/figure/Figure.js' );
+const { Simulation } = await import( '@trizendigital/parkour/sim/Simulation.js' );
+const { DeviceState } = await import( '@trizendigital/parkour/input/deviceState.js' );
+const { Figure } = await import( '@trizendigital/parkour/figure/Figure.js' );
 const { YBotFigure } = await import( '../../src/figure/YBotFigure.js' );
 const { backendOf } = await import( '../../src/engines.js' );
 const { worldFor } = await import( './courses.mjs' );

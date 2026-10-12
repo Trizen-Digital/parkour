@@ -14,7 +14,7 @@
 import { strFromU8, strToU8, unzipSync, zipSync } from 'fflate';
 import { store } from './store.js';
 import { describeEnvironment } from './environment.js';
-import { engineOf } from '@trizen/parkour/replay/tape.js';
+import { engineOf } from '@trizendigital/parkour/replay/tape.js';
 
 const FORMAT = 'qa-share/1';
 

@@ -1,7 +1,7 @@
 // A run's state as flat `path: value` lines, to find what two runs that should be the same disagree on: a respawned
 // run against a fresh one, a restored run against the one it came from. It reads exactly what a snapshot copies.
 
-import { snapshotRoots, takeSnapshot } from '@trizen/parkour/sim/snapshot.js';
+import { snapshotRoots, takeSnapshot } from '@trizendigital/parkour/sim/snapshot.js';
 
 // The roots in the order their paths are named: an object held in two places is listed under the first. The input
 // comes first, so the devices read `input.…` wherever else they are held.

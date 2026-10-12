@@ -7,9 +7,9 @@
 // respawn, the input cleared (the window lost focus), a setting changed (tuning, preferences, the window's shape).
 // The tape keeps a little more than the seconds a capture takes, cut at a respawn so it always starts from one.
 
-import { unpackPad } from '@trizen/parkour/input/deviceState.js';
-import { FrameTrace, JointMeter } from '@trizen/parkour/replay/trace.js';
-import { Tape, readSettings, settingsDiff } from '@trizen/parkour/replay/tape.js';
+import { unpackPad } from '@trizendigital/parkour/input/deviceState.js';
+import { FrameTrace, JointMeter } from '@trizendigital/parkour/replay/trace.js';
+import { Tape, readSettings, settingsDiff } from '@trizendigital/parkour/replay/tape.js';
 
 // How often (frames) the tape drops what is older than a capture needs.
 const PRUNE_EVERY = 120;

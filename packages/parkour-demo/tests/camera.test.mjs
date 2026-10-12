@@ -1,14 +1,14 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { MathUtils, PerspectiveCamera, Quaternion, Vector3 } from 'three';
-import { ViewControl } from '@trizen/parkour/camera/ViewControl.js';
-import { FollowCamera } from '@trizen/parkour/camera/FollowCamera.js';
-import { Shake, envelope, bump, EPICENTER_REACH } from '@trizen/parkour/camera/Shake.js';
-import { CAMERA } from '@trizen/parkour/data/camera.js';
-import { Input } from '@trizen/parkour/input/Input.js';
-import { movementMode } from '@trizen/parkour/runner/states.js';
-import { Clock } from '@trizen/parkour/runner/Clock.js';
-import { TUNING_DEFAULTS } from '@trizen/parkour/sim/tuning.js';
+import { ViewControl } from '@trizendigital/parkour/camera/ViewControl.js';
+import { FollowCamera } from '@trizendigital/parkour/camera/FollowCamera.js';
+import { Shake, envelope, bump, EPICENTER_REACH } from '@trizendigital/parkour/camera/Shake.js';
+import { CAMERA } from '@trizendigital/parkour/data/camera.js';
+import { Input } from '@trizendigital/parkour/input/Input.js';
+import { movementMode } from '@trizendigital/parkour/runner/states.js';
+import { Clock } from '@trizendigital/parkour/runner/Clock.js';
+import { TUNING_DEFAULTS } from '@trizendigital/parkour/sim/tuning.js';
 
 const DEG = Math.PI / 180;
 const UP = new Vector3( 0, 1, 0 );

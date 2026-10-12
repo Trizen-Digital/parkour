@@ -1,7 +1,7 @@
 # The feel in numbers
 
 What the runner does, in numbers a designer can hold a course or a tuning change against. The tuning values are the
-defaults in `@trizen/parkour/sim/tuning.js` (every one is on the settings' *Tuning* tab, angles in degrees); the rest are fixed in
+defaults in `@trizendigital/parkour/sim/tuning.js` (every one is on the settings' *Tuning* tab, angles in degrees); the rest are fixed in
 the code that uses them. Measured numbers come from the game run headless on Rapier with the default tuning: a
 simulation fed scripted keyboard input at 60 frames a second (it steps at 120 Hz), on flat floors, decks and walls built
 for the purpose. box3d gives the same numbers to the centimetre, except where the capsule meets an edge: there a few
@@ -181,7 +181,7 @@ floor.
 | Following | the follow point closes 43 % of its gap across each 60 Hz frame and 17 % up and down; the arm's root follows it, at most 1.5 m behind; the camera turns toward the aim at 8.9 a second (`cameraTurnRate`). A ledge move asks for a slower follow (`cameraFollowRate` 5.8, `cameraVerticalFollowRate` 3.65), unless the camera lag preference is off |
 
 The distances are the tuning's (`cameraDistance` 3 m, `cameraForward` 1.2 m, `cameraHeight` 0.66 m, `cameraShoulder` 0.5
-m); the rest are in `@trizen/parkour/data/camera.js`. At a sprint the trailing puts the camera about 2.07 m behind. The third-person
+m); the rest are in `@trizendigital/parkour/data/camera.js`. At a sprint the trailing puts the camera about 2.07 m behind. The third-person
 camera never collides with the course.
 
 **First person**: the camera sits 0.15 m ahead of the Y Bot's eyes, with a 142° field of view (`firstPersonFov`).

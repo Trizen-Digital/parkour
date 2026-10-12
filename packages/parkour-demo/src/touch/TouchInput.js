@@ -1,5 +1,5 @@
 // The touch controls as a device: what the thumbs do on the on-screen controls (src/ui/TouchControls.svelte) becomes
-// the raw device state a keyboard, a mouse and a pad give (@trizen/parkour/input/deviceState.js), so a run played by
+// the raw device state a keyboard, a mouse and a pad give (@trizendigital/parkour/input/deviceState.js), so a run played by
 // touch is recorded and replays like any other, and Easy mode's pilot hears a tap of Jump as it hears Space.
 //
 //   the stick    a pad's left stick: the pad comes first among the page's while a thumb is on it, and pushed to its
@@ -13,10 +13,10 @@
 // keeps it on while they are on): the pilot times the jumps, grabs in the air, aims the precision jumps and rolls the
 // hard landings, so the buttons are only the moves it leaves to the player.
 
-import { ACTIONS } from '@trizen/parkour/data/actions.js';
-import { MOUSE_BUTTONS, PAD_BUTTONS } from '@trizen/parkour/input/deviceState.js';
-import { MOUSE_YAW_RATE } from '@trizen/parkour/input/response.js';
-import { clamp, radians } from '@trizen/parkour/math.js';
+import { ACTIONS } from '@trizendigital/parkour/data/actions.js';
+import { MOUSE_BUTTONS, PAD_BUTTONS } from '@trizendigital/parkour/input/deviceState.js';
+import { MOUSE_YAW_RATE } from '@trizendigital/parkour/input/response.js';
+import { clamp, radians } from '@trizendigital/parkour/math.js';
 
 /** The buttons, by the action each presses. */
 const BUTTONS = [ 'jump', 'grab', 'slide', 'dive', 'flip', 'wheel', 'backflip', 'interact' ];

@@ -9,7 +9,7 @@
 import '../headless/env.mjs';
 
 const { Vector3 } = await import( 'three' );
-const { Motion } = await import( '@trizen/parkour/motion/Motion.js' );
+const { Motion } = await import( '@trizendigital/parkour/motion/Motion.js' );
 const { YBotFigure } = await import( '../../src/figure/YBotFigure.js' );
 const { readCapture } = await import( './lib/clips.js' );
 const THREE = await import( 'three' );

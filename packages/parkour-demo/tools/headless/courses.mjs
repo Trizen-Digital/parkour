@@ -10,7 +10,7 @@ const { Course } = await import( '../../src/course/Course.js' );
 const { metrics } = await import( '../../src/course/metrics.js' );
 const { generate } = await import( '../../src/course/generate.js' );
 const { validate } = await import( '../../src/course/validate.js' );
-const { World } = await import( '@trizen/parkour/world/World.js' );
+const { World } = await import( '@trizendigital/parkour/world/World.js' );
 const { fromCourse } = await import( '../../src/world/fromCourse.js' );
 
 /** The generated courses the golden tapes run on; another seed gets length 14, difficulty 0.5. */

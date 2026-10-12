@@ -6,7 +6,7 @@ The course tools read one table of these (`src/course/metrics.js`, through the r
 deriving of edges, walls and slopes, the route, the validator, the generator and the family test courses
 (`public/courses/test_*.json`). A course that passes the validator is built to these tables.
 
-The runner has its own tuning (`@trizen/parkour/sim/tuning.js`) and doesn't read the tables. It runs faster and jumps further and
+The runner has its own tuning (`@trizendigital/parkour/sim/tuning.js`) and doesn't read the tables. It runs faster and jumps further and
 higher than they say, under stronger gravity; *The runner as it plays now* gives what it does, measured headless, and
 [DESIGN.md](DESIGN.md) has the rest of its numbers. Build to the tables, then try a course with the runner itself:
 `npm run lanes` (the family lanes, by hand and in Easy) and `npm run reach` (every route link).

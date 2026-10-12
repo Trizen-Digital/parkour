@@ -9,11 +9,11 @@ import os from 'node:os';
 import path from 'node:path';
 
 const { PROJECT } = await import( '../tools/headless/env.mjs' );
-const { DeviceState } = await import( '@trizen/parkour/input/deviceState.js' );
-const { Pilot } = await import( '@trizen/parkour/pilot/Pilot.js' );
+const { DeviceState } = await import( '@trizendigital/parkour/input/deviceState.js' );
+const { Pilot } = await import( '@trizendigital/parkour/pilot/Pilot.js' );
 const { Recorder } = await import( '../src/qa/recorder.js' );
 const { Replay, replaySim, takeOver } = await import( '../src/qa/replay.js' );
-const { FORMAT, encodeInput, decodeInput, engineOf, pressesOf, summarize } = await import( '@trizen/parkour/replay/tape.js' );
+const { FORMAT, encodeInput, decodeInput, engineOf, pressesOf, summarize } = await import( '@trizendigital/parkour/replay/tape.js' );
 const { LaneDriver, laneStart } = await import( '../src/qa/lanes.js' );
 const { VisualRig } = await import( '../src/qa/visual.js' );
 const { COURSES } = await import( '../tools/headless/scenarios.mjs' );

@@ -1,9 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { Vector3 } from 'three';
-import { TakeLibrary } from '@trizen/parkour/motion/TakeLibrary.js';
-import { Moves } from '@trizen/parkour/motion/Moves.js';
-import { RootMotion } from '@trizen/parkour/motion/RootMotion.js';
+import { TakeLibrary } from '@trizendigital/parkour/motion/TakeLibrary.js';
+import { Moves } from '@trizendigital/parkour/motion/Moves.js';
+import { RootMotion } from '@trizendigital/parkour/motion/RootMotion.js';
 
 // One take that steps 2 m forward over a second, a move that plays it on the body, and another that plays half of
 // it twice as fast.

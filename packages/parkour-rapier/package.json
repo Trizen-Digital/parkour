@@ -1,7 +1,7 @@
 {
-	"name": "@trizen/parkour-rapier",
+	"name": "@trizendigital/parkour-rapier",
 	"version": "0.1.0",
-	"description": "The Rapier physics engine backend for @trizen/parkour.",
+	"description": "The Rapier physics engine backend for @trizendigital/parkour.",
 	"type": "module",
 	"license": "UNLICENSED",
 	"repository": { "type": "git", "url": "git+https://github.com/trizen-digital/parkour.git", "directory": "packages/parkour-rapier" },
@@ -17,7 +17,7 @@
 		"@dimforge/rapier3d-compat": "0.21.0"
 	},
 	"peerDependencies": {
-		"@trizen/parkour": "^0.1.0",
+		"@trizendigital/parkour": "^0.1.0",
 		"three": "~0.186.1"
 	},
 	"publishConfig": { "access": "public" }

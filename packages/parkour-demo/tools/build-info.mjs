@@ -12,7 +12,7 @@ import { fileURLToPath } from 'node:url';
 const DEMO = fileURLToPath( new URL( '../', import.meta.url ) );
 
 // The packages a run depends on: a different version of any of them can change a run.
-const PACKAGES = [ '@trizen/parkour', '@trizen/parkour-box3d', '@trizen/parkour-rapier', 'three', 'box3d.js', '@dimforge/rapier3d-compat' ];
+const PACKAGES = [ '@trizendigital/parkour', '@trizendigital/parkour-box3d', '@trizendigital/parkour-rapier', 'three', 'box3d.js', '@dimforge/rapier3d-compat' ];
 
 // A patch can be large; 64 MB is far more than any change to the demo.
 function git( command, cwd, { trim = true } = {} ) {
@@ -63,7 +63,7 @@ function motionHash( project = DEMO ) {
 /**
  * @param {object} options
  * @param {'dev'|'hosted'|'installed'} options.how how the page runs: the dev server, the hosted build
- *   (parkour.trizen.dev) or the installed package (`npx @trizen/parkour-demo`)
+ *   (parkour.trizen.dev) or the installed package (`npx @trizendigital/parkour-demo`)
  * @param {string} [options.project] the demo's folder
  * @returns {object} the build
  */

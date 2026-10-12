@@ -10,8 +10,8 @@
 // asks for a respawn at the next station's entry, which the run applies between frames like the QA recorder's
 // respawns.
 
-import { radians, wrapAngle } from '@trizen/parkour/math.js';
-import { movementMode } from '@trizen/parkour/runner/states.js';
+import { radians, wrapAngle } from '@trizendigital/parkour/math.js';
+import { movementMode } from '@trizendigital/parkour/runner/states.js';
 import { RUNS, ON_FOOT, VIEW } from './script.js';
 import { STANDING_HEIGHT } from './course.js';
 

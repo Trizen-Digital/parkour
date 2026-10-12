@@ -7,15 +7,15 @@
 // differently (the code or the course changed since, or something in the run is not deterministic).
 
 import { Group, PerspectiveCamera } from 'three/webgpu';
-import { Simulation } from '@trizen/parkour/sim/Simulation.js';
-import { World } from '@trizen/parkour/world/World.js';
+import { Simulation } from '@trizendigital/parkour/sim/Simulation.js';
+import { World } from '@trizendigital/parkour/world/World.js';
 import { fromCourse } from '../world/fromCourse.js';
 import { backendOf } from '../engines.js';
-import { DeviceState } from '@trizen/parkour/input/deviceState.js';
+import { DeviceState } from '@trizendigital/parkour/input/deviceState.js';
 import { Course } from '../course/Course.js';
 import { metrics } from '../course/metrics.js';
-import { Tape, applySettings, decodeInput } from '@trizen/parkour/replay/tape.js';
-import { FrameTrace, JointMeter } from '@trizen/parkour/replay/trace.js';
+import { Tape, applySettings, decodeInput } from '@trizendigital/parkour/replay/tape.js';
+import { FrameTrace, JointMeter } from '@trizendigital/parkour/replay/trace.js';
 
 /**
  * A simulation of its own for replays: no page devices (it is fed only recorded input), saving nothing.

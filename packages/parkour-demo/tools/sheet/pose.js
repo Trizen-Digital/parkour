@@ -2,7 +2,7 @@
 // console: `await import( '/tools/sheet/pose.js' )`, then `__pose( { take, time } )`, or `__pose( { recipe } )` for
 // any pose recipe. `at` is the runner's centre (by default standing on the floor at the origin, as the figure stands
 // below it), `yaw` its heading; `props: [ 'ledge' ]` adds the wall a hang holds.
-import { BODY_DROP } from '@trizen/parkour/figure/Figure.js';
+import { BODY_DROP } from '@trizendigital/parkour/figure/Figure.js';
 
 window.__pose = function ( { take, time = 0, recipe = { kind: 'clip', take, time }, at = [ 0, - BODY_DROP, 0 ], yaw = 0, props = [] } ) {
 

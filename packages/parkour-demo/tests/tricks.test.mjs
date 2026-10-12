@@ -2,11 +2,11 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { Vector3 } from 'three';
-import { Motion } from '@trizen/parkour/motion/Motion.js';
-import { Tricks } from '@trizen/parkour/runner/Tricks.js';
-import { Clock } from '@trizen/parkour/runner/Clock.js';
-import { Runner } from '@trizen/parkour/runner/Runner.js';
-import { TUNING_DEFAULTS } from '@trizen/parkour/sim/tuning.js';
+import { Motion } from '@trizendigital/parkour/motion/Motion.js';
+import { Tricks } from '@trizendigital/parkour/runner/Tricks.js';
+import { Clock } from '@trizendigital/parkour/runner/Clock.js';
+import { Runner } from '@trizendigital/parkour/runner/Runner.js';
+import { TUNING_DEFAULTS } from '@trizendigital/parkour/sim/tuning.js';
 
 // The game's motion, loaded from the files the browser loads, to say which take each move plays.
 const served = ( name ) => 'data:application/json;base64,' + readFileSync( new URL( `../public/data/${ name }.json`, import.meta.url ) ).toString( 'base64' );

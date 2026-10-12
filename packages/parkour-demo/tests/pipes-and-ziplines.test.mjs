@@ -1,13 +1,13 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { Vector3 } from 'three';
-import { PipesAndZiplines } from '@trizen/parkour/runner/PipesAndZiplines.js';
+import { PipesAndZiplines } from '@trizendigital/parkour/runner/PipesAndZiplines.js';
 import { createEngine } from '../src/engines.js';
-import { catchVolumes, ziplineVolume } from '@trizen/parkour/world/catchVolumes.js';
-import { Runner } from '@trizen/parkour/runner/Runner.js';
-import { Motion } from '@trizen/parkour/motion/Motion.js';
-import { Clock } from '@trizen/parkour/runner/Clock.js';
-import { TUNING_DEFAULTS } from '@trizen/parkour/sim/tuning.js';
+import { catchVolumes, ziplineVolume } from '@trizendigital/parkour/world/catchVolumes.js';
+import { Runner } from '@trizendigital/parkour/runner/Runner.js';
+import { Motion } from '@trizendigital/parkour/motion/Motion.js';
+import { Clock } from '@trizendigital/parkour/runner/Clock.js';
+import { TUNING_DEFAULTS } from '@trizendigital/parkour/sim/tuning.js';
 
 const engine = await createEngine( 'rapier' );
 

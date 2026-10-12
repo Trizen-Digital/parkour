@@ -4,10 +4,10 @@ import '../tools/headless/env.mjs';
 
 const { Vector3 } = await import( 'three' );
 const { courseFor } = await import( '../tools/headless/courses.mjs' );
-const { World } = await import( '@trizen/parkour/world/World.js' );
+const { World } = await import( '@trizendigital/parkour/world/World.js' );
 const { fromCourse } = await import( '../src/world/fromCourse.js' );
-const { EVERY_GROUP, GROUPS } = await import( '@trizen/parkour/world/solids.js' );
-const { pipeVolume, ziplineVolume } = await import( '@trizen/parkour/world/catchVolumes.js' );
+const { EVERY_GROUP, GROUPS } = await import( '@trizendigital/parkour/world/solids.js' );
+const { pipeVolume, ziplineVolume } = await import( '@trizendigital/parkour/world/catchVolumes.js' );
 const { createEngine } = await import( '../src/engines.js' );
 
 // A course as the simulation sees it: solids with their groups and tags, the poles, pipes and ziplines, the spawns,

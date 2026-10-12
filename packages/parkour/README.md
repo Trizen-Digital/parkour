@@ -1,4 +1,4 @@
-# @trizen/parkour
+# @trizendigital/parkour
 
 A third-person parkour runner for three.js: it runs, jumps, vaults, climbs ledges, runs along walls, swings on bars
 and ropes, climbs pipes, poles and ladders, rides ziplines, barges through doors, flips and rolls, and goes limp into a
@@ -6,18 +6,18 @@ ragdoll, in any world you describe to it. It steps at a fixed 120 Hz whatever th
 settings, physics engine and raw input always make the same run, to the bit.
 
 ```sh
-npm install @trizen/parkour @trizen/parkour-box3d three
+npm install @trizendigital/parkour @trizendigital/parkour-box3d three
 ```
 
-`three` 0.186 is a peer dependency. The physics engine is a package of its own: `@trizen/parkour-box3d` or
-`@trizen/parkour-rapier`.
+`three` 0.186 is a peer dependency. The physics engine is a package of its own: `@trizendigital/parkour-box3d` or
+`@trizendigital/parkour-rapier`.
 
 ## Running it
 
 ```js
 import { Vector3 } from 'three';
-import { Simulation, World, Figure, boxSolid } from '@trizen/parkour';
-import box3d from '@trizen/parkour-box3d';
+import { Simulation, World, Figure, boxSolid } from '@trizendigital/parkour';
+import box3d from '@trizendigital/parkour-box3d';
 
 const world = new World( {
 	spawns: [ { position: new Vector3( 0, 0.9215, 0 ), yaw: 0 } ],
@@ -45,8 +45,8 @@ renderer.setAnimationLoop( () => {
   to your scene.
 - **The motion data** (the move table and each take's clip) is loaded by URL: `./data/moves.json` unless the
   Simulation is given `motion: new Motion( { moves } )`, and `./data/takes/` unless the RiggedFigure is given `takes`.
-  This package carries none: the demo's (`@trizen/parkour-demo`, `public/data/`) are built for the Y Bot's skeleton, a
+  This package carries none: the demo's (`@trizendigital/parkour-demo`, `public/data/`) are built for the Y Bot's skeleton, a
   Mixamo rig.
 
-Every module is reachable by path for tools and tests (`@trizen/parkour/runner/Ledges.js`); `src/index.js` is the
+Every module is reachable by path for tools and tests (`@trizendigital/parkour/runner/Ledges.js`); `src/index.js` is the
 public API. How it all works: [the demo's docs/ARCHITECTURE.md](../parkour-demo/docs/ARCHITECTURE.md).

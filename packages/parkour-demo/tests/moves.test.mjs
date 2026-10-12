@@ -2,8 +2,8 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import '../tools/headless/env.mjs';
 
-const { Motion } = await import( '@trizen/parkour/motion/Motion.js' );
-const { markersCrossed } = await import( '@trizen/parkour/motion/markers.js' );
+const { Motion } = await import( '@trizendigital/parkour/motion/Motion.js' );
+const { markersCrossed } = await import( '@trizendigital/parkour/motion/markers.js' );
 
 const STEP = 1 / 120;
 

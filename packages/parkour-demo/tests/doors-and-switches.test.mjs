@@ -6,7 +6,7 @@ import assert from 'node:assert/strict';
 
 await import( '../tools/headless/env.mjs' );
 const { worldFor } = await import( '../tools/headless/courses.mjs' );
-const { Simulation } = await import( '@trizen/parkour/sim/Simulation.js' );
+const { Simulation } = await import( '@trizendigital/parkour/sim/Simulation.js' );
 const { backendOf } = await import( '../src/engines.js' );
 
 const NO_PAGE = { storage: null, eventWindow: null, eventDocument: null, navigator: null };

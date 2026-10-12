@@ -29,7 +29,7 @@ const from = ( file ) => import( pathToFileURL( path.join( demo, file ) ).href )
 await from( 'tools/headless/env.mjs' );
 const { replaySim, Replay } = await from( 'src/qa/replay.js' );
 const { YBotFigure } = await from( 'src/figure/YBotFigure.js' );
-const core = path.dirname( createRequire( path.join( demo, 'package.json' ) ).resolve( '@trizen/parkour' ) );
+const core = path.dirname( createRequire( path.join( demo, 'package.json' ) ).resolve( '@trizendigital/parkour' ) );
 const { engineOf, timesOf } = await import( pathToFileURL( path.join( core, 'replay/tape.js' ) ).href );
 
 const rec = JSON.parse( fs.readFileSync( replayFile, 'utf8' ) );

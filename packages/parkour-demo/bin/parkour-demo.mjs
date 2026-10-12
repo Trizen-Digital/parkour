@@ -1,10 +1,10 @@
 #!/usr/bin/env node
-// The installed demo: `npx @trizen/parkour-demo` serves the game as it was built into the package (app/, with the
+// The installed demo: `npx @trizendigital/parkour-demo` serves the game as it was built into the package (app/, with the
 // package's public/ beside it: the courses, the Y Bot, its takes) and the QA store on a qa/ folder in the folder it is
 // run from, so replays saved, shared and opened here are kept there. Replays record the build baked into the package
 // (app/build.json): the commit and the versions it was made from.
 //
-//   npx @trizen/parkour-demo [--port 5412] [--qa ./qa]
+//   npx @trizendigital/parkour-demo [--port 5412] [--qa ./qa]
 
 import http from 'node:http';
 import fs from 'node:fs';
@@ -20,7 +20,7 @@ const option = ( name, fallback ) => args.includes( name ) ? args[ args.indexOf(
 
 if ( args.includes( '--help' ) || args.includes( '-h' ) ) {
 
-	console.log( 'usage: npx @trizen/parkour-demo [--port 5412] [--qa ./qa]' );
+	console.log( 'usage: npx @trizendigital/parkour-demo [--port 5412] [--qa ./qa]' );
 	process.exit( 0 );
 
 }

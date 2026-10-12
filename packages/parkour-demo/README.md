@@ -1,7 +1,7 @@
 # Parkour demo
 
-`@trizen/parkour-demo`: the game at [parkour.trizen.dev](https://parkour.trizen.dev/), built on
-[`@trizen/parkour`](../parkour/README.md), with everything behind it: the Y Bot, the courses, the QA replay player,
+`@trizendigital/parkour-demo`: the game at [parkour.trizen.dev](https://parkour.trizen.dev/), built on
+[`@trizendigital/parkour`](../parkour/README.md), with everything behind it: the Y Bot, the courses, the QA replay player,
 the benchmark, the tools and the tests.
 
 
@@ -24,7 +24,7 @@ Three ways, each with the QA replay library (V to capture, L for the library):
 | Where | How | Replays are kept |
 | --- | --- | --- |
 | [parkour.trizen.dev](https://parkour.trizen.dev/) | open it | in the browser, until shared |
-| Installed | `npx @trizen/parkour-demo` (http://localhost:5412/) | in `./qa/` where it runs |
+| Installed | `npx @trizendigital/parkour-demo` (http://localhost:5412/) | in `./qa/` where it runs |
 | A clone | `npm install`, then `npm run dev` from the repo's root (http://localhost:5410/) | in `qa/` here |
 
 The page opens on `test_basic`. Click the view to capture the mouse; Esc opens the menu. The address takes three
@@ -172,9 +172,9 @@ root (`npm test`, `npm run golden -- --engine rapier`) or from here.
 ## Layout
 
 The runner (the simulation, the runner's systems, the motion and pose graph, the figure, the physics contract, the
-world, the camera, the input, the pilot and the replay format) is the core package, `@trizen/parkour`
-(`packages/parkour/src/`, [its README](../parkour/README.md)); the engines are `@trizen/parkour-box3d` and
-`@trizen/parkour-rapier`. This package is the rest:
+world, the camera, the input, the pilot and the replay format) is the core package, `@trizendigital/parkour`
+(`packages/parkour/src/`, [its README](../parkour/README.md)); the engines are `@trizendigital/parkour-box3d` and
+`@trizendigital/parkour-rapier`. This package is the rest:
 
 | Where | What |
 | --- | --- |

@@ -115,7 +115,7 @@ Meta first, frames last. Times are seconds; frames index the file's frames (fram
   before its input: a respawn (`{ position, yaw }`), the input forgotten (a blur, the mouse captured or let go),
   settings changed (`{ tuning, preferences, aspect }`, only what changed: the settings' *Tuning* and *Controls* tabs
   set them between frames; the engine never changes within a recording). `edges` are the key edges queued before it.
-- `input`: the raw input of every frame, as the input system took it in (`@trizen/parkour/input/deviceState.js`): `dt` (the
+- `input`: the raw input of every frame, as the input system took it in (`@trizendigital/parkour/input/deviceState.js`): `dt` (the
   frame's step), `mx` `my` `wheel` (the mouse's movement since the last frame), one entry per frame; `edges` as
   `[ frame, [ [ key, 'pressed' | 'released' ] ] ]` for the frames with any (a tap between two frames); `keys`,
   `buttons` (mouse), `pad` (`[ id, axes, buttons ]`, a button `0`/`1` or `[ pressed, value ]`), `enabled` (the mouse

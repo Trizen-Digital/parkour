@@ -7,7 +7,7 @@
  * Course files are in metres with yaw in degrees (a prim at yaw 0 faces +z).
  */
 import * as THREE from 'three/webgpu';
-import { DEG } from '@trizen/parkour/math.js';
+import { DEG } from '@trizendigital/parkour/math.js';
 import { Box, Cylinder, Tube, Wedge } from './shapes.js';
 
 const UP = new THREE.Vector3( 0, 1, 0 );

@@ -2,8 +2,8 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { Euler, Quaternion, Vector3 } from 'three';
 import { createEngine } from '../src/engines.js';
-import { Queries } from '@trizen/parkour/physics/Queries.js';
-import { GROUPS, boxSolid, hullSolid } from '@trizen/parkour/world/solids.js';
+import { Queries } from '@trizendigital/parkour/physics/Queries.js';
+import { GROUPS, boxSolid, hullSolid } from '@trizendigital/parkour/world/solids.js';
 
 // The contract every physics engine keeps, checked on each engine whose backend is present: the course's query world
 // (casts, overlaps, penetration, rays, groups) against answers worked out by hand, the dynamic world (bodies, joints,

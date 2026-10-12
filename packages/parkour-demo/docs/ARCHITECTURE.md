@@ -3,9 +3,9 @@
 For a developer arriving: what the parts are, the order they run in, and why. Every module has a header comment saying
 what it is for; this is the map that puts them together. The code is the truth where the two differ.
 
-The runner itself is the core package, `@trizen/parkour` (`packages/parkour/src/` in the repo); a path written
-`@trizen/parkour/…` is a module of it. The physics engines are the backend packages `@trizen/parkour-box3d` and
-`@trizen/parkour-rapier`. Everything else here, written `src/…`, `tools/…`, `tests/…`, is the demo
+The runner itself is the core package, `@trizendigital/parkour` (`packages/parkour/src/` in the repo); a path written
+`@trizendigital/parkour/…` is a module of it. The physics engines are the backend packages `@trizendigital/parkour-box3d` and
+`@trizendigital/parkour-rapier`. Everything else here, written `src/…`, `tools/…`, `tests/…`, is the demo
 (`packages/parkour-demo/`): the game page, the Y Bot, the courses, QA and the benchmark.
 
 ## The parts
@@ -34,22 +34,22 @@ The runner itself is the core package, `@trizen/parkour` (`packages/parkour/src/
    FollowCamera (the camera body), Shake, the frame's events
 ```
 
-- **`Simulation`** (`@trizen/parkour/sim/`) is one run: it owns everything a run is made of and advances it in one fixed order.
-- **The runner** (`@trizen/parkour/runner/`) is the body the player moves: its position, velocity, heading, state and capsule, and
+- **`Simulation`** (`@trizendigital/parkour/sim/`) is one run: it owns everything a run is made of and advances it in one fixed order.
+- **The runner** (`@trizendigital/parkour/runner/`) is the body the player moves: its position, velocity, heading, state and capsule, and
   the systems that move it in their own states.
-- **The motion system** (`@trizen/parkour/motion/`) gives the runner timing (how long a move lasts, when its markers fire, how far
+- **The motion system** (`@trizendigital/parkour/motion/`) gives the runner timing (how long a move lasts, when its markers fire, how far
   it carries the root) and gives the figure a recipe to pose itself from.
-- **The figure** (`@trizen/parkour/figure/`) turns the recipe into bones: a `RiggedFigure` (the demo's Y Bot,
+- **The figure** (`@trizendigital/parkour/figure/`) turns the recipe into bones: a `RiggedFigure` (the demo's Y Bot,
   `src/figure/YBotFigure.js`, is one), or a timing-only stand-in with none.
-- **The physics** (`@trizen/parkour/physics/`) answers the runner's questions about the world through an engine
+- **The physics** (`@trizendigital/parkour/physics/`) answers the runner's questions about the world through an engine
   interface with two backends (the backend packages), and simulates the ragdoll.
-- **The world** (`@trizen/parkour/world/`) is what the simulation knows of where it runs: a world description, which the
+- **The world** (`@trizendigital/parkour/world/`) is what the simulation knows of where it runs: a world description, which the
   demo makes from its courses (`src/world/fromCourse.js`) and a game makes from its own world.
-- **The camera** (`@trizen/parkour/camera/`) is split in two: the aim the runner steers by, which is part of the simulation, and the
+- **The camera** (`@trizendigital/parkour/camera/`) is split in two: the aim the runner steers by, which is part of the simulation, and the
   camera body, which only follows.
-- **The input** (`@trizen/parkour/input/`) turns devices into actions; the devices themselves are raw state a replay can stand in
+- **The input** (`@trizendigital/parkour/input/`) turns devices into actions; the devices themselves are raw state a replay can stand in
   for.
-- **Easy mode's pilot** (`@trizen/parkour/pilot/`) presses keys for the player through that raw state.
+- **Easy mode's pilot** (`@trizendigital/parkour/pilot/`) presses keys for the player through that raw state.
 - **The touch controls** (`src/touch/`, `src/ui/TouchControls.svelte`) turn thumbs on the screen into that raw state too:
   a pad's stick and the keys a keyboard would press.
 - **QA** (`src/qa/`) records the raw input of play so any moment can be replayed exactly; the golden tapes
@@ -130,7 +130,7 @@ ahead by running the game. Only two things may change a run:
 
 - **Raw device input**, frame by frame: the keys and mouse buttons held, the mouse's movement, the keys pressed or
   released between frames (a tap shorter than a frame still counts), the pad's buttons and axes, whether the pointer is
-  captured and whether a text field has the keyboard (`@trizen/parkour/input/deviceState.js`). Easy mode's pilot presses keys
+  captured and whether a text field has the keyboard (`@trizendigital/parkour/input/deviceState.js`). Easy mode's pilot presses keys
   through this too.
 - **Changes made between frames**: a respawn, the input cleared (the window lost focus), a tuning value or a preference
   (from the settings' *Tuning* and *Controls* tabs), the camera's aspect. The QA recorder writes each one onto its tape
@@ -139,7 +139,7 @@ ahead by running the game. Only two things may change a run:
 Everything else that could vary is pinned:
 
 - **No `Math.random` in the runtime.** The run's only chance (which dash vault, the idle shuffle, where a camera shake
-  starts) draws from seeded streams (`@trizen/parkour/sim/random.js`: `vaultChoice`, `idleChoice`, `shakePhase`), each with its own
+  starts) draws from seeded streams (`@trizendigital/parkour/sim/random.js`: `vaultChoice`, `idleChoice`, `shakePhase`), each with its own
   state so a draw from one never moves another. A respawn resets them all.
 - **The physics engine is part of a run.** The two engines find contacts each their own way, so the same input on the
   other engine makes another run: a simulation is built on one engine, a replay records it, and each engine has its own
@@ -152,7 +152,7 @@ A respawn is the only way a run starts again. `Simulation.load()` ends by taking
 preferences, the window's aspect), then puts the runner at the start, resets the view, the camera, the motion and the
 random streams. So a tape that begins at a respawn replays on a freshly loaded simulation.
 
-A snapshot (`@trizen/parkour/sim/snapshot.js`) walks the run's objects from its roots (the runner, the pose inputs, the motion, the
+A snapshot (`@trizendigital/parkour/sim/snapshot.js`) walks the run's objects from its roots (the runner, the pose inputs, the motion, the
 view, the follow camera, the input, the random streams, the ragdoll, the figure, the queries, the mover) and keeps a
 copy of every object, array, map, set and typed array it meets; a restore writes each copy back into its own original,
 so every reference between the run's objects still holds. It skips what no run changes: objects `load()` marks static
@@ -165,7 +165,7 @@ while the ragdoll has the body cannot be restored: the bodies live in the engine
 
 ## The runner
 
-`Runner` (`@trizen/parkour/runner/Runner.js`) owns the body: position, previous position (for drawing between steps), velocity,
+`Runner` (`@trizendigital/parkour/runner/Runner.js`) owns the body: position, previous position (for drawing between steps), velocity,
 heading, whether it stands on something, its capsule, and its state. It reads timing, root motion and markers from the
 motion system, and never a pose.
 
@@ -270,7 +270,7 @@ as `frameEvents` (the trace's `events` column), and clears them.
 
 ## The motion system
 
-`Motion` (`@trizen/parkour/motion/Motion.js`) is what the runner gets from the takes, and the recipe the figure is drawn from. Each
+`Motion` (`@trizendigital/parkour/motion/Motion.js`) is what the runner gets from the takes, and the recipe the figure is drawn from. Each
 step, after the runner's step, it advances the one-shot moves, updates the pose graph from the pose inputs, and gathers
 the markers both crossed, in that order. The runner uses:
 
@@ -286,7 +286,7 @@ motion.moveDelta( name, from, to )       // the root's travel through a move bet
 motion.length( name ), hasRootMotion( name )
 ```
 
-Nothing in `@trizen/parkour/motion/` reads a bone.
+Nothing in `@trizendigital/parkour/motion/` reads a bone.
 
 ### Takes and moves
 
@@ -303,7 +303,7 @@ layers of the graph: `body`, `landing` (the additive landing dip), `climb` and `
 
 ### The pose graph
 
-The pose graph (`@trizen/parkour/motion/graph/`) is a tree of node objects built in code (`Graph.js`), updated once a step. Each
+The pose graph (`@trizendigital/parkour/motion/graph/`) is a tree of node objects built in code (`Graph.js`), updated once a step. Each
 node keeps its own times and returns a **recipe**: a small tree of plain objects saying which takes to sample at which
 times and how to put them together (`recipes.js`):
 
@@ -418,7 +418,7 @@ move the root alone moves the body.
 
 ### Pose inputs
 
-`PoseInputs` (`@trizen/parkour/runner/PoseInputs.js`) is what the graph reads of the runner, gathered once a step after the runner's
+`PoseInputs` (`@trizendigital/parkour/runner/PoseInputs.js`) is what the graph reads of the runner, gathered once a step after the runner's
 own step: its situation as flags (in the air, sliding, hanging, on a pipe or a ladder going up or down, on a rope and
 which way it swings, on a beam, a wall coming up in the air…), how it moves (speed, turn rate, lean), the stick while
 hanging, and, for the pose alone, the body's tilt (with the slide, or along a rope), where the feet go against a wall,
@@ -442,10 +442,10 @@ two is involved.
 
 A figure is placed and posed once a step (`figure.step( dt, recipe, position, yaw, pose )`):
 
-- **`Figure`** (`@trizen/parkour/figure/Figure.js`) is the timing-only stand-in: a root that follows the runner (the capsule's
+- **`Figure`** (`@trizendigital/parkour/figure/Figure.js`) is the timing-only stand-in: a root that follows the runner (the capsule's
   centre, heading and slide tilt) and a body below it where the feet meet the floor. It has no skeleton and loads
   nothing.
-- **`RiggedFigure`** (`@trizen/parkour/figure/RiggedFigure.js`; the demo's `YBotFigure` gives it the Y Bot's rig
+- **`RiggedFigure`** (`@trizendigital/parkour/figure/RiggedFigure.js`; the demo's `YBotFigure` gives it the Y Bot's rig
   description, `src/data/ybot.json`, and ragdoll) loads the model and every take's clip, gives the skeleton a root bone above the hips (the takes' root
   travel lives there), splits the head's triangles into meshes of their own (hidden in first person), and each step
   poses its bones from the recipe, then corrects the pose: the body out of the course (`BodyClearance`), the hands onto
@@ -483,8 +483,8 @@ A figure is placed and posed once a step (`figure.step( dt, recipe, position, ya
 
 ### The engine interface
 
-`@trizen/parkour/physics/engine.js` is the physics as the game sees it. A backend package answers for one engine
-(`@trizen/parkour-box3d`, `@trizen/parkour-rapier`); a Simulation is given one (`engine: box3d`), loads it when the run
+`@trizendigital/parkour/physics/engine.js` is the physics as the game sees it. A backend package answers for one engine
+(`@trizendigital/parkour-box3d`, `@trizendigital/parkour-rapier`); a Simulation is given one (`engine: box3d`), loads it when the run
 loads, and records its name. The demo looks them up by name in `src/engines.js`, Box3D first (its default):
 
 - a **`QueryWorld`** of static solids that answers questions and never changes: `cast( shape, from, to )` (the first
@@ -502,23 +502,23 @@ cast stops, what counts as starting in contact, how filters and object lifetimes
 `tests/engine.test.mjs` checks the contract on each engine against answers worked out by hand, and the two engines
 against each other over a course.
 
-**Solids** (`@trizen/parkour/world/solids.js`) are plain descriptions: a box, or a convex hull of points that also keeps its own
+**Solids** (`@trizendigital/parkour/world/solids.js`) are plain descriptions: a box, or a convex hull of points that also keeps its own
 faces. Each blocks a set of **collision groups**, one bit each, so the engines filter in their broad phase: `movement`
 (the runner's capsule), `probe` (what the runner looks for), `camera` (the first-person camera's sphere) and `ragdoll`
-(the ragdoll's bodies). Every course solid blocks all four. `Queries` (`@trizen/parkour/physics/Queries.js`) asks the query world by
+(the ragdoll's bodies). Every course solid blocks all four. `Queries` (`@trizendigital/parkour/physics/Queries.js`) asks the query world by
 group name and adds what the runner needs to a hit: where the shape's centre was, how far it went, whether it started
 inside (more than 0.1 mm in: a capsule resting on a floor only touches it), and the **face normal** of the face it met,
 worked out from the solid's own faces, so it is the same on every engine.
 
 ### The two backends
 
-**Rapier** (`@trizen/parkour-rapier`) keeps the contract as it is: a cast is Rapier's shape cast, a ray is
+**Rapier** (`@trizendigital/parkour-rapier`) keeps the contract as it is: a cast is Rapier's shape cast, a ray is
 solid, a penetration is the deepest of Rapier's contacts at no prediction distance, and groups are Rapier's interaction
 groups. A query world steps once after it is built so its broad phase sees the colliders. The dynamic world takes a
 Rapier snapshot as made and restores it for `fresh()`; pairs that never touch go through Rapier's contact filter hook; a
 hinge turns about its frames' X axis.
 
-**box3d** (`@trizen/parkour-box3d`, the demo's default) answers by its own conventions, which the backend turns into the contract's:
+**box3d** (`@trizendigital/parkour-box3d`, the demo's default) answers by its own conventions, which the backend turns into the contract's:
 
 - a shape cast stops 5 mm short of touching, so a sphere or capsule is cast grown by that slop and a box is cast as it
   is and moved on until it touches;
@@ -543,7 +543,7 @@ Choose the engine with `?engine=rapier` (or `box3d`) or *Settings › Debug › 
 
 ### The world from the course
 
-`World` (`@trizen/parkour/world/World.js`) is the simulation's view of a world, made from a world description: plain data
+`World` (`@trizendigital/parkour/world/World.js`) is the simulation's view of a world, made from a world description: plain data
 any game can make (AGENTS.md, Adapting a world), which `World` checks as it takes it. The demo makes one from a `Course`
 with its adapter, `src/world/fromCourse.js`: the
 spawns (the course's, then each lane's start, as capsule centres), the solids (boxes; wedges, cylinders, pipes, tubes
@@ -558,7 +558,7 @@ the run has them.
 
 ### The mover
 
-`Mover` (`@trizen/parkour/physics/Mover.js`) moves the runner's capsule (0.185 m radius, 1.8 m tall standing) through the course,
+`Mover` (`@trizendigital/parkour/physics/Mover.js`) moves the runner's capsule (0.185 m radius, 1.8 m tall standing) through the course,
 asking the queries in the movement group:
 
 - `walk()` moves it on its feet or through the air: along the floor's slope when it starts on one, sliding along what it
@@ -577,7 +577,7 @@ the ground stays on the ground without touching it.
 
 ### The ragdoll
 
-When the runner bails, `Ragdoll` (`@trizen/parkour/physics/Ragdoll.js`) turns the figure's bones into bodies joined at the joints,
+When the runner bails, `Ragdoll` (`@trizendigital/parkour/physics/Ragdoll.js`) turns the figure's bones into bodies joined at the joints,
 as the Y Bot's ragdoll description says (`src/data/ybot-ragdoll.json`: 19 bodies of capsules and boxes, each with its
 mass, 83.7 kg in all; 18 joints; and one spine bone placed between two bodies), each starting where the figure has it
 posed and moving at the runner's velocity, in a dynamic world of the course's solids. A body's mass, times the tuning's
@@ -603,14 +603,14 @@ pose thrown the same way always falls the same way, and no snapshot ever holds e
 
 The camera is two objects with different rules:
 
-- **`ViewControl`** (`@trizen/parkour/camera/ViewControl.js`) is the aim: a yaw and a pitch. The runner steers by its yaw, so it is
+- **`ViewControl`** (`@trizendigital/parkour/camera/ViewControl.js`) is the aim: a yaw and a pitch. The runner steers by its yaw, so it is
   part of the simulation and keeps its arithmetic exactly. Before the steps it takes the look input (in the air the
   mouse draws trick gestures and turns the view only with free look held; the pitch reaches 30° up and 40° down, 85°
   down while limp) and the field of view setting (written through the tuning, so it is kept). After them it follows what
   the runner did, in this order: the trick first-person rule (checked every 0.1 s; the only place the camera writes into
   the runner, setting `firstPerson`), recentring on entering first person, the aim's camera events, turning toward a
   sideways run, and lining up with a wall run.
-- **`FollowCamera`** (`@trizen/parkour/camera/FollowCamera.js`) is the camera body: where the camera sits and where it looks, placed
+- **`FollowCamera`** (`@trizendigital/parkour/camera/FollowCamera.js`) is the camera body: where the camera sits and where it looks, placed
   once a frame after the steps. In third person a follow point trails the drawn runner (quickly across, more slowly up
   and down so a jump does not jolt the view) and an arm's root trails the follow point, so the camera starts and stops
   along an S rather than a kink; the camera turns toward the aim and hangs back along it over the shoulder. Three eases
@@ -622,7 +622,7 @@ The camera is two objects with different rules:
 - **`Shake`** lays short offsets over the camera, started by the runner's camera events (a landing, a roll, a wall run…)
   and by the run bob: along each of the camera's axes a part either sways along a sine or makes one smooth bump, faded
   in and out, weaker the further the camera is from a shake's epicentre. The presets and every camera number are in
-  `@trizen/parkour/data/camera.js`; the player's own camera settings are in the tuning.
+  `@trizendigital/parkour/data/camera.js`; the player's own camera settings are in the tuning.
 
 ## Sound
 
@@ -653,7 +653,7 @@ room's reverb (`REVERB`).
 
 ## Input
 
-**The action table** (`@trizen/parkour/data/actions.js`) is everything the player can do and the keys, buttons, sticks and mouse
+**The action table** (`@trizendigital/parkour/data/actions.js`) is everything the player can do and the keys, buttons, sticks and mouse
 that do it. Gameplay asks for actions (`input.held( 'jump' )`, `input.value( 'poleTurn' )`), never for a key. An action
 is a button (held while any of its bindings is down; a binding may be a chord, or a pad button that counts only on the
 sample it goes down), an axis or a stick (the binding with the larger magnitude, per axis), or the runner's move. Analog
@@ -662,7 +662,7 @@ modes it names: `play` while the runner is on its feet, `limp` while the ragdoll
 sequences (the spin dive: flip, then dive within half a second), buttons live only while another action is held (the
 pad's field-of-view chords), and the system actions the page reads once a frame.
 
-`Input` (`@trizen/parkour/input/Input.js`) reads the devices once a frame (`sample( dt )`) and evaluates the whole table. Until the
+`Input` (`@trizendigital/parkour/input/Input.js`) reads the devices once a frame (`sample( dt )`) and evaluates the whole table. Until the
 next sample gameplay reads what is held, what was pressed or released (kept until the steps take them), the actions'
 values, the move (`move`, the steering direction; `moveAmount`, how hard it pushes; `moveDirection`) and the look (mouse
 and stick separately, in radians). The left stick has two responses: the direction the runner turns toward (each axis
@@ -680,7 +680,7 @@ run from outside.
 
 ## Easy mode's pilot
 
-`Pilot` (`@trizen/parkour/pilot/Pilot.js`) plays three keys for the player: Space (jump), E (precision) and the left mouse button
+`Pilot` (`@trizendigital/parkour/pilot/Pilot.js`) plays three keys for the player: Space (jump), E (precision) and the left mouse button
 (grab). It never touches the runner: it holds and lets go of those keys in the raw device state before the frame
 samples, exactly as a player would, and the player's own presses of them still count.
 

@@ -11,8 +11,8 @@
 //   { kind: 'binding', label, tokens }
 //   { kind: 'header', label }
 
-import { TUNING_DEFAULTS, TUNING_GROUPS, TUNING_UNITS } from '@trizen/parkour/sim/tuning.js';
-import { PREFERENCE_DEFAULTS } from '@trizen/parkour/input/Preferences.js';
+import { TUNING_DEFAULTS, TUNING_GROUPS, TUNING_UNITS } from '@trizendigital/parkour/sim/tuning.js';
+import { PREFERENCE_DEFAULTS } from '@trizendigital/parkour/input/Preferences.js';
 import { VIEWS } from '../course/look.js';
 import { ENGINES } from '../engines.js';
 import { CONTROLS } from './controls.js';

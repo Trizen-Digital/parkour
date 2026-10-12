@@ -5,15 +5,15 @@ Trizen Digital's third-person parkour runner for three.js, and the demo built on
 
 | Package | What |
 | --- | --- |
-| [`@trizen/parkour`](packages/parkour/README.md) | the runner: plug in your world, a physics engine and a figure |
-| [`@trizen/parkour-box3d`](packages/parkour-box3d/README.md) | the box3d physics engine adapter |
-| [`@trizen/parkour-rapier`](packages/parkour-rapier/README.md) | the Rapier physics engine adapter |
-| [`@trizen/parkour-demo`](packages/parkour-demo/README.md) | the game: the Y Bot, the courses, the QA replay player, the benchmark, the tools and tests |
+| [`@trizendigital/parkour`](packages/parkour/README.md) | the runner: plug in your world, a physics engine and a figure |
+| [`@trizendigital/parkour-box3d`](packages/parkour-box3d/README.md) | the box3d physics engine adapter |
+| [`@trizendigital/parkour-rapier`](packages/parkour-rapier/README.md) | the Rapier physics engine adapter |
+| [`@trizendigital/parkour-demo`](packages/parkour-demo/README.md) | the game: the Y Bot, the courses, the QA replay player, the benchmark, the tools and tests |
 
 ## Bring it to your game
 
 ```sh
-npm install @trizen/parkour @trizen/parkour-box3d three
+npm install @trizendigital/parkour @trizendigital/parkour-box3d three
 ```
 
 Describe your world and give it to a `Simulation` with a physics engine; [the core's README](packages/parkour/README.md) shows how, and send your clanker to [AGENTS.md](AGENTS.md) for integration instructions.
@@ -21,7 +21,7 @@ Describe your world and give it to a `Simulation` with a physics engine; [the co
 ## Playing the demo
 
 - [parkour.trizen.dev](https://parkour.trizen.dev/), in the browser.
-- `npx @trizen/parkour-demo`, on http://localhost:5412/.
+- `npx @trizendigital/parkour-demo`, on http://localhost:5412/.
 - From a clone: `npm install`, then `npm run dev` (http://localhost:5410/).
 
 ## Reporting something

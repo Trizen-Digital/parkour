@@ -3,15 +3,15 @@ import assert from 'node:assert/strict';
 import '../tools/headless/env.mjs';
 
 const { AnimationClip, Bone, Group, Quaternion, Vector3, VectorKeyframeTrack } = await import( 'three' );
-const { Motion } = await import( '@trizen/parkour/motion/Motion.js' );
-const { TakeLibrary } = await import( '@trizen/parkour/motion/TakeLibrary.js' );
-const { PoseSampler } = await import( '@trizen/parkour/figure/PoseSampler.js' );
-const { LegSolver } = await import( '@trizen/parkour/figure/LegSolver.js' );
-const { FootPlacement } = await import( '@trizen/parkour/figure/FootPlacement.js' );
-const { Figure } = await import( '@trizen/parkour/figure/Figure.js' );
+const { Motion } = await import( '@trizendigital/parkour/motion/Motion.js' );
+const { TakeLibrary } = await import( '@trizendigital/parkour/motion/TakeLibrary.js' );
+const { PoseSampler } = await import( '@trizendigital/parkour/figure/PoseSampler.js' );
+const { LegSolver } = await import( '@trizendigital/parkour/figure/LegSolver.js' );
+const { FootPlacement } = await import( '@trizendigital/parkour/figure/FootPlacement.js' );
+const { Figure } = await import( '@trizendigital/parkour/figure/Figure.js' );
 const { YBotFigure } = await import( '../src/figure/YBotFigure.js' );
-const { PoseInputs } = await import( '@trizen/parkour/runner/PoseInputs.js' );
-const { TUNING_DEFAULTS } = await import( '@trizen/parkour/sim/tuning.js' );
+const { PoseInputs } = await import( '@trizendigital/parkour/runner/PoseInputs.js' );
+const { TUNING_DEFAULTS } = await import( '@trizendigital/parkour/sim/tuning.js' );
 const YBOT = ( await import( '../src/data/ybot.json', { with: { type: 'json' } } ) ).default;
 
 const STEP = 1 / 120;

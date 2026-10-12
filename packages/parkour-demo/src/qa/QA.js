@@ -16,7 +16,7 @@
 // same key, pressed through the raw input, so the tape has both presses.
 
 import * as THREE from 'three/webgpu';
-import { random } from '@trizen/parkour/sim/random.js';
+import { random } from '@trizendigital/parkour/sim/random.js';
 import { YBotFigure } from '../figure/YBotFigure.js';
 import { Editor } from './Editor.js';
 import { Gallery } from './Gallery.js';
@@ -24,10 +24,10 @@ import { store } from './store.js';
 import { environment } from './environment.js';
 import { Recorder } from './recorder.js';
 import { Replay, replaySim, takeOver } from './replay.js';
-import { FORMAT, engineOf, hashString, summarize, timesOf, traceOf } from '@trizen/parkour/replay/tape.js';
+import { FORMAT, engineOf, hashString, summarize, timesOf, traceOf } from '@trizendigital/parkour/replay/tape.js';
 import { VisualRig, VisualRing } from './visual.js';
 import { Bench } from '../bench/Bench.js';
-import { ACTIONS } from '@trizen/parkour/data/actions.js';
+import { ACTIONS } from '@trizendigital/parkour/data/actions.js';
 import { toast, ui } from '../ui/state.svelte.js';
 import { idle } from '../ui/nav.js';
 

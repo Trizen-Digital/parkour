@@ -1,7 +1,7 @@
 import Box3D from 'box3d.js/inline';
 import { Quaternion, Vector3 } from 'three';
-import { Body, DynamicWorld, PhysicsEngine, QueryWorld } from '@trizen/parkour/physics/engine.js';
-import { faceNormal } from '@trizen/parkour/world/solids.js';
+import { Body, DynamicWorld, PhysicsEngine, QueryWorld } from '@trizendigital/parkour/physics/engine.js';
+import { faceNormal } from '@trizendigital/parkour/world/solids.js';
 
 // The engine interface on box3d (box3d.js, with its WebAssembly inlined so it loads the same way in node and in the
 // page). box3d answers the contract's questions by its own conventions; this backend turns them into the contract's:

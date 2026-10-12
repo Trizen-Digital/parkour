@@ -15,7 +15,7 @@
  * course's own queries (ground, ceiling, rays) serve the deriving, the validator, the generator and the editor tools.
  */
 import * as THREE from 'three/webgpu';
-import { DEG } from '@trizen/parkour/math.js';
+import { DEG } from '@trizendigital/parkour/math.js';
 import { metrics as METRICS } from './metrics.js';
 import { derive } from './derive.js';
 import { deriveRoute } from './deriveRoute.js';

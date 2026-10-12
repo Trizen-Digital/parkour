@@ -2,10 +2,10 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { Quaternion, Vector3 } from 'three';
 import { ENGINES, createEngine } from '../src/engines.js';
-import { Queries } from '@trizen/parkour/physics/Queries.js';
-import { Mover, FLOOR_GAP } from '@trizen/parkour/physics/Mover.js';
-import { TUNING_DEFAULTS } from '@trizen/parkour/sim/tuning.js';
-import { boxSolid, hullSolid } from '@trizen/parkour/world/solids.js';
+import { Queries } from '@trizendigital/parkour/physics/Queries.js';
+import { Mover, FLOOR_GAP } from '@trizendigital/parkour/physics/Mover.js';
+import { TUNING_DEFAULTS } from '@trizendigital/parkour/sim/tuning.js';
+import { boxSolid, hullSolid } from '@trizendigital/parkour/world/solids.js';
 
 // The runner's capsule moved through solids on every engine: finding and keeping to the floor, sliding along walls,
 // stepping up what is a step and only what is, gliding, and getting out of what it is in.

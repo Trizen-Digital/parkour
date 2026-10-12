@@ -15,14 +15,14 @@
 // src/ui/Bench.svelte shows it from `view`; the two timelines are drawn here, on `overview` and `detailCanvas`.
 
 import * as THREE from 'three/webgpu';
-import { Simulation } from '@trizen/parkour/sim/Simulation.js';
-import { random } from '@trizen/parkour/sim/random.js';
-import { World } from '@trizen/parkour/world/World.js';
+import { Simulation } from '@trizendigital/parkour/sim/Simulation.js';
+import { random } from '@trizendigital/parkour/sim/random.js';
+import { World } from '@trizendigital/parkour/world/World.js';
 import { fromCourse } from '../world/fromCourse.js';
 import { YBotFigure } from '../figure/YBotFigure.js';
 import { ENGINES, backendOf } from '../engines.js';
 import { CourseParts } from '../app/CourseParts.js';
-import { hashString } from '@trizen/parkour/replay/tape.js';
+import { hashString } from '@trizendigital/parkour/replay/tape.js';
 import { store } from '../qa/store.js';
 import { benchCourse } from './course.js';
 import { BenchRun } from './BenchRun.js';

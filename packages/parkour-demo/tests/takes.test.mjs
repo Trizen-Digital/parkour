@@ -3,9 +3,9 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import '../tools/headless/env.mjs';
 
-const { TakeLibrary } = await import( '@trizen/parkour/motion/TakeLibrary.js' );
-const { Moves } = await import( '@trizen/parkour/motion/Moves.js' );
-const { loadClips } = await import( '@trizen/parkour/figure/clips.js' );
+const { TakeLibrary } = await import( '@trizendigital/parkour/motion/TakeLibrary.js' );
+const { Moves } = await import( '@trizendigital/parkour/motion/Moves.js' );
+const { loadClips } = await import( '@trizendigital/parkour/figure/clips.js' );
 const { loadSpecs, isBuilt, takePace, MARKERS, LAYERS } = await import( '../tools/moves/lib/specs.js' );
 const { cut } = await import( '../tools/moves/lib/clips.js' );
 const { check } = await import( '../tools/moves/check.mjs' );

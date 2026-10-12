@@ -1,8 +1,8 @@
-// @trizen/parkour: a deterministic third-person parkour runner for three.js. This is the public API a game builds on;
-// every module is also reachable by path (`@trizen/parkour/runner/Ledges.js`) for tools and tests.
+// @trizendigital/parkour: a deterministic third-person parkour runner for three.js. This is the public API a game builds on;
+// every module is also reachable by path (`@trizendigital/parkour/runner/Ledges.js`) for tools and tests.
 //
 // A game gives a Simulation three things: a World (made from a world description: its solids, spawns and the things
-// to take hold of), a physics engine backend (@trizen/parkour-box3d or @trizen/parkour-rapier) and a figure (a
+// to take hold of), a physics engine backend (@trizendigital/parkour-box3d or @trizendigital/parkour-rapier) and a figure (a
 // RiggedFigure for a model the player sees, or the timing-only Figure). It then calls `sim.frame( dt )` every rendered
 // frame. The same world, settings, engine and raw input always make the same run, to the bit.
 

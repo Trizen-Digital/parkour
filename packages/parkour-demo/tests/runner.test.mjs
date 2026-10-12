@@ -2,17 +2,17 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { PerspectiveCamera, Vector3 } from 'three';
-import { TUNING_DEFAULTS, validateTuning } from '@trizen/parkour/sim/tuning.js';
+import { TUNING_DEFAULTS, validateTuning } from '@trizendigital/parkour/sim/tuning.js';
 import { createEngine } from '../src/engines.js';
-import { Queries } from '@trizen/parkour/physics/Queries.js';
-import { boxSolid } from '@trizen/parkour/world/solids.js';
-import { Mover } from '@trizen/parkour/physics/Mover.js';
-import { Motion } from '@trizen/parkour/motion/Motion.js';
-import { Runner } from '@trizen/parkour/runner/Runner.js';
-import { Slides } from '@trizen/parkour/runner/Slides.js';
-import { PoseInputs } from '@trizen/parkour/runner/PoseInputs.js';
-import { ViewControl } from '@trizen/parkour/camera/ViewControl.js';
-import { FollowCamera } from '@trizen/parkour/camera/FollowCamera.js';
+import { Queries } from '@trizendigital/parkour/physics/Queries.js';
+import { boxSolid } from '@trizendigital/parkour/world/solids.js';
+import { Mover } from '@trizendigital/parkour/physics/Mover.js';
+import { Motion } from '@trizendigital/parkour/motion/Motion.js';
+import { Runner } from '@trizendigital/parkour/runner/Runner.js';
+import { Slides } from '@trizendigital/parkour/runner/Slides.js';
+import { PoseInputs } from '@trizendigital/parkour/runner/PoseInputs.js';
+import { ViewControl } from '@trizendigital/parkour/camera/ViewControl.js';
+import { FollowCamera } from '@trizendigital/parkour/camera/FollowCamera.js';
 
 const DT = 1 / 120;
 
@@ -272,7 +272,7 @@ test( 'the camera sphere stops short of a thin panel however far it reaches', ()
 test( 'the movement mode follows the state: held is guided, a ledge move moves as its placement does, else ground or air', async () => {
 
 	const { runner } = await setup();
-	const { movementMode } = await import( '@trizen/parkour/runner/states.js' );
+	const { movementMode } = await import( '@trizendigital/parkour/runner/states.js' );
 	const as = ( state, grounded = false, placement = null ) => {
 
 		runner.state = state;

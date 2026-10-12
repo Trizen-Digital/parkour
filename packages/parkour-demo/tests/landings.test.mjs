@@ -2,15 +2,15 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { Vector3 } from 'three';
-import { TUNING_DEFAULTS } from '@trizen/parkour/sim/tuning.js';
+import { TUNING_DEFAULTS } from '@trizendigital/parkour/sim/tuning.js';
 import { createEngine } from '../src/engines.js';
-import { Queries } from '@trizen/parkour/physics/Queries.js';
-import { boxSolid } from '@trizen/parkour/world/solids.js';
-import { Mover } from '@trizen/parkour/physics/Mover.js';
-import { Motion } from '@trizen/parkour/motion/Motion.js';
-import { Runner } from '@trizen/parkour/runner/Runner.js';
-import { PoseInputs } from '@trizen/parkour/runner/PoseInputs.js';
-import { TrickGesture } from '@trizen/parkour/runner/TrickGesture.js';
+import { Queries } from '@trizendigital/parkour/physics/Queries.js';
+import { boxSolid } from '@trizendigital/parkour/world/solids.js';
+import { Mover } from '@trizendigital/parkour/physics/Mover.js';
+import { Motion } from '@trizendigital/parkour/motion/Motion.js';
+import { Runner } from '@trizendigital/parkour/runner/Runner.js';
+import { PoseInputs } from '@trizendigital/parkour/runner/PoseInputs.js';
+import { TrickGesture } from '@trizendigital/parkour/runner/TrickGesture.js';
 
 const DT = 1 / 120;
 

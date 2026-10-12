@@ -5,8 +5,8 @@
 // docs/ARCHITECTURE.md (Sound) lists what plays when.
 
 import { Vector3 } from 'three/webgpu';
-import { STEP } from '@trizen/parkour/sim/Simulation.js';
-import { clamp } from '@trizen/parkour/math.js';
+import { STEP } from '@trizendigital/parkour/sim/Simulation.js';
+import { clamp } from '@trizendigital/parkour/math.js';
 
 // Entering a state plays a sound: [ sound, level ].
 const ON_ENTER = {

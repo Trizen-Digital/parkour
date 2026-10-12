@@ -1,13 +1,13 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { Quaternion, Vector3 } from 'three';
-import { Ledges, ledgeLeapMove } from '@trizen/parkour/runner/Ledges.js';
-import { Walls } from '@trizen/parkour/runner/Walls.js';
-import { PipesAndZiplines } from '@trizen/parkour/runner/PipesAndZiplines.js';
-import { Runner } from '@trizen/parkour/runner/Runner.js';
-import { Clock } from '@trizen/parkour/runner/Clock.js';
-import { Motion } from '@trizen/parkour/motion/Motion.js';
-import { TUNING_DEFAULTS } from '@trizen/parkour/sim/tuning.js';
+import { Ledges, ledgeLeapMove } from '@trizendigital/parkour/runner/Ledges.js';
+import { Walls } from '@trizendigital/parkour/runner/Walls.js';
+import { PipesAndZiplines } from '@trizendigital/parkour/runner/PipesAndZiplines.js';
+import { Runner } from '@trizendigital/parkour/runner/Runner.js';
+import { Clock } from '@trizendigital/parkour/runner/Clock.js';
+import { Motion } from '@trizendigital/parkour/motion/Motion.js';
+import { TUNING_DEFAULTS } from '@trizendigital/parkour/sim/tuning.js';
 
 const near = ( a, b, epsilon = 1e-7 ) => assert.ok( Math.abs( a - b ) < epsilon, 'expected ' + a + ' = ' + b );
 

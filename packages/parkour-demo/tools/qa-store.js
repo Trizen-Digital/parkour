@@ -1,6 +1,6 @@
 // The QA store: `qa-api`, which lets the page keep replays in a qa/ folder, where they are reviewed and read like any
 // other file. The dev server mounts it as a Vite plugin (qaStore) on the repo's qa/; the installed demo
-// (`npx @trizen/parkour-demo`) mounts the same handler (createQaStore) on the qa/ folder it runs in.
+// (`npx @trizendigital/parkour-demo`) mounts the same handler (createQaStore) on the qa/ folder it runs in.
 //
 // A replay lives in one of three places:
 //

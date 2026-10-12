@@ -7,8 +7,8 @@
 // `mode` is the movement mode (`ragdoll` while the ragdoll has the body), `move` the move playing and `moveTime` its
 // time, `markers` the markers fired in the step (`type:name|…`), `events` the frame's events (`type:name|…`).
 
-import { movementMode } from '@trizen/parkour/runner/states.js';
-import { eventName, movePlaying } from '@trizen/parkour/replay/trace.js';
+import { movementMode } from '@trizendigital/parkour/runner/states.js';
+import { eventName, movePlaying } from '@trizendigital/parkour/replay/trace.js';
 
 const STEP_COLUMNS = [ 'frame', 'x', 'y', 'z', 'vx', 'vy', 'vz', 'yaw', 'mode', 'state', 'move', 'moveTime', 'stunt', 'stuntTime', 'markers' ];
 const FRAME_COLUMNS = [ 'steps', 'camX', 'camY', 'camZ', 'camQx', 'camQy', 'camQz', 'camQw', 'fov', 'viewYaw', 'viewPitch', 'events' ];

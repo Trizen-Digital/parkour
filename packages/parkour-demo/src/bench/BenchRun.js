@@ -11,9 +11,9 @@
 // A keyframe can't be taken while the ragdoll has the body (its bodies live in the physics engine), so one falls due
 // then is taken as soon as the runner is back on its feet.
 
-import { DeviceState } from '@trizen/parkour/input/deviceState.js';
-import { takeSnapshot, restoreSnapshot } from '@trizen/parkour/sim/snapshot.js';
-import { FrameTrace } from '@trizen/parkour/replay/trace.js';
+import { DeviceState } from '@trizendigital/parkour/input/deviceState.js';
+import { takeSnapshot, restoreSnapshot } from '@trizendigital/parkour/sim/snapshot.js';
+import { FrameTrace } from '@trizendigital/parkour/replay/trace.js';
 import { Autopilot, DT } from './Autopilot.js';
 import { STANDING_HEIGHT } from './course.js';
 

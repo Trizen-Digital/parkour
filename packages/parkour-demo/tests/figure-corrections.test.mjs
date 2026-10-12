@@ -6,7 +6,7 @@ import assert from 'node:assert/strict';
 import '../tools/headless/env.mjs';
 
 const { Vector3 } = await import( 'three' );
-const { Motion } = await import( '@trizen/parkour/motion/Motion.js' );
+const { Motion } = await import( '@trizendigital/parkour/motion/Motion.js' );
 const { YBotFigure } = await import( '../src/figure/YBotFigure.js' );
 
 const STEP = 1 / 120;

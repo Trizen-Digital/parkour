@@ -1,0 +1,184 @@
+{
+	"heading": [ 0, 1, 0 ],
+	"material": { "friction": 0.55, "restitution": 0 },
+	"damping": { "linear": 0.25, "angular": 1.5 },
+	"limitSpring": { "stiffness": 50, "damping": 5 },
+	"bodies": [
+		{ "bone": "mixamorigSpine", "mass": 8.2, "shapes": [
+			{ "kind": "capsule", "radius": 0.137267, "halfLength": 0.048148, "offset": [ 0, 0.05866, 0 ], "rotation": [ 0, 0, 0, 1 ] }
+		] },
+		{ "bone": "mixamorigSpine2", "mass": 20.4, "continuous": true, "shapes": [
+			{ "kind": "capsule", "radius": 0.145643, "halfLength": 0.020362, "offset": [ 0, -0.066846, 0.007754 ], "rotation": [ -0.0577117, 0, 0, 0.9983333 ] },
+			{ "kind": "capsule", "radius": 0.171828, "halfLength": 0.102278, "offset": [ 0, 0.075139, 0.00439 ], "rotation": [ 0.0019995, 0.0019994, -0.707135, 0.7070729 ] }
+		] },
+		{ "bone": "mixamorigHips", "mass": 7.6, "continuous": true, "shapes": [
+			{ "kind": "capsule", "radius": 0.142932, "halfLength": 0.021916, "offset": [ -0.000006, -0.066564, -0.000554 ], "rotation": [ 0, 0, -0.7071378, 0.7070757 ] }
+		] },
+		{ "bone": "mixamorigLeftUpLeg", "mass": 7.4, "shapes": [
+			{ "kind": "capsule", "radius": 0.092642, "halfLength": 0.110355, "offset": [ 0, 0.202997, 0 ], "rotation": [ 0, 0.9034327, 0, -0.42873 ] }
+		] },
+		{ "bone": "mixamorigLeftLeg", "mass": 4.9, "shapes": [
+			{ "kind": "capsule", "radius": 0.079801, "halfLength": 0.077767, "offset": [ 0, 0.101531, 0 ], "rotation": [ 0, 0.9930064, 0, 0.1180602 ] },
+			{ "kind": "capsule", "radius": 0.065, "halfLength": 0.06875, "offset": [ 0, 0.291356, 0 ], "rotation": [ 0, 0.9930064, 0, 0.1180602 ] }
+		] },
+		{ "bone": "mixamorigLeftFoot", "mass": 0.3, "shapes": [
+			{ "kind": "box", "halfExtents": [ 0.117472, 0.052477, 0.0580425 ], "offset": [ -0.007316, 0.065133, -0.02596 ], "rotation": [ -0.5859998, -0.3570557, -0.6211771, -0.3784897 ] }
+		] },
+		{ "bone": "mixamorigRightUpLeg", "mass": 5.9, "shapes": [
+			{ "kind": "capsule", "radius": 0.08096, "halfLength": 0.122037, "offset": [ 0, 0.202997, 0 ], "rotation": [ 0, 0.9030039, 0, 0.4296322 ] }
+		] },
+		{ "bone": "mixamorigRightLeg", "mass": 5, "shapes": [
+			{ "kind": "capsule", "radius": 0.079801, "halfLength": 0.077767, "offset": [ 0, 0.101531, 0 ], "rotation": [ 0, 0.9930156, 0, -0.1179829 ] },
+			{ "kind": "capsule", "radius": 0.0675, "halfLength": 0.07375, "offset": [ 0, 0.28987, 0 ], "rotation": [ 0, 0.9930156, 0, -0.1179829 ] }
+		] },
+		{ "bone": "mixamorigRightFoot", "mass": 0.3, "shapes": [
+			{ "kind": "box", "halfExtents": [ 0.117472, 0.052477, 0.0580425 ], "offset": [ 0.007316, 0.065133, -0.02596 ], "rotation": [ -0.6211771, -0.3784896, -0.5859999, -0.3570557 ] }
+		] },
+		{ "bone": "mixamorigRightArm", "mass": 4.2, "shapes": [
+			{ "kind": "capsule", "radius": 0.09585, "halfLength": 0.05387, "offset": [ 0, 0.137023, 0 ], "rotation": [ 0, 0.7071066, 0, 0.7071069 ] }
+		] },
+		{ "bone": "mixamorigRightForeArm", "mass": 2.4, "shapes": [
+			{ "kind": "capsule", "radius": 0.062857, "halfLength": 0.083577, "offset": [ 0, 0.138072, 0 ], "rotation": [ 0, 0.7071065, 0, 0.7071071 ] }
+		] },
+		{ "bone": "mixamorigRightHand", "mass": 1.5, "shapes": [
+			{ "kind": "box", "halfExtents": [ 0.1312835, 0.0534495, 0.03756 ], "offset": [ -0.007424, 0.104313, 0.005302 ], "rotation": [ 0.7071072, 0.7071063, 0.0002673, 0.0002662 ] }
+		] },
+		{ "bone": "mixamorigLeftArm", "mass": 4.2, "shapes": [
+			{ "kind": "capsule", "radius": 0.09585, "halfLength": 0.05387, "offset": [ 0, 0.137023, 0 ], "rotation": [ 0, -0.7071069, 0, 0.7071067 ] }
+		] },
+		{ "bone": "mixamorigLeftForeArm", "mass": 2.4, "shapes": [
+			{ "kind": "capsule", "radius": 0.062857, "halfLength": 0.083577, "offset": [ 0, 0.138072, 0 ], "rotation": [ 0, -0.7071067, 0, 0.7071068 ] }
+		] },
+		{ "bone": "mixamorigLeftHand", "mass": 1.5, "shapes": [
+			{ "kind": "box", "halfExtents": [ 0.131283, 0.0532665, 0.0375585 ], "offset": [ 0.007237, 0.104371, 0.005429 ], "rotation": [ 0.0002664, 0.0002669, 0.707107, 0.7071064 ] }
+		] },
+		{ "bone": "mixamorigNeck", "mass": 2.4, "shapes": [
+			{ "kind": "capsule", "radius": 0.076466, "halfLength": 0.034475, "offset": [ 0, 0.051609, 0.015712 ], "rotation": [ 0.1472276, 0, 0, 0.9891026 ] }
+		] },
+		{ "bone": "mixamorigHead", "mass": 4.3, "continuous": true, "shapes": [
+			{ "kind": "capsule", "radius": 0.094343, "halfLength": 0.062602, "offset": [ 0, 0.037042, 0.013306 ], "rotation": [ 0.1715774, 0, 0, 0.9851706 ] }
+		] },
+		{ "bone": "mixamorigRightToeBase", "mass": 0.4, "shapes": [
+			{ "kind": "capsule", "radius": 0.031814, "halfLength": 0.031173, "offset": [ 0, 0.05, 0 ], "rotation": [ 0.4965041, -0.4945784, -0.4963806, -0.5123301 ] }
+		] },
+		{ "bone": "mixamorigLeftToeBase", "mass": 0.4, "shapes": [
+			{ "kind": "capsule", "radius": 0.031814, "halfLength": 0.031173, "offset": [ 0, 0.05, 0 ], "rotation": [ 0.4943661, -0.4966987, -0.5125477, -0.4961728 ] }
+		] }
+	],
+	"joints": [
+		{
+			"bone": "mixamorigSpine2", "parent": "mixamorigSpine",
+			"anchor": [ 0, -0.066846, 0.007754 ], "parentAnchor": [ 0.000001, 0.184614, 0.000026 ],
+			"frame": [ -0.0140325, 0.0140339, 0.7069365, 0.7069985 ], "parentFrame": [ -0.0366286, 0.0320095, 0.7059444, 0.7065948 ],
+			"twist": 0.4363323129985824, "bendY": 0.08726646259971647, "bendZ": 0.2617993877991494
+		},
+		{
+			"bone": "mixamorigSpine", "parent": "mixamorigHips",
+			"anchor": [ 0, 0, 0 ], "parentAnchor": [ 0.000009, 0.099235, -0.012273 ],
+			"frame": [ 0.0246, -0.029258, 0.7064659, 0.7067141 ], "parentFrame": [ 0.1819447, -0.1819608, 0.6832659, 0.6833258 ],
+			"twist": 0.3490658503988659, "bendY": 0.6108652381980153, "bendZ": 0.17453292519943295, "motor": false
+		},
+		{
+			"bone": "mixamorigLeftUpLeg", "parent": "mixamorigHips",
+			"anchor": [ 0, 0, 0 ], "parentAnchor": [ 0.091239, -0.066572, -0.000554 ],
+			"frame": [ 0.0195449, -0.0195447, -0.7068365, 0.7068368 ], "parentFrame": [ -0.103143, 0.1401381, 0.7472851, 0.6413172 ],
+			"twist": "locked", "bendY": 0.6981317007977318, "bendZ": 0.3490658503988659
+		},
+		{
+			"bone": "mixamorigLeftLeg", "parent": "mixamorigLeftUpLeg",
+			"anchor": [ 0, 0, 0 ], "parentAnchor": [ 0, 0.405995, 0 ],
+			"frame": [ 0.022928, -0.0229279, -0.706735, 0.7067349 ], "parentFrame": [ -0.3932809, -0.426635, -0.5916641, 0.5596842 ],
+			"twist": "locked", "bendY": 1.1344640137963142, "bendZ": "locked", "center": 1.3839435, "motor": [ 0, -0.5735764363510462, 0, -0.819152044288992 ]
+		},
+		{
+			"bone": "mixamorigLeftFoot", "parent": "mixamorigLeftLeg",
+			"anchor": [ 0, 0, 0 ], "parentAnchor": [ 0, 0.42099, 0 ],
+			"frame": [ -0.3430855, -0.4008061, -0.6177592, 0.5831126 ], "parentFrame": [ -0.0587083, -0.0872227, -0.7147353, 0.691447 ],
+			"twist": "locked", "bendY": 0.6108652381980153, "bendZ": "locked", "center": 0.2239236, "motor": [ 0, -0.17364817766693036, 0, -0.9848077530122082 ]
+		},
+		{
+			"bone": "mixamorigRightUpLeg", "parent": "mixamorigHips",
+			"anchor": [ 0, 0, 0 ], "parentAnchor": [ -0.09125, -0.066556, -0.000554 ],
+			"frame": [ 0.7068322, 0.7068411, -0.0195444, -0.0195443 ], "parentFrame": [ -0.6253388, 0.7365524, -0.1992924, -0.1634765 ],
+			"twist": "locked", "bendY": 0.6981317007977318, "bendZ": 0.3490658503988659
+		},
+		{
+			"bone": "mixamorigRightLeg", "parent": "mixamorigRightUpLeg",
+			"anchor": [ 0, 0, 0 ], "parentAnchor": [ 0, 0.405994, 0 ],
+			"frame": [ 0.7067329, 0.7067369, -0.0229286, -0.0229287 ], "parentFrame": [ 0.5772034, 0.6077478, -0.4026157, 0.3679394 ],
+			"twist": "locked", "bendY": 1.1344640137963142, "bendZ": "locked", "center": 1.3079369, "motor": [ 0, -0.5735764363510462, 0, -0.819152044288992 ]
+		},
+		{
+			"bone": "mixamorigRightFoot", "parent": "mixamorigRightLeg",
+			"anchor": [ 0, 0, 0 ], "parentAnchor": [ 0, 0.42099, 0 ],
+			"frame": [ 0.5831104, 0.6177616, -0.400807, 0.343084 ], "parentFrame": [ 0.6797972, 0.7057349, -0.1535513, 0.1274204 ],
+			"twist": "locked", "bendY": 0.6108652381980153, "bendZ": "locked", "center": 0.4279624, "motor": [ 0, -0.17364817766693036, 0, -0.9848077530122082 ]
+		},
+		{
+			"bone": "mixamorigRightArm", "parent": "mixamorigSpine2",
+			"anchor": [ 0, 0, 0 ], "parentAnchor": [ -0.187607, 0.088551, -0.018453 ],
+			"frame": [ 0.5005528, -0.5004664, -0.4995331, 0.4994466 ], "parentFrame": [ 0.95307, 0.177079, -0.1467115, 0.1969171 ],
+			"twist": 0.4363323129985824, "bendY": 1.5707963267948966, "bendZ": 0.6108652381980153
+		},
+		{
+			"bone": "mixamorigRightForeArm", "parent": "mixamorigRightArm",
+			"anchor": [ 0, 0, 0 ], "parentAnchor": [ 0, 0.274047, 0 ],
+			"frame": [ 0.4806466, -0.4806476, -0.5186312, 0.5186314 ], "parentFrame": [ 0.3242565, -0.6019486, -0.6283765, 0.3710236 ],
+			"twist": "locked", "bendY": 0.7853981633974483, "bendZ": "locked", "center": 0.6918435
+		},
+		{
+			"bone": "mixamorigRightHand", "parent": "mixamorigRightForeArm",
+			"anchor": [ 0, 0, 0 ], "parentAnchor": [ 0, 0.276145, 0 ],
+			"frame": [ -0.0075197, 0.0075206, -0.7070674, 0.7070661 ], "parentFrame": [ 0.0068036, 0.0218402, -0.7131597, 0.7006283 ],
+			"twist": "locked", "bendY": 0.6108652381980153, "bendZ": 0.4363323129985824
+		},
+		{
+			"bone": "mixamorigLeftArm", "parent": "mixamorigSpine2",
+			"anchor": [ 0, 0, 0 ], "parentAnchor": [ 0.187609, 0.088551, -0.018453 ],
+			"frame": [ -0.499489, -0.4994893, 0.5005099, 0.5005107 ], "parentFrame": [ -0.19693, -0.146694, -0.1771626, 0.9530545 ],
+			"twist": 0.4363323129985824, "bendY": 1.5707963267948966, "bendZ": 0.6108652381980153
+		},
+		{
+			"bone": "mixamorigLeftForeArm", "parent": "mixamorigLeftArm",
+			"anchor": [ 0, 0, 0 ], "parentAnchor": [ 0, 0.274047, 0 ],
+			"frame": [ -0.5186381, -0.5186384, 0.4806394, 0.4806396 ], "parentFrame": [ -0.3007043, -0.6609703, 0.6399817, 0.2512342 ],
+			"twist": "locked", "bendY": 0.7853981633974483, "bendZ": "locked", "center": 0.9193823
+		},
+		{
+			"bone": "mixamorigLeftHand", "parent": "mixamorigLeftForeArm",
+			"anchor": [ 0, 0, 0 ], "parentAnchor": [ 0, 0.276145, 0 ],
+			"frame": [ -0.706961, -0.7071725, -0.0075181, -0.0075227 ], "parentFrame": [ -0.7006259, -0.7131613, -0.021858, 0.0068253 ],
+			"twist": "locked", "bendY": 0.6108652381980153, "bendZ": 0.4363323129985824
+		},
+		{
+			"bone": "mixamorigNeck", "parent": "mixamorigSpine2",
+			"anchor": [ 0, 0, 0 ], "parentAnchor": [ 0, 0.150277, 0.008779 ],
+			"frame": [ 0.0548844, -0.0453894, 0.7055368, 0.7050853 ], "parentFrame": [ 0.1181318, -0.1086326, 0.6977658, 0.6981165 ],
+			"twist": "locked", "bendY": 0.4363323129985824, "bendZ": "locked", "center": 0.3617833
+		},
+		{
+			"bone": "mixamorigHead", "parent": "mixamorigNeck",
+			"anchor": [ 0, 0, 0 ], "parentAnchor": [ 0, 0.103218, 0.031424 ],
+			"frame": [ 0, 0, 0.7070757, 0.7071379 ], "parentFrame": [ -0.039826, 0.0491756, 0.7065468, 0.7048313 ],
+			"twist": 0.4363323129985824, "bendY": 0.2617993877991494, "bendZ": 0.4363323129985824
+		},
+		{
+			"bone": "mixamorigRightToeBase", "parent": "mixamorigRightFoot",
+			"anchor": [ 0, 0, 0 ], "parentAnchor": [ 0, 0.157216, 0 ],
+			"frame": [ 0.0060554, -0.0060554, -0.7070808, 0.7070809 ], "parentFrame": [ 0.014491, 0.044005, -0.6938434, 0.718634 ],
+			"twist": "locked", "bendY": 0.17453292519943295, "bendZ": "locked", "motor": [ 0, 0, -0.42261826174069944, -0.9063077870366499 ]
+		},
+		{
+			"bone": "mixamorigLeftToeBase", "parent": "mixamorigLeftFoot",
+			"anchor": [ 0, 0, 0 ], "parentAnchor": [ 0, 0.157216, 0 ],
+			"frame": [ -0.70708, -0.70708, 0.0061569, 0.0061569 ], "parentFrame": [ -0.7001579, -0.6807515, -0.1681748, 0.1344384 ],
+			"twist": "locked", "bendY": 0.17453292519943295, "bendZ": "locked", "motor": [ 0, 0, -0.42261826174069944, -0.9063077870366499 ]
+		}
+	],
+	"between": [
+		{
+			"bone": "mixamorigSpine1", "parent": "mixamorigSpine", "child": "mixamorigSpine2", "share": 0.5,
+			"position": [ 0, 0.11732, 0 ], "parentRotation": [ 0.0001961, 0, 0, 1 ], "childRotation": [ -0.0577117, 0, 0, 0.9983333 ]
+		}
+	]
+}

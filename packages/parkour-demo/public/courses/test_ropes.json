@@ -1,0 +1,49 @@
+{
+	"name": "test_ropes",
+	"about": "Ropes and the MAG rope, moves the runner does not have yet, left to right: a rope hung over a 5 m gap from 7 m up, Up 2.5 m before it at full speed, Up again at the forward apex (released across); a MAG swing anchor 8 m up over a 7 m gap, Interact 2 m before the edge (the jump, the rope fired in the air), Up at the forward apex; a pull-up anchor on the edge of a 5 m roof, Interact standing 2 m out (pulled up and over); a breach panel in a 4 m wall, Interact standing 5 m out, then the stick forward through it.",
+	"spawn": { "p": [ 0, 0, 1 ], "yaw": 0 },
+	"prims": [
+		{ "type": "box", "id": "roof1", "min": [ -2, -5, 0 ], "max": [ 2, 0, 14 ] },
+		{ "type": "box", "id": "roof2", "min": [ -2, -5, 19 ], "max": [ 2, 0, 28 ] },
+		{ "type": "rope", "id": "rope1", "a": [ 0, 7, 15.5 ], "length": 5.5 },
+		{ "type": "box", "id": "roof3", "min": [ 5, -5, 0 ], "max": [ 9, 0, 14 ] },
+		{ "type": "box", "id": "roof4", "min": [ 5, -5, 21 ], "max": [ 9, 0, 30 ] },
+		{ "type": "anchor", "id": "mag1", "p": [ 7, 8, 17 ], "form": "swing" },
+		{ "type": "box", "id": "pit1", "min": [ -6, -6, -6 ], "max": [ 10.5, -5, 34 ], "roles": [ "out" ] },
+		{ "type": "box", "id": "walkway1", "min": [ -6, -5, -6 ], "max": [ 10.5, 0, 0 ] },
+		{ "type": "stairs", "id": "stairs1", "p": [ -4, -5, 6 ], "yaw": 180, "width": 2, "steps": 20, "rise": 0.25, "run": 0.3 },
+		{ "type": "box", "id": "roof5", "min": [ 11, 0, 8 ], "max": [ 17, 5, 16 ] },
+		{ "type": "anchor", "id": "mag2", "p": [ 14, 5, 8 ], "form": "pullup", "yaw": 180 },
+		{ "type": "panel", "id": "panel1", "p": [ 22, 0, 10 ], "yaw": 180, "width": 1.2, "height": 2.2, "wall": { "width": 6, "height": 4, "depth": 0.3 } },
+		{ "type": "box", "id": "floor1", "min": [ 10.5, -1, -6 ], "max": [ 30, 0, 34 ] },
+		{ "type": "volume", "id": "below", "kind": "kill", "min": [ -36, -28, -36 ], "max": [ 60, -26, 64 ] }
+	],
+	"lanes": [
+		{ "name": "hanging rope: swung on over a 5 m gap, released at the forward apex", "family": "rope", "move": "ropeSwing", "expect": "pass", "start": [ 0, 0, 1 ], "yaw": 0, "drive": "full", "speed": 5.84, "runUp": 12, "feature": [ 0, 0, 15.5 ], "press": "up", "at": 2.5, "then": [ { "press": "up", "on": "apex", "s": 0 } ], "nodes": [ "L0", "L0.1", "L0.2" ] },
+		{ "name": "MAG swing: Interact 2 m before the edge, the rope fired at an anchor 8 m up, Up at the forward apex", "family": "rope", "move": "magSwing", "expect": "pass", "start": [ 7, 0, 1 ], "yaw": 0, "drive": "full", "speed": 5.84, "runUp": 12, "feature": [ 7, 0, 14 ], "press": "interact", "at": 2, "then": [ { "press": "up", "on": "apex", "s": 0 } ], "nodes": [ "L1", "L1.1", "L1.2" ] },
+		{ "name": "MAG pull-up: Interact standing 2 m out from a 5 m roof's edge", "family": "rope", "move": "pullUp", "expect": "pass", "start": [ 14, 0, 6 ], "yaw": 0, "drive": "hold", "speed": 0, "runUp": 0, "feature": [ 14, 0, 6 ], "press": "interact", "at": 0, "nodes": [ "L2", "L2.1" ] },
+		{ "name": "wall breach: Interact standing 5 m from a panel, then the stick forward through it", "family": "rope", "move": "breach", "expect": "pass", "start": [ 22, 0, 5 ], "yaw": 0, "drive": "hold", "speed": 0, "runUp": 0, "feature": [ 22, 0, 5 ], "press": "interact", "at": 0, "then": [ { "stick": "forward", "s": 4 } ], "nodes": [ "L3", "L3.1" ] }
+	],
+	"route": {
+		"nodes": [
+			{ "id": "L0", "p": [ 0, 0, 1 ], "kind": "stand" },
+			{ "id": "L0.1", "p": [ 0, 0, 13.5 ], "kind": "takeoff", "ref": { "prim": "rope1", "kind": "rope" } },
+			{ "id": "L0.2", "p": [ 0, 0, 21 ], "kind": "land", "ref": { "prim": "roof2", "kind": "edges", "near": [ 0, 0, 19 ] } },
+			{ "id": "L1", "p": [ 7, 0, 1 ], "kind": "stand" },
+			{ "id": "L1.1", "p": [ 7, 0, 13.7 ], "kind": "takeoff" },
+			{ "id": "L1.2", "p": [ 7, 0, 23 ], "kind": "land", "ref": { "prim": "roof4", "kind": "edges", "near": [ 7, 0, 21 ] } },
+			{ "id": "L2", "p": [ 14, 0, 6 ], "kind": "stand" },
+			{ "id": "L2.1", "p": [ 14, 5, 9 ], "kind": "stand", "ref": { "prim": "roof5", "kind": "edges", "near": [ 14, 5, 8 ] } },
+			{ "id": "L3", "p": [ 22, 0, 5 ], "kind": "stand" },
+			{ "id": "L3.1", "p": [ 22, 0, 14 ], "kind": "stand" }
+		],
+		"links": [
+			{ "from": "L0", "to": "L0.1", "move": "run", "params": { "speed": 5.84, "lane": 0 } },
+			{ "from": "L0.1", "to": "L0.2", "move": "swing", "params": { "speed": 5.84, "lane": 0 } },
+			{ "from": "L1", "to": "L1.1", "move": "run", "params": { "speed": 5.84, "lane": 1 } },
+			{ "from": "L1.1", "to": "L1.2", "move": "swing", "params": { "speed": 5.84, "lane": 1 }, "refs": [ { "prim": "mag1", "kind": "anchor" } ] },
+			{ "from": "L2", "to": "L2.1", "move": "pullUp", "params": { "speed": 0, "height": 5, "lane": 2 }, "refs": [ { "prim": "mag2", "kind": "anchor" } ] },
+			{ "from": "L3", "to": "L3.1", "move": "breach", "params": { "speed": 0, "lane": 3 }, "refs": [ { "prim": "panel1", "kind": "panel" } ] }
+		]
+	}
+}

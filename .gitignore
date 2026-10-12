@@ -1,0 +1,17 @@
+node_modules/
+dist/
+*.log
+.DS_Store
+
+# the demo's package build (npm pack makes it) and the packed tarballs (npm run try)
+packages/parkour-demo/app/
+.packs/
+*.tgz
+
+# worktrees npm run qa:open checks replays out in
+.qa-worktrees/
+
+# what the tools write
+**/tools/sheet/out/
+**/tools/reach/out/
+**/tools/headless/out/

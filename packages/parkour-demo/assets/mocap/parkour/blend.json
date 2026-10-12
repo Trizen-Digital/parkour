@@ -1,0 +1,206 @@
+{
+ "run": {
+  "order": [
+   "walk",
+   "walk_quicker",
+   "jog",
+   "jog_quicker",
+   "run",
+   "sprint"
+  ],
+  "clips": {
+   "walk": {
+    "speed": 0.6575,
+    "cycleDuration": 1.5395,
+    "strideLength": 1.0121,
+    "stance": {
+     "Left": [
+      [
+       0.0104,
+       0.5521
+      ]
+     ],
+     "Right": [
+      [
+       0.5104,
+       1.25
+      ]
+     ]
+    }
+   },
+   "walk_quicker": {
+    "speed": 1.1146,
+    "cycleDuration": 1.1363,
+    "strideLength": 1.2665,
+    "stance": {
+     "Left": [
+      [
+       0.0,
+       0.5312
+      ]
+     ],
+     "Right": [
+      [
+       0.5,
+       1.0
+      ]
+     ]
+    }
+   },
+   "jog": {
+    "speed": 1.2665,
+    "cycleDuration": 0.8936,
+    "strideLength": 1.1317,
+    "stance": {
+     "Left": [
+      [
+       0.0417,
+       0.5938
+      ]
+     ],
+     "Right": [
+      [
+       0.5,
+       1.1458
+      ]
+     ]
+    }
+   },
+   "jog_quicker": {
+    "speed": 2.2831,
+    "cycleDuration": 0.7591,
+    "strideLength": 1.7332,
+    "stance": {
+     "Left": [
+      [
+       0.0104,
+       0.5104
+      ]
+     ],
+     "Right": [
+      [
+       0.5,
+       1.0208
+      ]
+     ]
+    }
+   },
+   "run": {
+    "speed": 3.0482,
+    "cycleDuration": 0.6678,
+    "strideLength": 2.0355,
+    "stance": {
+     "Left": [
+      [
+       0.0417,
+       0.3854
+      ]
+     ],
+     "Right": [
+      [
+       0.5,
+       0.9375
+      ]
+     ]
+    }
+   },
+   "sprint": {
+    "speed": 3.6183,
+    "cycleDuration": 0.5972,
+    "strideLength": 2.1609,
+    "stance": {
+     "Left": [
+      [
+       0.0104,
+       0.3438
+      ]
+     ],
+     "Right": [
+      [
+       0.5417,
+       0.8646
+      ]
+     ]
+    }
+   }
+  }
+ },
+ "crouch": {
+  "order": [
+   "crouch_walk"
+  ],
+  "clips": {
+   "crouch_walk": {
+    "speed": 0.6583,
+    "cycleDuration": 1.2884,
+    "strideLength": 0.8481,
+    "stance": {
+     "Left": [
+      [
+       0.0417,
+       0.6875
+      ]
+     ],
+     "Right": [
+      [
+       0.5104,
+       1.2188
+      ]
+     ]
+    }
+   }
+  }
+ },
+ "backpedal": {
+  "order": [
+   "backpedal"
+  ],
+  "clips": {
+   "backpedal": {
+    "speed": 1.049,
+    "cycleDuration": 1.1696,
+    "strideLength": 1.227,
+    "stance": {
+     "Left": [
+      [
+       0.0312,
+       0.6979
+      ]
+     ],
+     "Right": [
+      [
+       0.5,
+       1.1146
+      ]
+     ]
+    }
+   }
+  }
+ },
+ "crawl": {
+  "order": [
+   "crawl"
+  ],
+  "clips": {
+   "crawl": {
+    "speed": 0.3157,
+    "cycleDuration": 1.4611,
+    "strideLength": 0.4613,
+    "stance": {
+     "Left": [
+      [
+       0.0417,
+       0.7188
+      ]
+     ],
+     "Right": [
+      [
+       0.4375,
+       1.2188
+      ]
+     ]
+    }
+   }
+  }
+ }
+}

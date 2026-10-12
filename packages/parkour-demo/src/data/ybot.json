@@ -1,0 +1,74 @@
+{
+	"model": "./models/ybot.glb",
+	"roles": {
+		"root": "root",
+		"hips": "mixamorigHips",
+		"spine": "mixamorigSpine",
+		"chest": "mixamorigSpine2",
+		"head": "mixamorigHead",
+		"leftShin": "mixamorigLeftLeg",
+		"leftFoot": "mixamorigLeftFoot",
+		"rightShin": "mixamorigRightLeg",
+		"rightFoot": "mixamorigRightFoot",
+		"leftHand": "mixamorigLeftHand",
+		"rightHand": "mixamorigRightHand"
+	},
+	"head": {
+		"bones": [ "mixamorigHead", "mixamorigHeadTop_End" ],
+		"share": 0.5
+	},
+	"feet": {
+		"probeUp": 0.4,
+		"probeDown": 0.6,
+		"radius": 0.05,
+		"pelvisRate": 4,
+		"footRate": 20,
+		"flatEnough": 0.8,
+		"steps": { "least": 0.04, "most": 0.5, "catchUp": 1, "rate": 8 },
+		"left": {
+			"role": "leftFoot",
+			"aim": [ -0.051749, -0.458514, 0.887179 ],
+			"twist": { "axis": [ 0, 0.88837, 0.459129 ], "toward": [ 0, 0, 1 ] }
+		},
+		"right": {
+			"role": "rightFoot",
+			"aim": [ 0.051749, -0.458514, 0.887179 ],
+			"twist": { "axis": [ 0, 0.88837, 0.459129 ], "toward": [ 0, 0, 1 ] }
+		}
+	},
+	"grips": {
+		"rateIn": 5,
+		"rateOut": 4,
+		"press": 0.02,
+		"lineEnds": 0.06,
+		"spread": 0.2,
+		"across": 0.5,
+		"elbow": { "out": 0.3, "back": 0.1, "down": 0.15 },
+		"kinds": {
+			"line": { "along": 0.85, "palm": 0.025, "round": true, "near": 0.15, "far": 0.6, "straighten": 0.6, "curl": 1.2, "thumb": 0.5 },
+			"rim": { "along": 0.85, "palm": 0.025, "round": true, "near": 0.12, "far": 0.45, "straighten": 0.5, "curl": 1.1, "thumb": 0.5 },
+			"point": { "along": 1.05, "palm": 0, "near": 0.06, "far": 0.4, "straighten": 0.5, "curl": 0, "thumb": 0 },
+			"plant": { "along": 0.55, "palm": 0.02, "near": 0.2, "far": 0.5, "straighten": 0, "curl": 0, "thumb": 0, "down": 0.12, "lift": 0.25, "reach": 0.45, "rateIn": 25, "rateOut": 8, "elbow": { "out": 0.25, "back": 0.3, "down": -0.1 } }
+		}
+	},
+	"clearance": {
+		"rateIn": 30,
+		"rateOut": 8,
+		"skin": 0.005,
+		"ground": 0.6,
+		"bodyMost": 0.3,
+		"limbMost": 0.5,
+		"headMost": 0.2,
+		"leanMost": 0.45,
+		"parts": [
+			{ "name": "trunk", "from": "mixamorigHips", "to": "mixamorigNeck", "radius": 0.12, "core": true },
+			{ "name": "leftThigh", "from": "mixamorigLeftUpLeg", "to": "mixamorigLeftLeg", "radius": 0.075, "core": true },
+			{ "name": "rightThigh", "from": "mixamorigRightUpLeg", "to": "mixamorigRightLeg", "radius": 0.075, "core": true },
+			{ "name": "leftShin", "from": "mixamorigLeftLeg", "to": "mixamorigLeftFoot", "radius": 0.055, "core": true, "limb": "mixamorigLeftFoot" },
+			{ "name": "rightShin", "from": "mixamorigRightLeg", "to": "mixamorigRightFoot", "radius": 0.055, "core": true, "limb": "mixamorigRightFoot" },
+			{ "name": "leftForearm", "from": "mixamorigLeftForeArm", "to": "mixamorigLeftHand", "radius": 0.04, "limb": "mixamorigLeftHand", "arm": true },
+			{ "name": "rightForearm", "from": "mixamorigRightForeArm", "to": "mixamorigRightHand", "radius": 0.04, "limb": "mixamorigRightHand", "arm": true },
+			{ "name": "head", "from": "mixamorigHead", "to": "mixamorigHeadTop_End", "radius": 0.1, "head": true }
+		]
+	}
+}

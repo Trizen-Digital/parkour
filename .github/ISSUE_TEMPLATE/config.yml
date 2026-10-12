@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Play the demo
+    url: https://parkour.trizen.dev/
+    about: Capture a replay with V, then Share it from the library (L).

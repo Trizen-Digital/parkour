@@ -1,0 +1,21 @@
+{
+	"name": "@trizen/parkour",
+	"version": "0.1.0",
+	"description": "A deterministic third-person parkour runner for three.js: plug in your world, a physics engine backend and a figure.",
+	"type": "module",
+	"license": "UNLICENSED",
+	"repository": { "type": "git", "url": "git+https://github.com/trizen-digital/parkour.git", "directory": "packages/parkour" },
+	"homepage": "https://parkour.trizen.dev/",
+	"bugs": "https://github.com/trizen-digital/parkour/issues",
+	"keywords": [ "three", "threejs", "parkour", "character-controller", "game", "deterministic" ],
+	"exports": {
+		".": "./src/index.js",
+		"./*": "./src/*"
+	},
+	"files": [ "src", "README.md" ],
+	"engines": { "node": ">=22" },
+	"peerDependencies": {
+		"three": "~0.186.1"
+	},
+	"publishConfig": { "access": "public" }
+}

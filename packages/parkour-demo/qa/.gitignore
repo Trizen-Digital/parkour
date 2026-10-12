@@ -1,0 +1,9 @@
+# your own captures (Save puts them here) and replays shared with you, until promoted into replays/
+local/
+incoming/
+# the library's columns and the benchmark's comments with their stills: each person's own
+categories.json
+bench/
+# deleted replays (the library moves them here) and stills made for a reviewer
+trash/
+review/

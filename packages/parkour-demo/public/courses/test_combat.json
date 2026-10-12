@@ -1,0 +1,65 @@
+{
+	"name": "test_combat",
+	"about": "Combat with no one to fight, moves the runner does not have yet, left to right: standing, Attack three times in time (the combo); Down (crouched), then Attack (the crouch punch); Attack, then Quickturn in the guard (the dodge back); at full speed, Attack (the jumping kick); Down (the slide), then Attack (the slide kick); a running jump across 2 m, Attack in its flight (the air kick); off a 1.35 m deck at a run, Attack 0.45 s before touchdown (the stomp); a wallrun at 20 deg, Attack on the wall (the jump off it with the kick, standing in for the wallrun kick).",
+	"spawn": { "p": [ 0, 0, 2 ], "yaw": 0 },
+	"prims": [
+		{ "type": "box", "id": "floor1", "min": [ -6, -1, -6 ], "max": [ 27, 0, 30 ] },
+		{ "type": "box", "id": "roof1", "min": [ 28, -1.5, 0 ], "max": [ 32, 0, 14 ] },
+		{ "type": "box", "id": "roof2", "min": [ 28, -1.5, 16 ], "max": [ 32, 0, 24 ] },
+		{ "type": "box", "id": "pit1", "min": [ 27, -2.5, -6 ], "max": [ 33, -1.5, 30 ], "roles": [ "out" ] },
+		{ "type": "box", "id": "walkway1", "min": [ 27, -1.5, -6 ], "max": [ 33, 0, 0 ] },
+		{ "type": "box", "id": "deck1", "min": [ 34, 0, 0 ], "max": [ 38, 1.35, 8 ] },
+		{ "type": "stairs", "id": "stairs1", "p": [ 36, 0, -1.5 ], "yaw": 0, "width": 2, "steps": 5, "rise": 0.27, "run": 0.3 },
+		{ "type": "box", "id": "wall1", "min": [ 46, 0, 10 ], "max": [ 46.4, 3.5, 28 ] },
+		{ "type": "box", "id": "floor2", "min": [ 33, -1, -6 ], "max": [ 52, 0, 30 ] },
+		{ "type": "volume", "id": "below", "kind": "kill", "min": [ -36, -24.5, -36 ], "max": [ 82, -22.5, 60 ] }
+	],
+	"lanes": [
+		{ "name": "combo: Attack three times in time", "family": "combat", "move": "combo", "expect": "pass", "start": [ 0, 0, 2 ], "yaw": 0, "drive": "hold", "speed": 0, "runUp": 0, "feature": [ 0, 0, 2 ], "press": "attack", "at": 0, "then": [ { "press": "attack", "s": 0.35 }, { "press": "attack", "s": 0.3 } ], "nodes": [ "L0", "L0.1" ] },
+		{ "name": "crouch punch: Down (crouched), then Attack", "family": "combat", "move": "crouchPunch", "expect": "pass", "start": [ 6, 0, 2 ], "yaw": 0, "drive": "hold", "speed": 0, "runUp": 0, "feature": [ 6, 0, 2 ], "press": "down", "at": 0, "then": [ { "press": "attack", "s": 0.6 } ], "nodes": [ "L1", "L1.1" ] },
+		{ "name": "dodge back: Attack (into the guard), then Quickturn in it", "family": "combat", "move": "dodgeBack", "expect": "pass", "start": [ 12, 0, 2 ], "yaw": 0, "drive": "hold", "speed": 0, "runUp": 0, "feature": [ 12, 0, 2 ], "press": "attack", "at": 0, "then": [ { "press": "quickturn", "s": 1.3 } ], "nodes": [ "L2", "L2.1" ] },
+		{ "name": "jumping kick: Attack at full speed", "family": "combat", "move": "jumpKick", "expect": "pass", "start": [ 18, 0, 2 ], "yaw": 0, "drive": "full", "speed": 5.659, "runUp": 10, "feature": [ 18, 0, 12 ], "press": "attack", "at": 0, "nodes": [ "L3", "L3.1" ] },
+		{ "name": "slide kick: Down at full speed, then Attack", "family": "combat", "move": "slideKick", "expect": "pass", "start": [ 24, 0, 2 ], "yaw": 0, "drive": "full", "speed": 5.659, "runUp": 10, "feature": [ 24, 0, 12 ], "press": "down", "at": 0, "then": [ { "press": "attack", "s": 0.4 } ], "nodes": [ "L4", "L4.1" ] },
+		{ "name": "air kick: Attack 0.1 s into a running jump across 2 m", "family": "combat", "move": "airKick", "expect": "pass", "start": [ 30, 0, 2 ], "yaw": 0, "drive": "full", "speed": 5.659, "runUp": 12, "feature": [ 30, 0, 14 ], "press": "up", "at": 1, "then": [ { "press": "attack", "on": "takeoff", "s": 0.1 } ], "gap": 2, "rise": 0, "nodes": [ "L5", "L5.1", "L5.2" ] },
+		{ "name": "stomp: off a 1.35 m deck at a run, Attack 0.45 s before touchdown", "family": "combat", "move": "stomp", "expect": "pass", "start": [ 36, 1.35, 1 ], "yaw": 0, "drive": "full", "speed": 5.376, "runUp": 7, "feature": [ 36, 1.35, 8 ], "press": null, "at": 0, "then": [ { "press": "attack", "on": "touchdown", "s": 0.45 } ], "fall": 1.35, "nodes": [ "L6", "L6.1", "L6.2" ] },
+		{ "name": "wallrun kick (stand-in): Attack on the wall, the jump off it with the kick", "family": "combat", "move": "wallrunKick", "expect": "pass", "start": [ 42.18, 0, 4.603 ], "yaw": 20, "drive": "full", "speed": 5.659, "runUp": 10, "feature": [ 45.6, 0, 14 ], "press": "up", "at": 1.5, "then": [ { "press": "attack", "on": "wallrun", "s": 0.35 } ], "nodes": [ "L7", "L7.1", "L7.2", "L7.3" ] }
+	],
+	"route": {
+		"nodes": [
+			{ "id": "L0", "p": [ 0, 0, 2 ], "kind": "stand" },
+			{ "id": "L0.1", "p": [ 0, 0, 2.5 ], "kind": "stand" },
+			{ "id": "L1", "p": [ 6, 0, 2 ], "kind": "stand" },
+			{ "id": "L1.1", "p": [ 6, 0, 2.5 ], "kind": "stand" },
+			{ "id": "L2", "p": [ 12, 0, 2 ], "kind": "stand" },
+			{ "id": "L2.1", "p": [ 12, 0, 2.5 ], "kind": "stand" },
+			{ "id": "L3", "p": [ 18, 0, 2 ], "kind": "stand" },
+			{ "id": "L3.1", "p": [ 18, 0, 15 ], "kind": "stand" },
+			{ "id": "L4", "p": [ 24, 0, 2 ], "kind": "stand" },
+			{ "id": "L4.1", "p": [ 24, 0, 15 ], "kind": "stand" },
+			{ "id": "L5", "p": [ 30, 0, 2 ], "kind": "stand" },
+			{ "id": "L5.1", "p": [ 30, 0, 13.7 ], "kind": "takeoff", "ref": { "prim": "roof1", "kind": "edges", "near": [ 30, 0, 14 ] } },
+			{ "id": "L5.2", "p": [ 30, 0, 18 ], "kind": "land", "ref": { "prim": "roof2", "kind": "edges", "near": [ 30, 0, 16 ] } },
+			{ "id": "L6", "p": [ 36, 1.35, 1 ], "kind": "stand" },
+			{ "id": "L6.1", "p": [ 36, 1.35, 7.7 ], "kind": "takeoff", "ref": { "prim": "deck1", "kind": "edges", "near": [ 36, 1.35, 8 ] } },
+			{ "id": "L6.2", "p": [ 36, 0, 10 ], "kind": "land" },
+			{ "id": "L7", "p": [ 42.18, 0, 4.603 ], "kind": "stand" },
+			{ "id": "L7.1", "p": [ 45.6, 0, 14 ], "kind": "wall", "ref": { "prim": "wall1", "kind": "walls", "near": [ 46, 1, 14 ] } },
+			{ "id": "L7.2", "p": [ 45.6, 0, 17 ], "kind": "stand" },
+			{ "id": "L7.3", "p": [ 43, 0, 22 ], "kind": "stand" }
+		],
+		"links": [
+			{ "from": "L0", "to": "L0.1", "move": "run", "params": { "speed": 0, "lane": 0 } },
+			{ "from": "L1", "to": "L1.1", "move": "run", "params": { "speed": 0, "lane": 1 } },
+			{ "from": "L2", "to": "L2.1", "move": "run", "params": { "speed": 0, "lane": 2 } },
+			{ "from": "L3", "to": "L3.1", "move": "run", "params": { "speed": 5.659, "lane": 3 } },
+			{ "from": "L4", "to": "L4.1", "move": "run", "params": { "speed": 5.659, "lane": 4 } },
+			{ "from": "L5", "to": "L5.1", "move": "run", "params": { "speed": 5.659, "lane": 5 } },
+			{ "from": "L5.1", "to": "L5.2", "move": "jump", "params": { "speed": 5.659, "gap": 2, "rise": 0, "lane": 5 } },
+			{ "from": "L6", "to": "L6.1", "move": "run", "params": { "speed": 5.376, "lane": 6 } },
+			{ "from": "L6.1", "to": "L6.2", "move": "drop", "params": { "speed": 5.376, "fall": 1.35, "lane": 6 } },
+			{ "from": "L7", "to": "L7.1", "move": "run", "params": { "speed": 5.659, "lane": 7 } },
+			{ "from": "L7.1", "to": "L7.2", "move": "wallrun", "params": { "speed": 5.659, "angle": 20, "height": 3.5, "lane": 7 }, "refs": [ { "prim": "wall1", "kind": "walls", "near": [ 46, 1, 14 ] } ] },
+			{ "from": "L7.2", "to": "L7.3", "move": "run", "params": { "speed": 5.659, "lane": 7 } }
+		]
+	}
+}

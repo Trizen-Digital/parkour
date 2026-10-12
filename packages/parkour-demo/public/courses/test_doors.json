@@ -1,0 +1,68 @@
+{
+	"name": "test_doors",
+	"about": "Doors in 3 m walls across the lanes: 0.9 x 2.1, 1.0 x 2.2 and 1.2 x 2.4 m at a run (the barge: no press), 1.0 x 2.2 m walking (Interact kicks it); a valve wheel and a button at 1.2 m on a wall with room to stand in front (Interact).",
+	"spawn": { "p": [ 0, 0, 0.5 ], "yaw": 0 },
+	"prims": [
+		{ "type": "door", "id": "door1", "p": [ 0, 0, 12.15 ], "yaw": 180, "width": 0.9, "height": 2.1, "wall": { "width": 5, "height": 3, "depth": 0.3 } },
+		{ "type": "door", "id": "door2", "p": [ 7, 0, 12.15 ], "yaw": 180, "width": 1, "height": 2.2, "wall": { "width": 5, "height": 3, "depth": 0.3 } },
+		{ "type": "door", "id": "door3", "p": [ 14, 0, 12.15 ], "yaw": 180, "width": 1.2, "height": 2.4, "wall": { "width": 5, "height": 3, "depth": 0.3 } },
+		{ "type": "door", "id": "door4", "p": [ 21, 0, 12.15 ], "yaw": 180, "width": 1, "height": 2.2, "wall": { "width": 5, "height": 3, "depth": 0.3 } },
+		{ "type": "box", "id": "wall1", "min": [ 25.5, 0, 12 ], "max": [ 30.5, 3, 12.3 ] },
+		{ "type": "valve", "id": "valve1", "p": [ 27, 1.2, 11.88 ], "yaw": 180, "r": 0.2 },
+		{ "type": "button", "id": "button1", "p": [ 29, 1.2, 11.985 ], "yaw": 180 },
+		{ "type": "box", "id": "floor1", "min": [ -6, -1, -6 ], "max": [ 35, 0, 24 ] },
+		{ "type": "volume", "id": "below", "kind": "kill", "min": [ -36, -23, -36 ], "max": [ 65, -21, 54 ] }
+	],
+	"lanes": [
+		{ "name": "door 0.9 x 2.1 m at 5.795 m/s: barge", "family": "doors", "move": "barge", "expect": "pass", "start": [ 0, 0, 0.5 ], "yaw": 0, "drive": "full", "speed": 5.795, "runUp": 11.5, "feature": [ 0, 0, 12 ], "press": null, "at": 0, "width": 0.9, "height": 2.1, "nodes": [ "L0", "L0.1", "L0.2", "L0.3" ] },
+		{ "name": "door 1 x 2.2 m at 5.795 m/s: barge", "family": "doors", "move": "barge", "expect": "pass", "start": [ 7, 0, 0.5 ], "yaw": 0, "drive": "full", "speed": 5.795, "runUp": 11.5, "feature": [ 7, 0, 12 ], "press": null, "at": 0, "width": 1, "height": 2.2, "nodes": [ "L1", "L1.1", "L1.2", "L1.3" ] },
+		{ "name": "door 1.2 x 2.4 m at 5.795 m/s: barge", "family": "doors", "move": "barge", "expect": "pass", "start": [ 14, 0, 0.5 ], "yaw": 0, "drive": "full", "speed": 5.795, "runUp": 11.5, "feature": [ 14, 0, 12 ], "press": null, "at": 0, "width": 1.2, "height": 2.4, "nodes": [ "L2", "L2.1", "L2.2", "L2.3" ] },
+		{ "name": "door 1 x 2.2 m at 1.2 m/s: kick", "family": "doors", "move": "kick", "expect": "pass", "start": [ 21, 0, 0.5 ], "yaw": 0, "drive": "hold", "speed": 1.2, "runUp": 11.5, "feature": [ 21, 0, 12 ], "press": "interact", "at": 1, "width": 1, "height": 2.2, "nodes": [ "L3", "L3.1", "L3.2", "L3.3" ] },
+		{ "name": "valve at 1.2 m", "family": "doors", "move": "valve", "expect": "pass", "start": [ 27, 0, 6 ], "yaw": 0, "drive": "hold", "speed": 1.2, "runUp": 5.4, "feature": [ 27, 0, 12 ], "press": "interact", "at": 0.8, "nodes": [ "L4", "L4.1", "L4.2" ] },
+		{ "name": "button at 1.2 m", "family": "doors", "move": "button", "expect": "pass", "start": [ 29, 0, 6 ], "yaw": 0, "drive": "hold", "speed": 1.2, "runUp": 5.4, "feature": [ 29, 0, 12 ], "press": "interact", "at": 0.8, "nodes": [ "L5", "L5.1", "L5.2" ] }
+	],
+	"route": {
+		"nodes": [
+			{ "id": "L0", "p": [ 0, 0, 0.5 ], "kind": "stand" },
+			{ "id": "L0.1", "p": [ 0, 0, 11.4 ], "kind": "object", "ref": { "prim": "door1", "kind": "door" } },
+			{ "id": "L0.2", "p": [ 0, 0, 14 ], "kind": "stand" },
+			{ "id": "L0.3", "p": [ 0, 0, 18 ], "kind": "stand" },
+			{ "id": "L1", "p": [ 7, 0, 0.5 ], "kind": "stand" },
+			{ "id": "L1.1", "p": [ 7, 0, 11.4 ], "kind": "object", "ref": { "prim": "door2", "kind": "door" } },
+			{ "id": "L1.2", "p": [ 7, 0, 14 ], "kind": "stand" },
+			{ "id": "L1.3", "p": [ 7, 0, 18 ], "kind": "stand" },
+			{ "id": "L2", "p": [ 14, 0, 0.5 ], "kind": "stand" },
+			{ "id": "L2.1", "p": [ 14, 0, 11.4 ], "kind": "object", "ref": { "prim": "door3", "kind": "door" } },
+			{ "id": "L2.2", "p": [ 14, 0, 14 ], "kind": "stand" },
+			{ "id": "L2.3", "p": [ 14, 0, 18 ], "kind": "stand" },
+			{ "id": "L3", "p": [ 21, 0, 0.5 ], "kind": "stand" },
+			{ "id": "L3.1", "p": [ 21, 0, 11.4 ], "kind": "object", "ref": { "prim": "door4", "kind": "door" } },
+			{ "id": "L3.2", "p": [ 21, 0, 14 ], "kind": "stand" },
+			{ "id": "L3.3", "p": [ 21, 0, 18 ], "kind": "stand" },
+			{ "id": "L4", "p": [ 27, 0, 6 ], "kind": "stand" },
+			{ "id": "L4.1", "p": [ 27, 0, 11.4 ], "kind": "object", "ref": { "prim": "valve1", "kind": "valve" } },
+			{ "id": "L4.2", "p": [ 27, 0, 11.45 ], "kind": "stand" },
+			{ "id": "L5", "p": [ 29, 0, 6 ], "kind": "stand" },
+			{ "id": "L5.1", "p": [ 29, 0, 11.4 ], "kind": "object", "ref": { "prim": "button1", "kind": "button" } },
+			{ "id": "L5.2", "p": [ 29, 0, 11.45 ], "kind": "stand" }
+		],
+		"links": [
+			{ "from": "L0", "to": "L0.1", "move": "run", "params": { "speed": 5.795, "lane": 0 } },
+			{ "from": "L0.1", "to": "L0.2", "move": "door", "params": { "speed": 5.795, "lane": 0 }, "refs": [ { "prim": "door1", "kind": "door" } ] },
+			{ "from": "L0.2", "to": "L0.3", "move": "run", "params": { "speed": 5.795, "lane": 0 } },
+			{ "from": "L1", "to": "L1.1", "move": "run", "params": { "speed": 5.795, "lane": 1 } },
+			{ "from": "L1.1", "to": "L1.2", "move": "door", "params": { "speed": 5.795, "lane": 1 }, "refs": [ { "prim": "door2", "kind": "door" } ] },
+			{ "from": "L1.2", "to": "L1.3", "move": "run", "params": { "speed": 5.795, "lane": 1 } },
+			{ "from": "L2", "to": "L2.1", "move": "run", "params": { "speed": 5.795, "lane": 2 } },
+			{ "from": "L2.1", "to": "L2.2", "move": "door", "params": { "speed": 5.795, "lane": 2 }, "refs": [ { "prim": "door3", "kind": "door" } ] },
+			{ "from": "L2.2", "to": "L2.3", "move": "run", "params": { "speed": 5.795, "lane": 2 } },
+			{ "from": "L3", "to": "L3.1", "move": "run", "params": { "speed": 1.2, "lane": 3 } },
+			{ "from": "L3.1", "to": "L3.2", "move": "door", "params": { "speed": 1.2, "lane": 3 }, "refs": [ { "prim": "door4", "kind": "door" } ] },
+			{ "from": "L3.2", "to": "L3.3", "move": "run", "params": { "speed": 1.2, "lane": 3 } },
+			{ "from": "L4", "to": "L4.1", "move": "run", "params": { "speed": 1.2, "lane": 4 } },
+			{ "from": "L4.1", "to": "L4.2", "move": "interact", "params": { "speed": 1.2, "lane": 4 }, "refs": [ { "prim": "valve1", "kind": "valve" } ] },
+			{ "from": "L5", "to": "L5.1", "move": "run", "params": { "speed": 1.2, "lane": 5 } },
+			{ "from": "L5.1", "to": "L5.2", "move": "interact", "params": { "speed": 1.2, "lane": 5 }, "refs": [ { "prim": "button1", "kind": "button" } ] }
+		]
+	}
+}

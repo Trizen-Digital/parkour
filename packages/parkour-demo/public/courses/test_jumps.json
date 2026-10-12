@@ -1,0 +1,61 @@
+{
+	"name": "test_jumps",
+	"about": "The jumps family beyond gaps and landings, left to right: a springboard (the generator's red plank at a roof's edge) 1.8 m across onto a roof 1.3 m up, Up 3 m before it; the coil (Down 0.12 s into a running jump across 2 m); a 0.6 m springboard step 1.1 m in front of a 1.3 m block (METRICS), up onto the block; the air turn off a 2 m roof (Quickturn 0.1 s after leaving it) with the stick pulled back for the back roll, and without (onto the back, then up).",
+	"spawn": { "p": [ 0, 0, 2 ], "yaw": 0 },
+	"prims": [
+		{ "type": "springboard", "id": "spr1", "form": "plank", "p": [ 0, 0, 15.3 ], "size": [ 1.6, 0.5, 1.3 ], "yaw": 0 },
+		{ "type": "box", "id": "roof1", "min": [ -2, -5, 0 ], "max": [ 2, 0, 16 ] },
+		{ "type": "box", "id": "roof2", "min": [ -2, -5, 17.8 ], "max": [ 2, 1.3, 23.8 ] },
+		{ "type": "box", "id": "roof3", "min": [ 5, -5, 0 ], "max": [ 9, 0, 14 ] },
+		{ "type": "box", "id": "roof4", "min": [ 5, -5, 16 ], "max": [ 9, 0, 22 ] },
+		{ "type": "box", "id": "pit1", "min": [ -6, -6, -6 ], "max": [ 10.5, -5, 30 ], "roles": [ "out" ] },
+		{ "type": "box", "id": "walkway1", "min": [ -6, -5, -6 ], "max": [ 10.5, 0, 0 ] },
+		{ "type": "stairs", "id": "stairs1", "p": [ -4, -5, 6 ], "yaw": 180, "width": 2, "steps": 20, "rise": 0.25, "run": 0.3 },
+		{ "type": "springboard", "id": "spr2", "form": "step", "p": [ 14, 0, 14 ], "size": [ 1.6, 0.6, 0.6 ], "yaw": 0 },
+		{ "type": "box", "id": "block1", "min": [ 12, 0, 15.4 ], "max": [ 16, 1.3, 21.4 ] },
+		{ "type": "box", "id": "roof5", "min": [ 19, 0, 0 ], "max": [ 23, 2, 8 ] },
+		{ "type": "stairs", "id": "stairs2", "p": [ 21, 0, -2.4 ], "yaw": 0, "width": 2, "steps": 8, "rise": 0.25, "run": 0.3 },
+		{ "type": "box", "id": "roof6", "min": [ 26, 0, 0 ], "max": [ 30, 2, 8 ] },
+		{ "type": "stairs", "id": "stairs3", "p": [ 28, 0, -2.4 ], "yaw": 0, "width": 2, "steps": 8, "rise": 0.25, "run": 0.3 },
+		{ "type": "box", "id": "floor1", "min": [ 10.5, -1, -6 ], "max": [ 31.5, 0, 30 ] },
+		{ "type": "volume", "id": "below", "kind": "kill", "min": [ -36, -28, -36 ], "max": [ 61.5, -26, 60 ] }
+	],
+	"lanes": [
+		{ "name": "springboard: 1.8 m across onto a roof 1.3 m up", "family": "jumps", "move": "springboard", "expect": "pass", "start": [ 0, 0, 2 ], "yaw": 0, "drive": "full", "speed": 5.84, "runUp": 13.8, "feature": [ 0, 0.44, 15.8 ], "press": "up", "at": 3, "gap": 1.8, "rise": 1.3, "step": 0.5, "nodes": [ "L0", "L0.1", "L0.2" ] },
+		{ "name": "coil: Down 0.12 s into a running jump across 2 m", "family": "jumps", "move": "coil", "expect": "pass", "start": [ 7, 0, 2 ], "yaw": 0, "drive": "full", "speed": 5.84, "runUp": 12, "feature": [ 7, 0, 14 ], "press": "up", "at": 1, "then": [ { "press": "down", "on": "takeoff", "s": 0.12 } ], "gap": 2, "rise": 0, "nodes": [ "L1", "L1.1", "L1.2" ] },
+		{ "name": "springboard step 0.6 m, 1.1 m in front of a 1.3 m block: onto it", "family": "jumps", "move": "springboard", "expect": "pass", "start": [ 14, 0, 2 ], "yaw": 0, "drive": "full", "speed": 5.84, "runUp": 12, "feature": [ 14, 0.6, 14 ], "press": "up", "at": 3, "step": 0.6, "rise": 1.3, "nodes": [ "L2", "L2.1", "L2.2" ] },
+		{ "name": "air turn off a 2 m roof, the stick pulled back: the back roll", "family": "jumps", "move": "airTurn", "expect": "pass", "start": [ 21, 2, 1 ], "yaw": 0, "drive": "full", "speed": 5.376, "runUp": 7, "feature": [ 21, 2, 8 ], "press": null, "at": 0, "then": [ { "press": "quickturn", "on": "takeoff", "s": 0.1 }, { "stick": "back", "s": 0.2 } ], "fall": 2, "nodes": [ "L3", "L3.1", "L3.2" ] },
+		{ "name": "air turn off a 2 m roof, the stick not pulled back: onto the back, then up", "family": "jumps", "move": "airTurn", "expect": "pass", "start": [ 28, 2, 1 ], "yaw": 0, "drive": "full", "speed": 5.376, "runUp": 7, "feature": [ 28, 2, 8 ], "press": null, "at": 0, "then": [ { "press": "quickturn", "on": "takeoff", "s": 0.1 } ], "fall": 2, "getsUp": true, "nodes": [ "L4", "L4.1", "L4.2" ] }
+	],
+	"route": {
+		"nodes": [
+			{ "id": "L0", "p": [ 0, 0, 2 ], "kind": "stand" },
+			{ "id": "L0.1", "p": [ 0, 0, 14.2 ], "kind": "takeoff", "ref": { "prim": "spr1", "kind": "springboard" } },
+			{ "id": "L0.2", "p": [ 0, 1.3, 19.3 ], "kind": "land", "ref": { "prim": "roof2", "kind": "edges", "near": [ 0, 1.3, 17.8 ] } },
+			{ "id": "L1", "p": [ 7, 0, 2 ], "kind": "stand" },
+			{ "id": "L1.1", "p": [ 7, 0, 13.7 ], "kind": "takeoff", "ref": { "prim": "roof3", "kind": "edges", "near": [ 7, 0, 14 ] } },
+			{ "id": "L1.2", "p": [ 7, 0, 17.5 ], "kind": "land", "ref": { "prim": "roof4", "kind": "edges", "near": [ 7, 0, 16 ] } },
+			{ "id": "L2", "p": [ 14, 0, 2 ], "kind": "stand" },
+			{ "id": "L2.1", "p": [ 14, 0, 12.4 ], "kind": "takeoff", "ref": { "prim": "spr2", "kind": "springboard" } },
+			{ "id": "L2.2", "p": [ 14, 1.3, 17 ], "kind": "land", "ref": { "prim": "block1", "kind": "edges", "near": [ 14, 1.3, 15.4 ] } },
+			{ "id": "L3", "p": [ 21, 2, 1 ], "kind": "stand" },
+			{ "id": "L3.1", "p": [ 21, 2, 7.7 ], "kind": "takeoff", "ref": { "prim": "roof5", "kind": "edges", "near": [ 21, 2, 8 ] } },
+			{ "id": "L3.2", "p": [ 21, 0, 11 ], "kind": "land" },
+			{ "id": "L4", "p": [ 28, 2, 1 ], "kind": "stand" },
+			{ "id": "L4.1", "p": [ 28, 2, 7.7 ], "kind": "takeoff", "ref": { "prim": "roof6", "kind": "edges", "near": [ 28, 2, 8 ] } },
+			{ "id": "L4.2", "p": [ 28, 0, 11 ], "kind": "land" }
+		],
+		"links": [
+			{ "from": "L0", "to": "L0.1", "move": "run", "params": { "speed": 5.84, "lane": 0 } },
+			{ "from": "L0.1", "to": "L0.2", "move": "springboard", "params": { "speed": 5.84, "gap": 1.8, "rise": 1.3, "step": 0.5, "lane": 0 } },
+			{ "from": "L1", "to": "L1.1", "move": "run", "params": { "speed": 5.84, "lane": 1 } },
+			{ "from": "L1.1", "to": "L1.2", "move": "jump", "params": { "speed": 5.84, "gap": 2, "rise": 0, "lane": 1 } },
+			{ "from": "L2", "to": "L2.1", "move": "run", "params": { "speed": 5.84, "lane": 2 } },
+			{ "from": "L2.1", "to": "L2.2", "move": "springboard", "params": { "speed": 5.84, "lane": 2 }, "refs": [ { "prim": "spr2", "kind": "springboard" } ] },
+			{ "from": "L3", "to": "L3.1", "move": "run", "params": { "speed": 5.376, "lane": 3 } },
+			{ "from": "L3.1", "to": "L3.2", "move": "drop", "params": { "speed": 5.376, "fall": 2, "lane": 3 } },
+			{ "from": "L4", "to": "L4.1", "move": "run", "params": { "speed": 5.376, "lane": 4 } },
+			{ "from": "L4.1", "to": "L4.2", "move": "drop", "params": { "speed": 5.376, "fall": 2, "lane": 4 } }
+		]
+	}
+}

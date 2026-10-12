@@ -1,0 +1,24 @@
+{
+	"name": "@trizen/parkour-box3d",
+	"version": "0.1.0",
+	"description": "The box3d physics engine backend for @trizen/parkour.",
+	"type": "module",
+	"license": "UNLICENSED",
+	"repository": { "type": "git", "url": "git+https://github.com/trizen-digital/parkour.git", "directory": "packages/parkour-box3d" },
+	"homepage": "https://parkour.trizen.dev/",
+	"bugs": "https://github.com/trizen-digital/parkour/issues",
+	"keywords": [ "three", "parkour", "physics", "box3d" ],
+	"exports": {
+		".": "./src/index.js"
+	},
+	"files": [ "src", "README.md" ],
+	"engines": { "node": ">=22" },
+	"dependencies": {
+		"box3d.js": "0.1.1"
+	},
+	"peerDependencies": {
+		"@trizen/parkour": "^0.1.0",
+		"three": "~0.186.1"
+	},
+	"publishConfig": { "access": "public" }
+}

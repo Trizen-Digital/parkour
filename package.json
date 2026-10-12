@@ -1,0 +1,31 @@
+{
+	"name": "parkour",
+	"private": true,
+	"type": "module",
+	"description": "Trizen Digital's parkour runner: the @trizen/parkour packages and the demo at parkour.trizen.dev.",
+	"workspaces": [
+		"packages/parkour",
+		"packages/parkour-box3d",
+		"packages/parkour-rapier",
+		"packages/parkour-demo"
+	],
+	"scripts": {
+		"dev": "npm run dev -w @trizen/parkour-demo",
+		"dev:nohmr": "npm run dev:nohmr -w @trizen/parkour-demo",
+		"build": "npm run build -w @trizen/parkour-demo",
+		"preview:hosted": "npm run preview:hosted -w @trizen/parkour-demo",
+		"test": "npm test -w @trizen/parkour-demo",
+		"golden": "npm run golden -w @trizen/parkour-demo --",
+		"golden:bless": "npm run golden:bless -w @trizen/parkour-demo --",
+		"purity": "npm run purity -w @trizen/parkour-demo --",
+		"snapshots": "npm run snapshots -w @trizen/parkour-demo --",
+		"reach": "npm run reach -w @trizen/parkour-demo --",
+		"lanes": "npm run lanes -w @trizen/parkour-demo --",
+		"bench": "npm run bench -w @trizen/parkour-demo --",
+		"moves:build": "npm run moves:build -w @trizen/parkour-demo",
+		"moves:check": "npm run moves:check -w @trizen/parkour-demo",
+		"moves:captures": "npm run moves:captures -w @trizen/parkour-demo",
+		"qa:open": "npm run qa:open -w @trizen/parkour-demo --",
+		"try": "node tools/try-install.mjs"
+	}
+}

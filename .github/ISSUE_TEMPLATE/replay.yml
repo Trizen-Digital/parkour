@@ -1,0 +1,39 @@
+name: Replay
+description: Something in the game, shown by a QA replay (a .qa.zip from the demo's Share button).
+labels: [ replay ]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Share in the demo's replay library (L) or editor downloads the replay as a `.qa.zip` and opens this form filled in.
+        **Drop the .qa.zip into the box below**: it carries the recording, its course, the build and where it was played,
+        so it can be run again exactly (`npm run qa:open -- <file>.qa.zip`).
+  - type: textarea
+    id: what
+    attributes:
+      label: What happens
+      description: What you saw, and what you expected. The replay's notes are filled in here.
+    validations:
+      required: true
+  - type: textarea
+    id: replay
+    attributes:
+      label: The replay
+      description: Drop the .qa.zip here.
+      placeholder: Drag the .qa.zip onto this box.
+    validations:
+      required: true
+  - type: input
+    id: commit
+    attributes:
+      label: Build
+      description: The commit the replay was recorded on (filled in from the replay).
+  - type: input
+    id: engine
+    attributes:
+      label: Physics engine
+  - type: input
+    id: environment
+    attributes:
+      label: Played on
+      description: Browser, operating system and processor (filled in from the replay).

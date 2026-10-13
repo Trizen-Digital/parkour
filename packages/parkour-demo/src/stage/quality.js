@@ -4,15 +4,15 @@
 // (src/ui/state.svelte.js); the settings' Video tab can pick a tier, or set the render scale and the light itself
 // (Custom). Rendering only: nothing here touches a run.
 
-/** The render scale's range: at most 1.5 pixels per CSS pixel, whatever the screen's own density. */
-const RENDER_SCALE = { min: 0.5, max: 1.5 };
+/** The render scale's range: at most 1 pixel per CSS pixel, whatever the screen's own density. */
+const RENDER_SCALE = { min: 0.5, max: 1 };
 
 /** The tiers, best first. */
 const TIERS = [
-	{ id: 'ultra', name: 'Ultra', renderScale: 1.5, ssgi: true },
-	{ id: 'high', name: 'High', renderScale: 1.25, ssgi: true },
+	{ id: 'ultra', name: 'Ultra', renderScale: 1, ssgi: true },
+	{ id: 'high', name: 'High', renderScale: 1, ssgi: true },
 	{ id: 'medium', name: 'Medium', renderScale: 1, ssgi: true },
-	{ id: 'low', name: 'Low', renderScale: 1, ssgi: false },
+	{ id: 'low', name: 'Low', renderScale: 0.75, ssgi: false },
 	{ id: 'lowest', name: 'Lowest', renderScale: 0.75, ssgi: false },
 ];
 

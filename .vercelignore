@@ -1,0 +1,17 @@
+# What a deploy from this folder (vercel deploy) leaves out: the build needs the packages' source and the demo's
+# public/, not the tests' traces, the mocap the takes are cut from, or anyone's own QA files.
+node_modules
+.packs
+.qa-worktrees
+*.tgz
+packages/parkour-demo/app
+packages/parkour-demo/dist
+packages/parkour-demo/tests/golden
+packages/parkour-demo/assets
+packages/parkour-demo/qa/local
+packages/parkour-demo/qa/incoming
+packages/parkour-demo/qa/trash
+packages/parkour-demo/qa/review
+packages/parkour-demo/qa/bench
+packages/parkour-demo/qa/categories.json
+**/tools/*/out

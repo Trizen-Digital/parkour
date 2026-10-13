@@ -160,7 +160,9 @@ The fall speed at touchdown decides the landing (from rest, a fall of h metres l
 
 A hard landing costs about 0.6 s at a sprint (3.7 m less ground covered in the two seconds after it); a roll about 0.25
 s. Jump held in the air keeps the roll window open for 0.35 s after it is let go; let go between the touchdown and the
-roll (the step after it), it does not jump, and the roll goes ahead. A landing on a floor between 20° and 70° turns into
+roll (the step after it), it does not jump, and the roll goes ahead. Nor does anything else start in that step: Jump or
+Grab still held there starts no vault, hop, power jump, catch or wall run off something just ahead; the roll would take
+it over and leave the runner falling through the floor. A landing on a floor between 20° and 70° turns into
 a slide; Slide held into a landing at more than 3.5 m/s slides on if there is floor ahead.
 
 Going limp (4) waits 0.205 s, hopping the runner up at 2 m/s into a dive if it was on the ground. The game's own bails

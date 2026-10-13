@@ -140,6 +140,17 @@ class Runner {
 
 	}
 
+	/**
+	 * A landing about to be rolled: judged on the step after touchdown, rolled on the one after. Nothing starts from the
+	 * ground in between (a jump, a vault, a hop, a grab): Jump and Grab held there were held for the roll, and the roll
+	 * would start over whatever had taken the body.
+	 */
+	get rollComing() {
+
+		return this.clock.held( 'rollWindow' ) && ( this.clock.pending( 'resolveLanding' ) || this.clock.pending( 'roll' ) );
+
+	}
+
 	/** Horizontal speed, m/s. */
 	get speed() {
 
@@ -312,7 +323,7 @@ class Runner {
 		// Grab held on the ground with a trick button pressed: a vault or a hop if there is something to take.
 		const trickPressed = [ 'jump', 'flip', 'wheel', 'dive' ].some( ( action ) => input.pressed( action ) );
 
-		if ( input.held( 'grab' ) && this.grounded && ! this.clock.held( 'grabLock' ) && trickPressed && this.ledges.tryCatch( input ) ) return;
+		if ( input.held( 'grab' ) && this.grounded && ! this.clock.held( 'grabLock' ) && ! this.rollComing && trickPressed && this.ledges.tryCatch( input ) ) return;
 
 		// Below the world's floor the runner has fallen out of it and starts again at the first spawn.
 		if ( this.position.y < this.world.floor || ! Number.isFinite( this.position.lengthSq() ) ) {
@@ -402,7 +413,7 @@ class Runner {
 
 		if ( this.tricks.ground( input ) || this.tricks.air( input ) ) return;
 
-		if ( input.held( 'grab' ) && ! this.clock.held( 'grabLock' ) ) {
+		if ( input.held( 'grab' ) && ! this.clock.held( 'grabLock' ) && ! this.rollComing ) {
 
 			if ( this.pipesAndZiplines.tryAttach( input ) || this.polesAndBars.tryAttach( input ) ) return;
 			if ( this.ledges.tryCatch( input ) ) return;
@@ -468,9 +479,9 @@ class Runner {
 			this.stunt?.target ||
 			this.state === 'sliding' ||
 			this.state === 'aiming' ||
-			// A landing about to be rolled (judged on the step after touchdown, rolled on the one after) is not jumped
-			// out of: Jump let go there, having been held to roll, would leave the roll to start in the air.
-			( this.clock.held( 'rollWindow' ) && ( this.clock.pending( 'resolveLanding' ) || this.clock.pending( 'roll' ) ) ) ||
+			// A landing about to be rolled is not jumped out of: Jump let go there, having been held to roll, would leave
+			// the roll to start in the air.
+			this.rollComing ||
 			// With precision held the jump is a precision jump instead; with grab held, a vault, a hop or a stride where grab
 			// has one ahead to take. With nothing for grab to take it is a jump, which grab then catches with in the air
 			// (a run at a tall wall, up it to the ledge).

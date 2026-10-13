@@ -3,7 +3,7 @@ import { random } from '../sim/random.js';
 import { clamp, radians, wrapAngle } from '../math.js';
 import { Probes, hasTag, faceNormal } from './Probes.js';
 import { MOVES_ENDED_BY_LANDING } from './Landings.js';
-import { HANGING, ON_LEDGE } from './states.js';
+import { HANGING, LEDGE_STATES, ON_LEDGE } from './states.js';
 
 const UP = new Vector3( 0, 1, 0 );
 
@@ -225,6 +225,9 @@ class Ledges {
 
 		const c = this.runner;
 
+		// A placement whose state something else took (a timer that came due over it) no longer has the body.
+		if ( this.placement && ! LEDGE_STATES.has( c.state ) ) this.abandon();
+
 		// Hanging free: no wall in reach of the feet (looked for on a beat).
 		if ( c.clock.every( 'hangFreeCheck', HANG_FREE_CHECK ) && HANGING.has( c.state ) ) {
 
@@ -345,6 +348,7 @@ class Ledges {
 
 		return (
 			c.grounded &&
+			! c.rollComing &&
 			! this.carried() &&
 			this.hopReady &&
 			! c.jumpLocked &&
@@ -420,6 +424,7 @@ class Ledges {
 
 		return (
 			c.grounded &&
+			! c.rollComing &&
 			! this.carried() &&
 			this.hopAgainReady &&
 			this.hopReady &&
@@ -1128,6 +1133,17 @@ class Ledges {
 			this.hopAgainReady = true;
 
 		} );
+
+	}
+
+	// Lets go of a placement that no longer has the body. Its ghost ends here, as nothing else would end it: a ghost held
+	// on past its placement takes the runner through every solid, down through the floor. Its timers still fire, giving
+	// back what it locked (release() then finds it gone).
+	abandon() {
+
+		this.placement = null;
+		this.hopReady = true;
+		this.runner.clock.release( 'noCollision' );
 
 	}
 

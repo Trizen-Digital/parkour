@@ -1,5 +1,6 @@
 import { Vector3 } from 'three';
 import { floorSlope } from './Slides.js';
+import { TRAVERSAL_STATES } from './states.js';
 import { CAPSULE } from '../sim/tuning.js';
 import { radians } from '../math.js';
 
@@ -188,7 +189,15 @@ class Landings {
 
 				c.clock.after( 0, 'roll', () => {
 
-					if ( ! c.bail.pending && c.state !== 'sliding' && ! c.clock.held( 'precisionWindow' ) && c.clock.held( 'rollWindow' ) ) this.roll();
+					if ( ! c.bail.pending && c.state !== 'sliding' && ! c.clock.held( 'precisionWindow' ) && c.clock.held( 'rollWindow' ) ) {
+
+						// A traversal system took the body in the step between (runner.rollComing holds off the moves that
+						// could): the roll is dropped rather than started over it. Only off the ground it still rolls: a
+						// landing on an edge that lifts off it for a step rolls on onto the top.
+						if ( c.ledges.placement || TRAVERSAL_STATES.has( c.state ) ) c.clock.release( 'rollWindow' );
+						else this.roll();
+
+					}
 
 				} );
 

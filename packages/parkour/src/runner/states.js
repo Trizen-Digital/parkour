@@ -7,6 +7,9 @@ const LEDGE_STATES = new Set( [ 'hanging', 'catchingLedge', 'leapingToLedge', 'c
 const POLE_AND_BAR_STATES = new Set( [ 'onPole', 'onBar', 'onRope' ] );
 const WALL_STATES = new Set( [ 'wallRunning', 'wallPlanted', 'wallKicking' ] );
 
+// Any of them: a traversal system has the body.
+const TRAVERSAL_STATES = new Set( [ ...PIPE_AND_ZIPLINE_STATES, ...LEDGE_STATES, ...POLE_AND_BAR_STATES, ...WALL_STATES ] );
+
 // Hands on a ledge: catching it, hanging from it, or leaping from it to the next.
 const HANGING = new Set( [ 'catchingLedge', 'hanging', 'leapingToLedge' ] );
 
@@ -42,4 +45,4 @@ function movementMode( runner ) {
 
 }
 
-export { PIPE_AND_ZIPLINE_STATES, LEDGE_STATES, POLE_AND_BAR_STATES, WALL_STATES, HANGING, ON_LEDGE, movementMode };
+export { PIPE_AND_ZIPLINE_STATES, LEDGE_STATES, POLE_AND_BAR_STATES, WALL_STATES, TRAVERSAL_STATES, HANGING, ON_LEDGE, movementMode };

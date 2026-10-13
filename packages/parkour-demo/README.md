@@ -99,7 +99,7 @@ They press the same keys and a pad's stick through the input (src/touch/), so a 
 **First person** (C) puts the camera at the Y Bot's eyes. Tricks stay in first person; the view turns with the body
 through them.
 
-**Game Mode** opens on the first visit and from the menu: the *Tutorial* (sixteen lessons on one path, a card on the HUD
+**Game Mode** opens on the first visit and from the menu: the *Tutorial* (seventeen lessons on one path, a card on the HUD
 for each and a flag to go back to), the *Sandbox* on a course (the Foundry, the family test courses, or one generated
 from a seed) and the *Benchmark*. `?mode=tutorial`, `?mode=sandbox` or `?mode=bench` skips it.
 

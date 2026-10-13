@@ -218,6 +218,7 @@ class Tutorial {
 
 		}
 
+		if ( what.vault ) return runner.vaulting && runner.ledges.placement.variant === what.vault && ( ! what.at || inside( what.at, p ) );
 		if ( what.stand ) return runner.grounded && ON_FOOT.has( runner.state ) && inside( what.stand, p ) && Math.abs( feet - what.y ) <= ON_FLOOR;
 		if ( what.charged ) return runner.grounded && runner.jumpCharge >= 1;
 		if ( what.door ) return runner.doorsAndSwitches.doors.some( ( state ) => state.door.id === what.door && state.open );

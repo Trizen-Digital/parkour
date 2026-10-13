@@ -37,7 +37,8 @@ const EDGE = 30 - 0.3;
 // 4.5 m from a wall behind it so the camera (3 m back) does not start behind one.
 const FLAGS = [
 	[ 'run', [ 17, 25 ], 90, ROW1 ], [ 'jump', [ 28, 25 ], 90, ROW1 ], [ 'charge', [ 35.5, 25 ], 90, ROW1 ],
-	[ 'vault', [ 55.5, 25 ], 90, ROW1 ], [ 'climb', [ 66.5, 25 ], 90, ROW1 ], [ 'wallclimb', [ 87, 25.5 ], 180, ROW1 ],
+	[ 'vault', [ 55.5, 25 ], 90, ROW1 ], [ 'trickvault', [ 62.5, 25 ], 90, ROW1 ], [ 'climb', [ 78, 25 ], 90, ROW1 ],
+	[ 'wallclimb', [ 91, 25.5 ], 180, ROW1 ],
 	[ 'wallrun', [ 91, 17.5 ], 270, ROW2 ], [ 'balance', [ 65, 15 ], 270, ROW2 ], [ 'stride', [ 51, 15 ], 270, ROW2 ],
 	[ 'roll', [ 31, 15 ], 270, ROW2 ], [ 'pipes', [ 2.5, 24 ], 180, DROP ], [ 'slide', [ 5.5, 5 ], 90, ROW3 ],
 	[ 'swing', [ 22.5, 5 ], 90, ROW3 ], [ 'precision', [ 39, 5 ], 90, ROW3 ], [ 'zipline', [ 57, 5 ], 90, ROW3 ],
@@ -48,28 +49,31 @@ function tutorial() {
 
 	const L = new Level( {
 		name: 'tutorial',
-		about: 'The tutorial: every control in sixteen lessons on one path, from the first run to the zipline, a flag at each.',
+		about: 'The tutorial: every control in seventeen lessons on one path, from the first run to the zipline, a flag at each.',
 		street: STREET,
 	} );
 
 	// ---- Row 1, east: moving and obstacles. Three posts to steer round; a 2.5 m gap after a 4 m run-up; a 4.2 m gap
-	// after 15 m, which takes a full charge (METRICS: past Comfortable at the 6.1 m/s it builds); fences 0.9 and 1.2 m;
-	// a 1.7 m wall to get up onto. The jump pits are soft, 2 m down.
+	// after 15 m, which takes a full charge (METRICS: past Comfortable at the 6.1 m/s it builds); a 0.9 m fence to jump;
+	// two 1.2 m fences for the speed and kong vaults, which grab alone does not hop onto (so grab held early does no
+	// harm), 8 m apart so the second vault is pressed on foot and not in the air off the first; a 1.7 m wall to get up
+	// onto. The jump pits are soft, 2 m down.
 
 	L.block( 'row1_a', [ 12, 20, 32, 30 ], ROW1 );
 	L.block( 'pit_jump', [ 32, 20, 34.5, 30 ], PIT );
 	L.block( 'row1_b', [ 34.5, 20, 50.5, 30 ], ROW1 );
 	L.block( 'pit_charge', [ 50.5, 20, 54.7, 30 ], PIT );
-	L.block( 'row1_c', [ 54.7, 20, 72, 30 ], ROW1 );
-	L.block( 'climb_wall', [ 72, 20, 84, 30 ], 1.7 );
-	L.block( 'row1_turn', [ 84, 20, 96, 30 ], ROW1 );
+	L.block( 'row1_c', [ 54.7, 20, 83.5, 30 ], ROW1 );
+	L.block( 'climb_wall', [ 83.5, 20, 88, 30 ], 1.7 );
+	L.block( 'row1_turn', [ 88, 20, 96, 30 ], ROW1 );
 	for ( const [ i, [ x, z ] ] of [ [ 20, 22.5 ], [ 23, 27.5 ], [ 26, 22.5 ] ].entries() ) L.post( `post_${i}`, [ x, z ], { r: 0.3, top: 1.2, from: ROW1 } );
 	L.fence( 'fence_090', [ 58.8, 20, 59.2, EDGE ], 0.9 );
-	L.fence( 'fence_120', [ 63.3, 20, 63.7, EDGE ], 1.2 );
+	L.fence( 'fence_120_a', [ 66.4, 20, 66.8, EDGE ], 1.2 );
+	L.fence( 'fence_120_b', [ 74.8, 20, 75.2, EDGE ], 1.2 );
 
-	// ---- Row 2, west: walls and beams. Its face over Row 1 is no-climb but for the wallclimb's 12 m at the east end,
-	// where a railing over the left half leaves 0.3 m of edge: enough to hang from (METRICS: 0.15), too little to
-	// climb onto (0.6), so a shimmy right comes before the climb. Trenches a storey deep.
+	// ---- Row 2, west: walls and beams. Its face over Row 1 is no-climb but for the wallclimb's 8 m at the east end,
+	// where a railing over the left 5 m leaves 0.3 m of edge: enough to hang from (METRICS: 0.15), too little to climb
+	// onto (0.6), so a shimmy right comes before the climb. Trenches a storey deep.
 
 	// Up to the wall along Row 1 (where it stands), so no face of a row lies in the wall's.
 	const R2 = 20 - WALL;
@@ -79,9 +83,9 @@ function tutorial() {
 	L.block( 'trench_beam', [ 56, 10, 62, R2 ], ROW1 );
 	L.block( 'row2_c', [ 62, 10, 70.5, R2 ], ROW2, { roles: NO_CLIMB } );
 	L.block( 'trench_wallrun', [ 70.5, 10, 74, R2 ], ROW1 );
-	L.block( 'row2_d', [ 74, 10, 84, R2 ], ROW2, { roles: NO_CLIMB } );
-	L.block( 'row2_climb', [ 84, 10, 96, 20 ], ROW2 );
-	L.wall( 'railing', [ 84, 19.4, 90, 19.7 ], ROW2 + 1.3, { from: ROW2, roles: [ 'noClimb', 'noRun' ] } );
+	L.block( 'row2_d', [ 74, 10, 88, R2 ], ROW2, { roles: NO_CLIMB } );
+	L.block( 'row2_climb', [ 88, 10, 96, 20 ], ROW2 );
+	L.wall( 'railing', [ 88, 19.4, 93, 19.7 ], ROW2 + 1.3, { from: ROW2, roles: [ 'noClimb', 'noRun' ] } );
 
 	// A wall 5.5 m over Row 2 along a 3.5 m trench, 5 m of it before the trench to run onto (the blueprint's 4 m, as
 	// test_basic's span, was made only by a jump within a metre of the trench); a 0.15 m beam 6 m long; four girders,
@@ -132,7 +136,7 @@ function tutorial() {
 	// runner on to a later lesson (or back to an earlier one). The way from row to row is only the lessons' climbs: the
 	// wallclimb at Row 2's east end, the drop and the ladder at the west.
 
-	L.wall( 'divider_row1', [ 12, 20 - WALL, 84, 20 ], ROW2 + DIVIDER, { from: ROW1, roles: [ 'out' ] } );
+	L.wall( 'divider_row1', [ 12, 20 - WALL, 88, 20 ], ROW2 + DIVIDER, { from: ROW1, roles: [ 'out' ] } );
 	L.wall( 'divider_row3', [ 5, 10 - WALL, 66, 10 ], ROW3 + DIVIDER, { from: ROW1, roles: [ 'out' ] } );
 	L.wall( 'divider_plaza', [ 66, 10 - WALL, 96, 10 ], ROW2 + DIVIDER, { from: ROW1, roles: [ 'out' ] } );
 
@@ -168,7 +172,7 @@ function routes( L ) {
 		{ move: 'run', to: [ 50.2, ROW1, 25 ], kind: 'takeoff', ref: edge( 'row1_b', [ 50.5, ROW1, 25 ] ) },
 		{ move: 'jump', to: [ 56.2, ROW1, 25 ], kind: 'land', ref: edge( 'row1_c', [ 54.7, ROW1, 25 ] ), params: { gap: 4.2, rise: 0 } },
 	] );
-	for ( const [ name, prim, near, h, z0 ] of [ [ 'vault1', 'fence_090', 58.8, 0.9, 55.5 ], [ 'vault2', 'fence_120', 63.3, 1.2, 59.6 ] ] ) {
+	for ( const [ name, prim, near, h, z0 ] of [ [ 'vault1', 'fence_090', 58.8, 0.9, 55.5 ], [ 'vault2', 'fence_120_a', 66.4, 1.2, 62.5 ], [ 'vault3', 'fence_120_b', 74.8, 1.2, 67.2 ] ] ) {
 
 		L.route( name, [ z0, ROW1, 25 ], [
 			{ move: 'run', to: [ near - 0.4, ROW1, 25 ], ref: edge( prim, [ near, h, 25 ] ) },
@@ -177,15 +181,15 @@ function routes( L ) {
 
 	}
 
-	L.route( 'climb', [ 66.5, ROW1, 25 ], [
-		{ move: 'run', to: [ 71.6, ROW1, 25 ], ref: edge( 'climb_wall', [ 72, 1.7, 25 ] ) },
-		{ move: 'vault', to: [ 73.5, 1.7, 25 ], kind: 'land', params: { height: 1.7, depth: 12 } },
+	L.route( 'climb', [ 78, ROW1, 25 ], [
+		{ move: 'run', to: [ 83.1, ROW1, 25 ], ref: edge( 'climb_wall', [ 83.5, 1.7, 25 ] ) },
+		{ move: 'vault', to: [ 85, 1.7, 25 ], kind: 'land', params: { height: 1.7, depth: 4.5 } },
 	] );
-	L.route( 'wallclimb', [ 87, ROW1, 25.5 ], [
-		{ move: 'run', to: [ 87, ROW1, 20.4 ] },
-		{ move: 'wallclimb', to: [ 87, ROW2, 20 ], kind: 'edge', ref: edge( 'row2_climb', [ 87, ROW2, 20 ] ), params: { height: STOREY } },
-		{ move: 'shimmy', to: [ 91.5, ROW2, 20 ], kind: 'edge', ref: edge( 'row2_climb', [ 91.5, ROW2, 20 ] ) },
-		{ move: 'climbUp', to: [ 91.5, ROW2, 19 ], ref: edge( 'row2_climb', [ 91.5, ROW2, 20 ] ) },
+	L.route( 'wallclimb', [ 91, ROW1, 25.5 ], [
+		{ move: 'run', to: [ 91, ROW1, 20.4 ] },
+		{ move: 'wallclimb', to: [ 91, ROW2, 20 ], kind: 'edge', ref: edge( 'row2_climb', [ 91, ROW2, 20 ] ), params: { height: STOREY } },
+		{ move: 'shimmy', to: [ 94.5, ROW2, 20 ], kind: 'edge', ref: edge( 'row2_climb', [ 94.5, ROW2, 20 ] ) },
+		{ move: 'climbUp', to: [ 94.5, ROW2, 19 ], ref: edge( 'row2_climb', [ 94.5, ROW2, 20 ] ) },
 	] );
 	// Into the wall at about 18° (METRICS's comfortable 15-40°), onto it 1.5 m before the trench: the wall run and the
 	// jump off it carry about 5 m. (npm run reach heads straight for the run's far end, so its run by hand never meets

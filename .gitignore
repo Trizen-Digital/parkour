@@ -15,3 +15,7 @@ packages/parkour-demo/app/
 **/tools/sheet/out/
 **/tools/reach/out/
 **/tools/headless/out/
+
+# Vercel's link to its project, and env pulled from it
+.vercel
+.env*.local

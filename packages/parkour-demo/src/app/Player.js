@@ -345,6 +345,9 @@ class Player {
 		hud.charge = charging ? runner.jumpCharge : 0;
 		hud.full = charging && runner.jumpCharge >= 1;
 		hud.easy = this.easy;
+		// Slow motion on, and whether its button is held for it (the Hold preference) or toggles it off again.
+		hud.slow = runner.slowMotion;
+		hud.slowHeld = sim.input.preferences.values.slowMotionToggle === false;
 		hud.use = this.touch.on ? this.touch.useWord( sim ) : '';
 
 	}

@@ -5,7 +5,8 @@
 // Plan places are [ x0, z0, x1, z1 ] (m) on the course; heights are the floor's top (m). Each lesson has:
 //
 //   id, n           stable name (the demo's options keep the lessons done by it) and its number (the finish has none)
-//   chapter, name   what the card is headed
+//   chapter         the part of the course it is in (the card does not show it)
+//   name            what the card is headed
 //   bay             the stretch of the course it covers: the runner on foot in it is at this lesson, and its flag (the
 //                   course's spawn named by the lesson's id) is where a restart and a fall go back to
 //   say, also       the card's words, with { a: action } for a binding (src/ui/controls.js's bindingOf)

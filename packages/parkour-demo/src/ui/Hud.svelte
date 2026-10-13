@@ -1,6 +1,6 @@
-<!-- The HUD in play: the tutorial's lesson card, the jump's charge, Easy mode, the prompts (the touch controls have
-	their own: src/ui/TouchControls.svelte), and what the HUD settings turn on (the frame rate, the runner's state, the
-	validator's list). H hides it. -->
+<!-- The HUD in play: the tutorial's lesson card, the jump's charge, Easy mode, slow motion, the prompts (the touch
+	controls have their own: src/ui/TouchControls.svelte), and what the HUD settings turn on (the frame rate, the
+	runner's state, the validator's list). H hides it. -->
 <script>
 	import { getContext } from 'svelte';
 	import Binding from './Binding.svelte';
@@ -30,7 +30,6 @@
 			{@const lesson = ui.lesson}
 			{@const words = ( ui.device === 'touch' && lesson.touch ) || lesson}
 			<div class="lesson" class:done={lesson.state === 'done'}>
-				<span class="label">{lesson.n ? `Lesson ${lesson.n} · ${lesson.chapter}` : lesson.chapter}</span>
 				<h2>{lesson.name}</h2>
 				<p class="say">{@render phrase( words.say ?? lesson.say )}</p>
 				{#if words.also ?? lesson.also}<p class="also">{@render phrase( words.also ?? lesson.also )}</p>{/if}
@@ -44,7 +43,19 @@
 		{/if}
 		{#if hud.easy}<span class="easy">Easy</span>{/if}
 	</div>
-	{#if ui.options.fps}<span class="fps mono">{hud.fps}</span>{/if}
+	<!-- Top right, clear of the touch controls' menu button. Slow motion is easy to slip into (a right click toggles it),
+		so it says so, and how to leave it, wherever the run is. -->
+	<div class="top-right" class:touch={ui.device === 'touch'}>
+		{#if hud.slow}
+			<div class="slow">
+				<span class="name">Slow motion</span>
+				<!-- The touch controls have no slow motion button: only a mouse or a pad gets into it, and that device shows its
+					own glyphs once used. -->
+				{#if ! hud.slowHeld && ui.device !== 'touch'}<span class="off"><Binding tokens={tokens( 'slowMotion' )} /> turns it off</span>{/if}
+			</div>
+		{/if}
+		{#if ui.options.fps}<span class="fps mono">{hud.fps}</span>{/if}
+	</div>
 	{#if ui.options.debug}<pre class="debug mono">{hud.debug}</pre>{/if}
 	{#if ui.report !== null}<pre class="report mono">{ui.report}</pre>{/if}
 	{#if ( ui.options.jumpMeter || ui.lesson?.meter ) && hud.charge > 0}<div class="charge" class:full={hud.full}><i style:width="{hud.charge * 100}%"></i></div>{/if}
@@ -102,16 +113,8 @@
 		box-shadow: inset 3px 0 0 var(--good);
 	}
 
-	.lesson .label {
-		font-size: 0.74em;
-		font-weight: 700;
-		letter-spacing: 0.08em;
-		text-transform: uppercase;
-		color: var(--muted);
-	}
-
 	.lesson h2 {
-		margin: 0.15em 0 0.35em;
+		margin: 0 0 0.35em;
 		font-size: 1.5em;
 		font-weight: 700;
 		line-height: 1.1;
@@ -174,6 +177,36 @@
 		font-size: 0.92em;
 	}
 
+	/* A short screen (a phone held sideways, 540 px tall or less): the card smaller, wider than it is tall, and closer
+	   to the corner, so the run stays in view. */
+	@media (max-height: 540px) and (orientation: landscape) {
+		.corner {
+			left: 0.9em;
+			top: 0.8em;
+			gap: 0.4em;
+		}
+
+		.lesson {
+			width: 26em;
+			padding: 0.5em 0.75em 0.6em;
+			font-size: 0.8em;
+			line-height: 1.3;
+		}
+
+		.lesson h2 {
+			margin-bottom: 0.25em;
+			font-size: 1.25em;
+		}
+
+		.lesson p {
+			margin-bottom: 0.45em;
+		}
+
+		.lesson ul {
+			gap: 0.2em;
+		}
+	}
+
 	.easy {
 		padding: 0.3em 0.65em;
 		background: var(--good);
@@ -184,10 +217,51 @@
 		text-transform: uppercase;
 	}
 
-	.fps {
+	.top-right {
 		position: absolute;
 		right: 1.6em;
 		top: 1.4em;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+		gap: 0.5em;
+	}
+
+	/* On touch the menu button holds the corner (src/ui/TouchControls.svelte: 42 px, max(16px, 2.5vw) in): this sits
+	   beside it. */
+	.top-right.touch {
+		right: calc(max(16px, 2.5vw) + 42px + 10px);
+		top: calc(max(12px, 3vh) + 6px);
+	}
+
+	.slow {
+		display: flex;
+		align-items: center;
+		gap: 0.8em;
+		min-height: 2.2em;
+		padding: 0.35em 0.8em;
+		background: var(--panel);
+		backdrop-filter: blur(8px);
+		-webkit-backdrop-filter: blur(8px);
+		box-shadow: inset -3px 0 0 var(--accent);
+		font-weight: 600;
+		animation: in 160ms ease-out;
+	}
+
+	.slow .name {
+		font-size: 0.85em;
+		font-weight: 700;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: var(--accent);
+	}
+
+	.slow .off {
+		color: var(--muted);
+		font-size: 0.92em;
+	}
+
+	.fps {
 		font-size: 0.75em;
 		color: var(--muted);
 		text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);

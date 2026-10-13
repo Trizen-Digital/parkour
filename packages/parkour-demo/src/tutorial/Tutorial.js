@@ -232,8 +232,6 @@ class Tutorial {
 
 		const lesson = LESSONS[ this.lesson ], ticked = this.ticks.filter( Boolean ).length;
 		ui.lesson = {
-			n: lesson.n,
-			chapter: lesson.chapter,
 			name: lesson.name,
 			say: lesson.say,
 			also: lesson.also ?? null,

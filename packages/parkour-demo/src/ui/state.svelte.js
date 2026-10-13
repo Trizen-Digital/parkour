@@ -73,7 +73,7 @@ const ui = $state( {
 	 */
 	device: globalThis.matchMedia?.( '(hover: none) and (pointer: coarse)' ).matches ? 'touch' : 'keyboard',
 	/** The game's HUD, written each frame by the player: `use` is the touch controls' Use button's word, or '' to hide it. */
-	hud: { hidden: false, captured: false, charge: 0, full: false, easy: false, use: '', fps: '', debug: '' },
+	hud: { hidden: false, captured: false, charge: 0, full: false, easy: false, slow: false, slowHeld: false, use: '', fps: '', debug: '' },
 	/** The tutorial's lesson card (src/tutorial/Tutorial.js), or null off the tutorial's course. */
 	lesson: null,
 	/** The banner while play waits for a press, or ''. */

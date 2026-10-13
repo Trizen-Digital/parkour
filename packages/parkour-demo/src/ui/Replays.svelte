@@ -287,6 +287,25 @@
 		color: var(--accent);
 	}
 
+	/* On touch the category's buttons are big enough to tap: 44 px, as phones advise. */
+	:global(.screen.touch) .text,
+	:global(.screen.touch) .link {
+		min-height: 44px;
+	}
+
+	/* On a narrow screen the category's line wraps, the search on a line of its own. */
+	@media (max-width: 860px) {
+		.category {
+			flex-wrap: wrap;
+			row-gap: 0.4em;
+		}
+
+		.category .search {
+			width: 100%;
+			max-width: none;
+		}
+	}
+
 	.spacer {
 		flex: 1;
 	}

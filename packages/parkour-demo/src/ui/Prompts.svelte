@@ -49,4 +49,13 @@
 	button:hover span {
 		color: var(--accent);
 	}
+
+	/* On a menu screen on touch there is no key to show, only the prompt to tap: a button 44 px tall, as phones advise,
+	   shaded like a row so it reads as one. */
+	:global(.screen.touch) button {
+		min-height: 44px;
+		padding: 0 1em;
+		background: var(--row);
+		border-radius: 2px;
+	}
 </style>

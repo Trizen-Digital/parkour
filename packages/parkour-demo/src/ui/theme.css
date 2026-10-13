@@ -38,6 +38,10 @@ body {
 	color: var(--text);
 	font: 500 14px/1.35 var(--font);
 	-webkit-font-smoothing: antialiased;
+	/* Text at the size it is set: a phone turned sideways would otherwise enlarge it past what the menus are laid
+	   out for. */
+	-webkit-text-size-adjust: 100%;
+	text-size-adjust: 100%;
 }
 
 #app,

@@ -37,10 +37,16 @@
 
 	}
 
+	// The row is selected when it is pressed, by any pointer, and when the mouse moves over it. A finger has no hover:
+	// the mouse events a browser makes up from a tap are not taken as one (on an iPhone a change made on them can eat
+	// the tap).
+	const hover = ( event ) => event.pointerType === 'mouse' && onhover();
+
 	// Dragging a number's value sets it from where the pointer is along it.
 	function drag( event ) {
 
 		if ( row.kind !== 'number' ) return;
+		onhover();
 		event.stopPropagation();
 		const box = event.currentTarget, rect = box.getBoundingClientRect();
 		const move = ( e ) => onchange( setFraction( row, ( e.clientX - rect.left ) / rect.width ) );
@@ -59,7 +65,8 @@
 		class="row"
 		class:selected
 		bind:this={element}
-		onmousemove={onhover}
+		onpointerdown={onhover}
+		onpointermove={hover}
 		onclick={() => onchange( chooseRow( row ) )}
 		onkeydown={() => {}}
 		role="button"
@@ -118,6 +125,15 @@
 		background: var(--accent);
 	}
 
+	/* On touch (src/ui/Screen.svelte says so), the row and its arrows big enough to tap: 44 px, as phones advise. */
+	:global(.screen.touch) .row {
+		height: max(2.1em, 44px);
+	}
+
+	:global(.screen.touch) .value {
+		grid-template-columns: max(1.3em, 44px) minmax(0, 1fr) max(1.3em, 44px);
+	}
+
 	.name {
 		display: flex;
 		align-items: center;
@@ -171,8 +187,10 @@
 		white-space: nowrap;
 	}
 
+	/* A finger dragging along the bar sets the number; one moving up and down still scrolls the list. */
 	.text.number {
 		cursor: ew-resize;
+		touch-action: pan-y;
 	}
 
 	.text i {
